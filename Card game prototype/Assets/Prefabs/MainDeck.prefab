@@ -44,6 +44,7 @@ MonoBehaviour:
   deck: []
   cardBackPrefab: {fileID: 1365429356352982, guid: 616259061cdd1cc4b8805241c645c6ae,
     type: 2}
+  cardOnTable: 0
 --- !u!114 &114701574071372882
 MonoBehaviour:
   m_ObjectHideFlags: 1

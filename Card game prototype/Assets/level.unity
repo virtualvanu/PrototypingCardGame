@@ -627,7 +627,7 @@ RectTransform:
   m_Children:
   - {fileID: 262180801}
   m_Father: {fileID: 1496198277}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -957,7 +957,7 @@ RectTransform:
   m_Children:
   - {fileID: 1968657307}
   m_Father: {fileID: 1496198277}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1284,6 +1284,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee0611bacd585547ae5e727607a374a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fightButton: {fileID: 0}
+  deckButton: {fileID: 0}
 --- !u!4 &1214675044
 Transform:
   m_ObjectHideFlags: 0
@@ -1528,9 +1530,9 @@ RectTransform:
   m_LocalPosition: {x: 467, y: 211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1681109453}
   - {fileID: 914002939}
   - {fileID: 643708528}
+  - {fileID: 1681109453}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2022,7 +2024,7 @@ Prefab:
     - target: {fileID: 224493277566947678, guid: c679c5b7b3bb53f4ea22b4d2ef187f83,
         type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224493277566947678, guid: c679c5b7b3bb53f4ea22b4d2ef187f83,
         type: 2}
@@ -2082,7 +2084,7 @@ Prefab:
         type: 2}
       propertyPath: deck.Array.data[0]
       value: 
-      objectReference: {fileID: 1837827410458628, guid: 63e006bbacf2df84d89e8d916b13df6f,
+      objectReference: {fileID: 1064388811223560, guid: ee124016e31aacb4f9d6a6762d940cde,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c679c5b7b3bb53f4ea22b4d2ef187f83, type: 2}
