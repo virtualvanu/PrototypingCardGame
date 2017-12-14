@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075f15cd96bed42458b00c9157e48553, type: 3}
   m_Name: New Card_Heal
   m_EditorClassIdentifier: 
+  target: 0
   cardName: 
-  cost: 0
-  level: 0
-  healAmount: 0
+  manaCost: 4
+  level: 1
+  useEffect: {fileID: 0}
+  healAmount: 5

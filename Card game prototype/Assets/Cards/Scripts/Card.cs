@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Card : ScriptableObject
 {
 
-    public enum Side
+    public enum Target
     {
         Ally,
         Enemy
     }
     [Header("General Variables")]
-    public Side side;
+    public Target target;
 
-    //private Target target;
+    //private TargetObject targetObject;
 
     public string cardName;
 
@@ -21,19 +22,26 @@ public class Card : ScriptableObject
 
     public int level;
 
+    public Sprite icon;
+
     public GameObject useEffect;
+
+    public virtual void Setup(CardHolder myHolder)
+    {
+
+    }
 
     public virtual void Use()
     {
         Debug.Log("Used the card: " + cardName);
 
-        switch (side)
+        switch (target)
         {
-            case Side.Ally:
+            case Target.Ally:
 
                 //target = enemy;
                 break;
-            case Side.Enemy:
+            case Target.Enemy:
 
                 //target = ally;
                 break;

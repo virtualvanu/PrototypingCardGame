@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff52d820cf24fa7498ed55f502da3f39, type: 3}
   m_Name: New Card_Damage
   m_EditorClassIdentifier: 
-  cardName: 
-  cost: 0
-  level: 0
-  damage: 0
+  target: 1
+  cardName: Test Damage Card
+  manaCost: 3
+  level: 1
+  useEffect: {fileID: 0}
+  damage: 1
