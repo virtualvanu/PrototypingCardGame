@@ -13,5 +13,7 @@ public class Card_DOT : Card
     public override void Use()
     {
         // deal damage over time (deals the dotDamage like every round)
+        Debug.Log("DOT card did " + dotDamage + " damage for " + duration + " rounds");
+
     }
 }

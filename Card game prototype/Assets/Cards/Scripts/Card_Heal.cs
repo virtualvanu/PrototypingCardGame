@@ -13,5 +13,7 @@ public class Card_Heal : Card
     {
         // heal yourself
         // maybe add a heal over time
+        Debug.Log("Heal card healed " + healAmount + " health");
+
     }
 }

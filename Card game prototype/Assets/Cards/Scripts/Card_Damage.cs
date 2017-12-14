@@ -12,5 +12,6 @@ public class Card_Damage : Card
     public override void Use()
     {
         // damage the enemy
+        Debug.Log("Damage card did " + damage + " damage");
     }
 }
