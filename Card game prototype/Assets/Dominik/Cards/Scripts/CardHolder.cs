@@ -25,15 +25,11 @@ public class CardHolder : MonoBehaviour
         for (int i = 0; i < card.manaCost; i++)
         {
             Instantiate(manaCrystal, manaCrystalHolder.position, Quaternion.identity, manaCrystalHolder);
-            
         }
-        card.Setup(this);
-        //iconImage.sprite = card.icon;
-    }
 
-    private void Start()
-    {
-       // card.Setup(this);
+        //iconImage.sprite = card.icon;
+
+        card.Setup(this);
     }
 
     public void CreateAttribute(int attribute, int value)
