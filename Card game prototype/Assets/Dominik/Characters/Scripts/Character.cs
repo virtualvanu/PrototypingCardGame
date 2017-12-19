@@ -9,8 +9,8 @@ public class Character : ScriptableObject
     public string characterName;
 
     [Header("Stats")]
+    public int maxHealth;
     public int currentHealth;
-    [HideInInspector] public int maxHealth;
 
     [Header("Properties")]
     public List<Card> deck;

@@ -9,12 +9,11 @@ public class Card : ScriptableObject
     public enum Target
     {
         Ally,
-        Enemy
+        Enemy,
+        Both
     }
     [Header("General Variables")]
     public Target target;
-
-    //private TargetObject targetObject;
 
     public string cardName;
 
@@ -31,20 +30,8 @@ public class Card : ScriptableObject
 
     }
 
-    public virtual void Use()
+    public virtual void Use(CardHolder myHolder)
     {
         Debug.Log("Used the card: " + cardName);
-
-        switch (target)
-        {
-            case Target.Ally:
-
-                //target = enemy;
-                break;
-            case Target.Enemy:
-
-                //target = ally;
-                break;
-        }
     }
 }
