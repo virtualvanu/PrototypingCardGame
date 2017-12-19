@@ -25,6 +25,7 @@ public class FightManager : MonoBehaviour {
             instance = this;
         }
         print(playerDeck.Count);
+        inFight = true;
         StartCoroutine(SetPlayerDeck());
     }
 
