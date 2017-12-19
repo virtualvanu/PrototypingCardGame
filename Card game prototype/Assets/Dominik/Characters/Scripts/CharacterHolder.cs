@@ -9,21 +9,6 @@ public class CharacterHolder : MonoBehaviour
 
     public List<Card> hand;
 
-    public void DrawCard()
-    {
-        if (character.deck.Count > 0)
-        {
-            int randomCardFromDeck = Random.Range(0, character.deck.Count);
-
-            hand.Add(character.deck[randomCardFromDeck]);
-            character.deck.Remove(character.deck[randomCardFromDeck]);
-        }
-        else
-        {
-            print(character.characterName + " has no cards left in his deck.");
-        }
-    }
-
     public void UseCard()
     {
         if (hand.Count > 0)
