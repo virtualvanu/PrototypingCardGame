@@ -9,6 +9,13 @@ public class FightManager : MonoBehaviour {
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
     public CurrentDeck myDeck;
+    public enum Turn
+    {
+        player,
+        enemy
+    }
+    public Turn turn;
+
 
     private void Awake()
     {

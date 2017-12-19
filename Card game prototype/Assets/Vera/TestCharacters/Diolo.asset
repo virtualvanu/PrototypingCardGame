@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Diolo
   m_EditorClassIdentifier: 
   characterName: Diolo
+  maxHealth: 40
   currentHealth: 0
-  maxHealth: 0
   deck:
   - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
   - {fileID: 11400000, guid: b9518dad44b73614d91b195aa7f8d956, type: 2}
