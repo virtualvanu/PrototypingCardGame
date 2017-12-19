@@ -6,10 +6,12 @@ public class DeckBuilding : MonoBehaviour {
     public List<GameObject> playerDeck = new List<GameObject>();
     private int instantiatedCards;
     private GameObject deckContent;
+    private GameObject canvas;
     public bool isEditing;
 	// Use this for initialization
 	void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
+        canvas = GameObject.FindGameObjectWithTag("ColCanvas");
 	}
 	
 	// Update is called once per frame
@@ -29,17 +31,22 @@ public class DeckBuilding : MonoBehaviour {
         }
     }
 
-    public void ShowDeckCards()
+    public void ShowDeckCards(GameObject g)
     {
-        foreach(GameObject g in playerDeck)
-        {
+        
             if(instantiatedCards < playerDeck.Count)
             {
-                GameObject q = Instantiate(g, Vector3.zero, Quaternion.identity);
-                q.transform.SetParent(deckContent.transform);
-                q.GetComponent<RectTransform>().SetAsFirstSibling();
+                GameObject q = g;
+                
+                q = Instantiate(q, deckContent.transform.position, Quaternion.identity) as GameObject;
+                q.GetComponent<CollectionCard>().enabled = false;
+                q.GetComponent<Image>().raycastTarget = false;
+                q.transform.SetParent(deckContent.transform, false);
+                q.GetComponent<Image>().SetNativeSize();
+                q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
+                
                 instantiatedCards++;
             }
-        }
+       
     }
 }

@@ -24,7 +24,7 @@ public class CollectionCard : MonoBehaviour {
         if (Input.GetMouseButtonDown(0) && deckEditor.isEditing)
         {
             deckEditor.playerDeck.Add(gameObject);
-            deckEditor.ShowDeckCards();
+            deckEditor.ShowDeckCards(gameObject);
         }
        
     }
