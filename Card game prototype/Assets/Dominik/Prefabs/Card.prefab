@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+  side: 0
   iconImage: {fileID: 0}
   manaCrystalHolder: {fileID: 224797657204953200}
   manaCrystal: {fileID: 1538430227244020, guid: a930b660146f4be439d9931fd4510bd5,
@@ -314,7 +315,7 @@ RectTransform:
   m_GameObject: {fileID: 1751466904414338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 224993712306597892}
   - {fileID: 224298270072580408}

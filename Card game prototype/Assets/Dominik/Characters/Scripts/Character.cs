@@ -22,6 +22,7 @@ public class Character : ScriptableObject
     }
     public Type type;
 
+
     public void SetUp()
     {
         switch (type)
@@ -29,12 +30,12 @@ public class Character : ScriptableObject
             case Type.Enemy:
 
                 FightManager.instance.enemy = this;
-                FightManager.instance.enemyDeck = deck;
+                FightManager.instance.enemyDeck = new List<Card>(deck);
                 break;
             case Type.Player:
 
                 FightManager.instance.player = this;
-                FightManager.instance.playerDeck = deck;
+                FightManager.instance.playerDeck = new List<Card>(deck);
                 break;
         }
 
