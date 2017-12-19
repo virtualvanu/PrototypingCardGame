@@ -1,0 +1,7 @@
+Font: Enchanted Land  Pt. Size: 86
+Characters packed: 97/99
+
+Missing Characters
+----------------------------------------
+ID: 8203	Hex: 200B	Char [​]
+ID: 9633	Hex: 25A1	Char [□]
