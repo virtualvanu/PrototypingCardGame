@@ -8,6 +8,7 @@ public class FightManager : MonoBehaviour {
     public Character enemy;
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
+    public CurrentDeck myDeck;
 
     private void Awake()
     {
@@ -15,10 +16,11 @@ public class FightManager : MonoBehaviour {
         {
             instance = this;
         }
+        SetPlayerDeck(playerDeck);
     }
 
-    public static void SetDeck(List<Card> cards)
+    public void SetPlayerDeck(List<Card> cards)
     {
-
+        myDeck.remainingDeck = cards;
     }
 }
