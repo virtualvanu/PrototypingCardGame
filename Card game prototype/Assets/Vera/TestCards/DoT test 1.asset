@@ -17,5 +17,5 @@ MonoBehaviour:
   level: 1
   icon: {fileID: 0}
   useEffect: {fileID: 0}
-  dotDamage: 1
+  damage: 3
   duration: 2

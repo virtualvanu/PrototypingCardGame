@@ -9,6 +9,13 @@ public class FightManager : MonoBehaviour {
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
     public CurrentDeck myDeck;
+    public enum Turn
+    {
+        player,
+        enemy
+    }
+    public Turn turn;
+
 
     private void Awake()
     {
@@ -16,11 +23,15 @@ public class FightManager : MonoBehaviour {
         {
             instance = this;
         }
-        SetPlayerDeck(playerDeck);
+        print(playerDeck.Count);
+        StartCoroutine(SetPlayerDeck());
     }
 
-    public void SetPlayerDeck(List<Card> cards)
+    public IEnumerator SetPlayerDeck()
     {
-        myDeck.remainingDeck = cards;
+        yield return new WaitForSeconds(0.5f);
+        myDeck.remainingDeck = playerDeck;
+        print(playerDeck.Count);
+        myDeck.Setup();
     }
 }

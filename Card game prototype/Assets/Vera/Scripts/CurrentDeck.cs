@@ -7,6 +7,8 @@ public class CurrentDeck : MonoBehaviour {
     public List<Card> inHand = new List<Card>();
     public GameObject cardPrefab;
 
+    public int startAmount;
+
 	void Start () {
 		
 	}
@@ -28,8 +30,16 @@ public class CurrentDeck : MonoBehaviour {
             nc.transform.SetParent(gameObject.transform);
             nc.GetComponent<CardHolder>().card = remainingDeck[rand];
             nc.GetComponent<CardHolder>().LoadCard();
-            nc.transform.localScale = new Vector3(1, 1, 1);
+            nc.transform.localScale = new Vector3(2, 2, 2);
             remainingDeck.RemoveAt(rand);
+        }
+    }
+
+    public void Setup()
+    {
+        for (int i = 0; i < startAmount; i++)
+        {
+            GetNewCard();
         }
     }
 }
