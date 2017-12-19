@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CardHolder : MonoBehaviour
 {
@@ -24,9 +25,13 @@ public class CardHolder : MonoBehaviour
     public Transform attributeHolder;
     public List<GameObject> attributes = new List<GameObject>();
 
-    // all you gotta do to use a card is call: card.Use(); and voila
-    // base Use(); could contain a generic animation for using the card or find the enemy it has to attack (EnemyManager, enemies will also be scriptableobjects)
-
+    private void Awake()
+    {
+        if (!FightManager.inFight)
+        {
+            LoadCard();
+        }
+    }
     public void LoadCard()
     {
         for (int i = 0; i < card.manaCost; i++)
@@ -42,7 +47,7 @@ public class CardHolder : MonoBehaviour
     public void CreateAttribute(int attribute, int value)
     {
         GameObject newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-        newAttribute.transform.GetChild(1).GetComponent<Text>().text = value.ToString();
+        newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
     }
 
     public void SelectThis()

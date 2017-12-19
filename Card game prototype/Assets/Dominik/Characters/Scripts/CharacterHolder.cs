@@ -10,4 +10,6 @@ public class CharacterHolder : MonoBehaviour
     {
         character.SetUp();
     }
+
+
 }

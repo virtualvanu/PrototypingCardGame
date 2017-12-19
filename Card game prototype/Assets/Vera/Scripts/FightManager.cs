@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FightManager : MonoBehaviour {
     public static FightManager instance;
@@ -9,6 +10,11 @@ public class FightManager : MonoBehaviour {
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
     public CurrentDeck myDeck;
+    public static bool inFight;
+
+    public Image playerHealth;
+    public Image enemyHealth;
+
     public enum Turn
     {
         player,
@@ -16,14 +22,21 @@ public class FightManager : MonoBehaviour {
     }
     public Turn turn;
 
+    private void Update()
+    {
+        playerHealth.fillAmount = player.currentHealth / player.maxHealth;
+        enemyHealth.fillAmount = enemy.currentHealth / enemy.maxHealth;
+    }
 
     private void Awake()
     {
+        inFight = true;
         if(instance == null)
         {
             instance = this;
         }
         print(playerDeck.Count);
+        inFight = true;
         StartCoroutine(SetPlayerDeck());
     }
 
