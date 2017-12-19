@@ -9,6 +9,7 @@ public class FightManager : MonoBehaviour {
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
     public CurrentDeck myDeck;
+    public static bool inFight;
     public enum Turn
     {
         player,

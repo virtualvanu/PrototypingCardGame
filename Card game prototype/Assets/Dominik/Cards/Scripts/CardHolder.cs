@@ -26,7 +26,13 @@ public class CardHolder : MonoBehaviour
 
     // all you gotta do to use a card is call: card.Use(); and voila
     // base Use(); could contain a generic animation for using the card or find the enemy it has to attack (EnemyManager, enemies will also be scriptableobjects)
-
+    private void Awake()
+    {
+        if (!FightManager.inFight)
+        {
+            LoadCard();
+        }
+    }
     public void LoadCard()
     {
         for (int i = 0; i < card.manaCost; i++)
