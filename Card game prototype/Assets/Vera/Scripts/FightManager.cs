@@ -24,8 +24,8 @@ public class FightManager : MonoBehaviour {
 
     private void Update()
     {
-        playerHealth.fillAmount = player.currentHealth / player.maxHealth;
-        enemyHealth.fillAmount = enemy.currentHealth / enemy.maxHealth;
+        playerHealth.fillAmount = (float)player.currentHealth / player.maxHealth;
+        enemyHealth.fillAmount = (float)enemy.currentHealth / enemy.maxHealth;
     }
 
     private void Awake()

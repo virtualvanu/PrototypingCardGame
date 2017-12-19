@@ -9,6 +9,14 @@ public class CurrentDeck : MonoBehaviour {
 
     public int startAmount;
 
+    public enum Side
+    {
+        player,
+        enemy
+    }
+
+    public Side side;
+
 	void Start () {
 		
 	}
@@ -30,6 +38,11 @@ public class CurrentDeck : MonoBehaviour {
             nc.transform.SetParent(gameObject.transform);
             nc.GetComponent<CardHolder>().card = remainingDeck[rand];
             nc.GetComponent<CardHolder>().LoadCard();
+            if(side == Side.player)
+            {
+                nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
+            }
+
             nc.transform.localScale = new Vector3(2, 2, 2);
             remainingDeck.RemoveAt(rand);
         }

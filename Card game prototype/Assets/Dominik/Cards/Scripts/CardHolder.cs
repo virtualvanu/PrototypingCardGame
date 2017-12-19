@@ -63,4 +63,9 @@ public class CardHolder : MonoBehaviour
         Vector3 test = new Vector3(transform.position.x, transform.position.y, transform.position.z - 5);
         transform.position = test;
     }
+
+    public void UseButton()
+    {
+        card.Use(this);
+    }
 }
