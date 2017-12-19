@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DeckBuilding : MonoBehaviour {
     public List<GameObject> playerDeck = new List<GameObject>();
+    public GameObject zoompos;
     private int instantiatedCards;
     private GameObject deckContent;
     private GameObject canvas;
     public bool isEditing;
+    public GameObject currentlyPreviewing;
 	// Use this for initialization
 	void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");

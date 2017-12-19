@@ -12,6 +12,7 @@ TagManager:
   - DE
   - DeckContent
   - ColCanvas
+  - CollectionPanel
   layers:
   - Default
   - TransparentFX
