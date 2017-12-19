@@ -7,22 +7,63 @@ public class Card_DOT : Card
 {
 
     [Header("DOT Card Attributes")]
-    public int dotDamage;
+    public int damage;
     public int duration;
 
     public override void Setup(CardHolder myHolder)
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(2, dotDamage);
+        myHolder.CreateAttribute(2, damage);
     }
 
-    public override void Use()
+    public override void Use(CardHolder myHolder)
     {
-        base.Use();
+        base.Use(myHolder);
 
-        // deal damage over time (deals the dotDamage like every round)
-        Debug.Log("DOT card did " + dotDamage + " damage for " + duration + " rounds");
+        switch (myHolder.side)
+        {
+            case CardHolder.Side.Enemy:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        FightManager.instance.enemy.currentHealth -= damage;
+                        break;
+                    case Target.Enemy:
+
+                        FightManager.instance.player.currentHealth -= damage;
+                        break;
+                    case Target.Both:
+
+                        FightManager.instance.enemy.currentHealth -= damage;
+                        FightManager.instance.player.currentHealth -= damage;
+                        break;
+                }
+                break;
+            case CardHolder.Side.Player:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        FightManager.instance.player.currentHealth -= damage;
+                        break;
+                    case Target.Enemy:
+
+                        FightManager.instance.enemy.currentHealth -= damage;
+                        break;
+                    case Target.Both:
+
+                        FightManager.instance.player.currentHealth -= damage;
+                        FightManager.instance.enemy.currentHealth -= damage;
+                        break;
+                }
+                break;
+        }
+
+        Debug.Log("DOT card did " + damage + " damage for " + duration + " rounds");
 
     }
 }

@@ -8,6 +8,13 @@ public class CardHolder : MonoBehaviour
 
     public Card card;
 
+    public enum Side
+    {
+        Enemy,
+        Player
+    }
+    public Side side;
+
     [Header("Card UI Setup")]
     public Image iconImage;
     [Space(10)]
