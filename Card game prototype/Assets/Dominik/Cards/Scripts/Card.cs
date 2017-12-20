@@ -34,4 +34,53 @@ public class Card : ScriptableObject
     {
         Debug.Log("Used the card: " + cardName);
     }
+
+    public Character DetermineTarget(CardHolder myHolder)
+    {
+        Character myTarget = null;
+
+        switch (myHolder.side)
+        {
+            case CardHolder.Side.Enemy:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        myTarget = FightManager.instance.enemy;
+                        break;
+                    case Target.Enemy:
+
+                        myTarget = FightManager.instance.player;
+                        break;
+                    case Target.Both:
+
+                        //myTarget = FightManager.instance.enemy;
+                        //myTarget = FightManager.instance.player;
+                        break;
+                }
+                break;
+            case CardHolder.Side.Player:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        myTarget = FightManager.instance.player;
+                        break;
+                    case Target.Enemy:
+
+                        myTarget = FightManager.instance.enemy;
+                        break;
+                    case Target.Both:
+
+                        //myTarget = FightManager.instance.player;
+                        //myTarget = FightManager.instance.enemy;
+                        break;
+                }
+                break;
+        }
+
+        return myTarget;
+    }
 }

@@ -13,56 +13,24 @@ public class Card_Heal : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(1, healAmount);
+        myHolder.CreateAttribute(1, healAmount, 1);
     }
 
     public override void Use(CardHolder myHolder)
     {
         base.Use(myHolder);
 
-        switch (myHolder.side)
+        Character myTarget = DetermineTarget(myHolder);
+
+        if (myTarget.currentHealth > (myTarget.maxHealth - healAmount))
         {
-            case CardHolder.Side.Enemy:
-
-                switch (target)
-                {
-                    case Target.Ally:
-
-                        FightManager.instance.enemy.currentHealth += healAmount;
-                        break;
-                    case Target.Enemy:
-
-                        FightManager.instance.player.currentHealth += healAmount;
-                        break;
-                    case Target.Both:
-
-                        FightManager.instance.enemy.currentHealth += healAmount;
-                        FightManager.instance.player.currentHealth += healAmount;
-                        break;
-                }
-                break;
-            case CardHolder.Side.Player:
-
-                switch (target)
-                {
-                    case Target.Ally:
-
-                        FightManager.instance.player.currentHealth += healAmount;
-                        break;
-                    case Target.Enemy:
-
-                        FightManager.instance.enemy.currentHealth += healAmount;
-                        break;
-                    case Target.Both:
-
-                        FightManager.instance.player.currentHealth += healAmount;
-                        FightManager.instance.enemy.currentHealth += healAmount;
-                        break;
-                }
-                break;
+            Debug.Log("Heal card healed " + (myTarget.maxHealth - myTarget.currentHealth) + " health");
+            myTarget.currentHealth = myTarget.maxHealth;
         }
-
-        Debug.Log("Heal card healed " + healAmount + " health");
-
+        else
+        {
+            Debug.Log("Heal card healed " + healAmount + " health");
+            myTarget.currentHealth += healAmount;
+        }
     }
 }

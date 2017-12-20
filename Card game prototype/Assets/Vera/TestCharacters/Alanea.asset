@@ -24,4 +24,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: af32a3cef5809554fb4ffdc98187e63f, type: 2}
   - {fileID: 11400000, guid: 8885983b139be1c44ba4b7328eb49333, type: 2}
   - {fileID: 11400000, guid: 2ccd764b2517acb4fa8ae3ffdfc199da, type: 2}
+  isBleeding: 0
+  canHeal: 0
+  canDamage: 0
+  canGetDamaged: 0
   type: 1

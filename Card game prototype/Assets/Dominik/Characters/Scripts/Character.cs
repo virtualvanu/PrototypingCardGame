@@ -11,9 +11,19 @@ public class Character : ScriptableObject
     [Header("Stats")]
     public int maxHealth;
     public int currentHealth;
+    [Space(10)]
+    public int shieldHealth;
 
     [Header("Properties")]
     public List<Card> deck;
+
+    // could also be ints indicating the amount of rounds the character has the debuff (instead of just bools)
+    [Header("Debuffs")]
+    public bool isBleeding;
+    [Space(10)]
+    public bool canHeal;
+    public bool canDamage;
+    public bool canGetDamaged;
 
     public enum Type
     {

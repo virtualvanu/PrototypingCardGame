@@ -17,6 +17,7 @@ public class CardHolder : MonoBehaviour
     public Side side;
 
     [Header("Card UI Setup")]
+    public TextMeshProUGUI nameText;
     public Image iconImage;
     [Space(10)]
     public Transform manaCrystalHolder;
@@ -39,15 +40,35 @@ public class CardHolder : MonoBehaviour
             Instantiate(manaCrystal, manaCrystalHolder.position, Quaternion.identity, manaCrystalHolder);
         }
 
+        nameText.text = card.cardName;
         //iconImage.sprite = card.icon;
 
         card.Setup(this);
     }
 
-    public void CreateAttribute(int attribute, int value)
+    public void CreateAttribute(int attribute, int value, int duration)
     {
-        GameObject newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-        newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+        GameObject newAttribute;
+
+        switch (attribute)
+        {
+            case 0:
+
+                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
+                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                break;
+            case 1:
+
+                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
+                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                break;
+            case 2:
+
+                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
+                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                newAttribute.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = duration.ToString();
+                break;
+        }
     }
 
     public void SelectThis()
