@@ -14,6 +14,26 @@ public class IntroManager : MonoBehaviour
 
     public float buttonLerpDelay;
 
+    public GameObject testParticle;
+    public Transform testRayOrigin;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            Test();
+        }
+    }
+
+    private void Test()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Camera.main.transform.forward);
+        Vector3 rayEnd = ray.origin + (ray.direction * 10);
+
+        print(rayEnd);
+        testParticle.transform.position = rayEnd;
+    }
+
     public void PlayButton()
     {
         if (hasCharacter)
