@@ -8,6 +8,8 @@ public class CardHolder : MonoBehaviour
 {
 
     public Card card;
+    public CurrentDeck deck;
+    public ManaCount mana;
 
     public enum Side
     {
@@ -111,22 +113,13 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-    //public void SelectThis()
-    //{
-    //    transform.localScale = new Vector3(3, 3, 3);
-    //    Vector3 test = new Vector3(transform.position.x, transform.position.y, transform.position.z + 5);
-    //    transform.position = test;
-    //}
-
-    //public void DeselectThis()
-    //{
-    //    transform.localScale = new Vector3(2, 2, 2);
-    //    Vector3 test = new Vector3(transform.position.x, transform.position.y, transform.position.z - 5);
-    //    transform.position = test;
-    //}
-
     public void UseButton()
     {
-        card.Use(this);
+        if(mana.CheckMana(card.manaCost) == true)
+        {
+            deck.RemoveFromHand(card);
+            card.Use(this);
+        }
+
     }
 }

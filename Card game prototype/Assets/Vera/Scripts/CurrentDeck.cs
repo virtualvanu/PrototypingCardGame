@@ -5,7 +5,9 @@ using UnityEngine;
 public class CurrentDeck : MonoBehaviour {
     public List<Card> remainingDeck = new List<Card>();
     public List<Card> inHand = new List<Card>();
+    public List <Card> usedThisGame = new List<Card>();
     public GameObject cardPrefab;
+    public ManaCount myMana;
 
     public int startAmount;
 
@@ -36,8 +38,11 @@ public class CurrentDeck : MonoBehaviour {
             inHand.Add(remainingDeck[rand]);
             GameObject nc = Instantiate(cardPrefab, transform.position, Quaternion.identity);
             nc.transform.SetParent(gameObject.transform);
-            nc.GetComponent<CardHolder>().card = remainingDeck[rand];
-            nc.GetComponent<CardHolder>().LoadCard();
+            CardHolder newC = nc.GetComponent<CardHolder>();
+            newC.card = remainingDeck[rand];
+            newC.LoadCard();
+            newC.deck = this;
+            newC.mana = myMana;
             if(side == Side.player)
             {
                 nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
@@ -54,5 +59,18 @@ public class CurrentDeck : MonoBehaviour {
         {
             GetNewCard();
         }
+    }
+
+    public void RemoveFromHand(Card cardUsed)
+    {
+        for (int i = 0; i < inHand.Count; i++)
+        {
+            if(cardUsed == inHand[i])
+            {
+                inHand.RemoveAt(i);
+                break;
+            }
+        }
+        usedThisGame.Add(cardUsed);
     }
 }

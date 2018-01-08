@@ -10,6 +10,7 @@ public class FightManager : MonoBehaviour {
     public List<Card> playerDeck;
     public List<Card> enemyDeck;
     public CurrentDeck myDeck;
+    public CurrentDeck enemyCurrentDeck;
     public static bool inFight;
 
     public Image playerHealth;
@@ -44,6 +45,7 @@ public class FightManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.5f);
         myDeck.remainingDeck = playerDeck;
+        enemyCurrentDeck.remainingDeck = enemyDeck;
         print(playerDeck.Count);
         myDeck.Setup();
     }
