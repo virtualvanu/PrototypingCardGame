@@ -4,18 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 public class DeckBuilding : MonoBehaviour {
     public List<GameObject> playerDeck = new List<GameObject>();
+    public List<GameObject> collection = new List<GameObject>();
     //public List<GameObject> previewDeck = new List<GameObject>();
     public int maxDeckSize;
 
     public GameObject zoompos;
     public int instantiatedCards;
     private GameObject deckContent;
+    private GameObject collectionContent;
     private GameObject canvas;
     public bool isEditing;
     public GameObject currentlyPreviewing;
+
+    public GameObject deckBuilderCardHolderPrefab;
 	// Use this for initialization
 	void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
+        collectionContent = GameObject.FindGameObjectWithTag("ColContent");
         canvas = GameObject.FindGameObjectWithTag("ColCanvas");
 	}
 	
@@ -60,6 +65,25 @@ public class DeckBuilding : MonoBehaviour {
             }
 
            
+       
+    }
+
+    public void AddCardToCollection(Card cardToAdd)
+    {
+        GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
+        DeckBuilderCardHolder d = deckBuilderCardHolderPrefab.GetComponent<DeckBuilderCardHolder>();
+
+        d.card = cardToAdd;
+        collection.Add(q);
+        
+
+        q.transform.SetParent(collectionContent.transform, false);
+        
+        q.GetComponent<RectTransform>().localScale = new Vector3(.5F, .5F, 1F);
+        q.transform.localPosition = collectionContent.transform.position;
+  
+        q.GetComponent<CollectionCard>().enabled = true;
+        q.GetComponent<DeckCard>().enabled = false;
        
     }
 }

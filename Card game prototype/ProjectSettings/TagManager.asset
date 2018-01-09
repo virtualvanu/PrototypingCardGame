@@ -13,6 +13,7 @@ TagManager:
   - DeckContent
   - ColCanvas
   - CollectionPanel
+  - ColContent
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Test
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Test
+    uniqueID: 2242695203
     locked: 0
   - name: Selected
     uniqueID: 599149369
