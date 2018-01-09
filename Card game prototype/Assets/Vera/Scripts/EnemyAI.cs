@@ -45,7 +45,6 @@ public class EnemyAI : MonoBehaviour {
                     cardholders.Add(myDeck.inhandie[i]);
                 }
             }
-
             else
             {
                 if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana)
