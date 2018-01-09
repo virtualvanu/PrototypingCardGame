@@ -16,7 +16,9 @@ public class FightManager : MonoBehaviour {
     public EnemyAI enemyAI;
 
     public Image playerHealth;
+    public GameObject playerHealthObject;
     public Image enemyHealth;
+    public GameObject enemyHealthObject;
 
     public enum Turn
     {
@@ -32,7 +34,8 @@ public class FightManager : MonoBehaviour {
     public Color healColor;
 
     [Header("Color Lerping")]
-    public float lerpSpeed;
+    public float colorLerpSpeed;
+    public float scaleLerpSpeed;
     [Space(10)]
     public Color defaultColor;
     public Color lerpColor;
@@ -44,13 +47,17 @@ public class FightManager : MonoBehaviour {
 
         if (turn == Turn.player)
         {
-            playerHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            playerHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * colorLerpSpeed, 1));
             enemyHealth.color = defaultColor;
+
+            playerHealthObject.transform.localScale = new Vector3(Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f, Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f);
         }
         else
         {
-            enemyHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            enemyHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * colorLerpSpeed, 1));
             playerHealth.color = defaultColor;
+
+            enemyHealthObject.transform.localScale = new Vector3(Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f, Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f);
         }
     }
 
