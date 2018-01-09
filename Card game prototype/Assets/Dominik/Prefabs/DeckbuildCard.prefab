@@ -323,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34d15b9e258f0b45b4eeb6cb005f574, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  awakened: 0
   card: {fileID: 11400000, guid: b9518dad44b73614d91b195aa7f8d956, type: 2}
   nameText: {fileID: 114013130757713714}
   iconImage: {fileID: 0}

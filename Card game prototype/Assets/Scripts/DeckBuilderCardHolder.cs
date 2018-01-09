@@ -6,7 +6,7 @@ using TMPro;
 
 public class DeckBuilderCardHolder : MonoBehaviour
 {
-    private bool awakened;
+    public bool awakened;
     public Card card;
    
 
@@ -54,7 +54,7 @@ public class DeckBuilderCardHolder : MonoBehaviour
         }
 
         nameText.text = card.cardName;
-        //iconImage.sprite = card.icon;
+        iconImage.sprite = card.icon;
 
         //card.Setup(this);
 
