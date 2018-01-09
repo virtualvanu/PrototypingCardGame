@@ -3,22 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ManaCount : MonoBehaviour {
+public class ManaCount : MonoBehaviour
+{
 
     public int maxMana;
     public int manaLvl;
     public int currentMana;
     public List<Image> manaCrystals = new List<Image>();
     public List<Image> emptyManaCrystals = new List<Image>();
-	void Start () {
-        maxMana = manaCrystals.Count;
 
+    [Header("Crystal Movement")]
+    public float rotateSpeed;
+
+    void Start ()
+    {
+        maxMana = manaCrystals.Count;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void Update()
+    {
+        //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + (Time.deltaTime * rotateSpeed));
+        transform.Rotate(0, 0, -(Time.deltaTime * rotateSpeed));
+    }
 
     public void StartTurn()
     {
