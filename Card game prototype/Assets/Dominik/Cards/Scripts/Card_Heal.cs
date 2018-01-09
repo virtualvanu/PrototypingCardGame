@@ -20,19 +20,17 @@ public class Card_Heal : Card
     {
         base.Use(myHolder);
 
-        Character myTarget = DetermineTarget(myHolder);
-
-        if (myTarget.currentHealth > (myTarget.maxHealth - healAmount))
+        if (damageTarget.currentHealth > (damageTarget.maxHealth - healAmount))
         {
-            Debug.Log("Heal card healed " + (myTarget.maxHealth - myTarget.currentHealth) + " health");
-            myTarget.currentHealth = myTarget.maxHealth;
+            Debug.Log("Heal card healed " + (damageTarget.maxHealth - damageTarget.currentHealth) + " health");
+            damageTarget.currentHealth = damageTarget.maxHealth;
         }
         else
         {
             Debug.Log("Heal card healed " + healAmount + " health");
-            myTarget.currentHealth += healAmount;
+            damageTarget.currentHealth += healAmount;
         }
 
-        FightManager.instance.SpawnDamageText(healAmount, false, DetermineDamageTextTarget(myHolder));
+        FightManager.instance.SpawnDamageText(healAmount, false, damageTextTarget);
     }
 }
