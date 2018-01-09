@@ -22,7 +22,6 @@ public class ManaCount : MonoBehaviour
 
     private void Update()
     {
-        //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + (Time.deltaTime * rotateSpeed));
         transform.Rotate(0, 0, -(Time.deltaTime * rotateSpeed));
     }
 
