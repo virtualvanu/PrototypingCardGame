@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class DeckBuilding : MonoBehaviour {
-    public List<GameObject> playerDeck = new List<GameObject>();
+    public List<Card> playerDeck = new List<Card>();
     public List<GameObject> collection = new List<GameObject>();
     //public List<GameObject> previewDeck = new List<GameObject>();
     public int maxDeckSize;

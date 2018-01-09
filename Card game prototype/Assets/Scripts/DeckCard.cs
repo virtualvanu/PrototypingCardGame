@@ -22,7 +22,7 @@ public class DeckCard : MonoBehaviour {
         {
             //if (Input.GetMouseButtonDown(0))
             //{
-                deckEditor.playerDeck.Remove(gameObject);
+                deckEditor.playerDeck.Remove(GetComponent<DeckBuilderCardHolder>().card);
                 deckEditor.instantiatedCards--;
                 Destroy(gameObject);
             //}

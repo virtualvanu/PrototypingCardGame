@@ -40,9 +40,9 @@ public class CollectionCard : MonoBehaviour {
                 if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
                 {
                     GameObject w = Instantiate(gameObject);
-                    deckEditor.playerDeck.Add(w);
+                    deckEditor.playerDeck.Add(w.GetComponent<DeckBuilderCardHolder>().card);
                    
-                    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w);
+                    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
                     deckEditor.ShowDeckCards(w);
 
                 }
