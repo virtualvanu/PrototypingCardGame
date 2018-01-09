@@ -114,6 +114,7 @@ public class FightManager : MonoBehaviour {
         {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
+            enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
     }
 
