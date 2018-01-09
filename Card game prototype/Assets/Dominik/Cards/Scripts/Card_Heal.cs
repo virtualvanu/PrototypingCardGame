@@ -32,5 +32,7 @@ public class Card_Heal : Card
             Debug.Log("Heal card healed " + healAmount + " health");
             myTarget.currentHealth += healAmount;
         }
+
+        FightManager.instance.SpawnDamageText(healAmount, false, DetermineDamageTextTarget(myHolder));
     }
 }

@@ -9,9 +9,11 @@ public class ManaCount : MonoBehaviour {
     public int manaLvl;
     public int currentMana;
     public List<Image> manaCrystals = new List<Image>();
+    public List<Image> emptyManaCrystals = new List<Image>();
 	void Start () {
         maxMana = manaCrystals.Count;
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,6 +28,7 @@ public class ManaCount : MonoBehaviour {
         }
         currentMana = manaLvl;
         UpdateCrystals(currentMana);
+        NewEmpty();
     }
 
     public bool CheckMana(int cost)
@@ -50,6 +53,21 @@ public class ManaCount : MonoBehaviour {
             else
             {
                 manaCrystals[i].enabled = false;
+            }
+        }
+    }
+
+    public void NewEmpty()
+    {
+        for (int i = 0; i < emptyManaCrystals.Count; i++)
+        {
+            if(i < currentMana)
+            {
+                emptyManaCrystals[i].enabled = true;
+            }
+            else
+            {
+                emptyManaCrystals[i].enabled = false;
             }
         }
     }

@@ -87,4 +87,53 @@ public class Card : ScriptableObject
 
         return myTarget;
     }
+
+    public Transform DetermineDamageTextTarget(CardHolder myHolder)
+    {
+        Transform myTarget = null;
+
+        switch (myHolder.side)
+        {
+            case CardHolder.Side.Enemy:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        myTarget = FightManager.instance.enemyHealth.transform;
+                        break;
+                    case Target.Enemy:
+
+                        myTarget = FightManager.instance.playerHealth.transform;
+                        break;
+                    case Target.Both:
+
+                        //myTarget = FightManager.instance.enemy;
+                        //myTarget = FightManager.instance.player;
+                        break;
+                }
+                break;
+            case CardHolder.Side.Player:
+
+                switch (target)
+                {
+                    case Target.Ally:
+
+                        myTarget = FightManager.instance.playerHealth.transform;
+                        break;
+                    case Target.Enemy:
+
+                        myTarget = FightManager.instance.enemyHealth.transform;
+                        break;
+                    case Target.Both:
+
+                        //myTarget = FightManager.instance.player;
+                        //myTarget = FightManager.instance.enemy;
+                        break;
+                }
+                break;
+        }
+
+        return myTarget;
+    }
 }

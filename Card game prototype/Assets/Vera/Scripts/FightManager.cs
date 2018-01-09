@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FightManager : MonoBehaviour {
     public static FightManager instance;
@@ -12,6 +13,7 @@ public class FightManager : MonoBehaviour {
     public CurrentDeck myDeck;
     public CurrentDeck enemyCurrentDeck;
     public static bool inFight;
+    public EnemyAI enemyAI;
 
     public Image playerHealth;
     public Image enemyHealth;
@@ -23,10 +25,33 @@ public class FightManager : MonoBehaviour {
     }
     public Turn turn;
 
+    [Header("Damage Text")]
+    public GameObject damageText;
+    [Space(10)]
+    public Color damageColor;
+    public Color healColor;
+
+    [Header("Color Lerping")]
+    public float lerpSpeed;
+    [Space(10)]
+    public Color defaultColor;
+    public Color lerpColor;
+
     private void Update()
     {
         playerHealth.fillAmount = (float)player.currentHealth / player.maxHealth;
         enemyHealth.fillAmount = (float)enemy.currentHealth / enemy.maxHealth;
+
+        if (turn == Turn.player)
+        {
+            playerHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            enemyHealth.color = defaultColor;
+        }
+        else
+        {
+            enemyHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            playerHealth.color = defaultColor;
+        }
     }
 
     private void Awake()
@@ -57,6 +82,7 @@ public class FightManager : MonoBehaviour {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
             enemyCurrentDeck.GetNewCard();
+            enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
         else
         {
@@ -71,7 +97,7 @@ public class FightManager : MonoBehaviour {
         enemyCurrentDeck.Setup();
         myDeck.Setup();
 
-        int i = Random.Range(0, 1);
+        int i = Random.Range(0, 2);
         if(i == 0)
         {
             turn = Turn.player;
@@ -81,7 +107,30 @@ public class FightManager : MonoBehaviour {
         {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
-            print("TEst Mana");
+        }
+    }
+
+    public void SpawnDamageText(int value, bool damage, Transform spawn)
+    {
+        GameObject newDamageText;
+
+        newDamageText = Instantiate(damageText, spawn.transform);
+
+        DamageText damageTextComponent = newDamageText.GetComponent<DamageText>();
+
+        if (damage)
+        {
+            damageTextComponent.damage = true;
+            damageTextComponent.text.text = "-" + value;
+
+            damageTextComponent.text.color = damageColor;
+        }
+        else
+        {
+            damageTextComponent.damage = false;
+            damageTextComponent.text.text = "+" + value;
+
+            damageTextComponent.text.color = healColor;
         }
     }
 }
