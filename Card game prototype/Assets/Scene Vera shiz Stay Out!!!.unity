@@ -561,6 +561,9 @@ MonoBehaviour:
   playerHealth: {fileID: 672284145}
   enemyHealth: {fileID: 1260717603}
   turn: 0
+  damageText: {fileID: 1289887194738512, guid: b1520912151edd14d818faaaa1ab19d8, type: 2}
+  damageColor: {r: 0.9558824, g: 0, b: 0, a: 1}
+  healColor: {r: 0, g: 0.8455882, b: 0.04082157, a: 1}
 --- !u!4 &432444669
 Transform:
   m_ObjectHideFlags: 0

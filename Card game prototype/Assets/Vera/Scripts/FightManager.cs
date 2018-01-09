@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FightManager : MonoBehaviour {
     public static FightManager instance;
@@ -22,6 +23,13 @@ public class FightManager : MonoBehaviour {
         enemy
     }
     public Turn turn;
+
+    [Header("Damage Text")]
+    public GameObject damageText;
+    [Space(10)]
+    public Color damageColor;
+    public Color healColor;
+
 
     private void Update()
     {
@@ -71,7 +79,7 @@ public class FightManager : MonoBehaviour {
         enemyCurrentDeck.Setup();
         myDeck.Setup();
 
-        int i = Random.Range(0, 1);
+        int i = Random.Range(0, 2);
         if(i == 0)
         {
             turn = Turn.player;
@@ -82,6 +90,30 @@ public class FightManager : MonoBehaviour {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
             print("TEst Mana");
+        }
+    }
+
+    public void SpawnDamageText(int value, bool damage, Transform spawn)
+    {
+        GameObject newDamageText;
+
+        newDamageText = Instantiate(damageText, spawn.transform);
+
+        DamageText damageTextComponent = newDamageText.GetComponent<DamageText>();
+
+        if (damage)
+        {
+            damageTextComponent.damage = true;
+            damageTextComponent.text.text = "-" + value;
+
+            damageTextComponent.text.color = damageColor;
+        }
+        else
+        {
+            damageTextComponent.damage = false;
+            damageTextComponent.text.text = "+" + value;
+
+            damageTextComponent.text.color = healColor;
         }
     }
 }

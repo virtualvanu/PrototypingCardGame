@@ -22,6 +22,7 @@ public class Card_DOT : Card
         base.Use(myHolder);
 
         DetermineTarget(myHolder).currentHealth -= damage;
+        FightManager.instance.SpawnDamageText(damage, true, DetermineDamageTextTarget(myHolder));
 
         Debug.Log("DOT card did " + damage + " damage for " + duration + " rounds");
     }
