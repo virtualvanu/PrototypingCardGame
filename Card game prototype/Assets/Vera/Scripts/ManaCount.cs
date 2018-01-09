@@ -27,7 +27,7 @@ public class ManaCount : MonoBehaviour {
             manaLvl++;
         }
         currentMana = manaLvl;
-        UpdateCrystals(currentMana);
+        UpdateCrystals();
         NewEmpty();
     }
 
@@ -36,13 +36,13 @@ public class ManaCount : MonoBehaviour {
         if (currentMana - cost >= 0)
         {
             currentMana -= cost;
-            UpdateCrystals(currentMana);
+            UpdateCrystals();
             return true;
         }
         else return false;
     }
 
-    public void UpdateCrystals(int mana)
+    public void UpdateCrystals()
     {
         for (int i = 0; i < manaCrystals.Count; i++)
         {
