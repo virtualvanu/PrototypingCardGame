@@ -7,8 +7,15 @@ public class EffectManager : MonoBehaviour
 
     public static EffectManager instance;
 
-    public List<Effect> playerEffects;
-    public List<Effect> enemyEffects;
+    public List<Effect> activePlayerEffects = new List<Effect>();
+    public List<Effect> activeEnemyEffects = new List<Effect>();
+    [Space(10)]
+    private List<Effect> endedEffects = new List<Effect>();
+
+    public GameObject playerDotEffectIcon;
+    public GameObject playerHotEffectIcon;
+    public GameObject enemyDotEffectIcon;
+    public GameObject enemyHotEffectIcon;
 
     private void Awake()
     {
@@ -18,29 +25,116 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void AddEffect(bool player, Card giver, int amount, int duration)
+    public void AddEffect(CardHolder giver, int amount, int duration)
     {
-        Effect newEffect = new Effect()
+        Effect newEffect = new Effect
         {
-            effectGiver = ScriptableObject.CreateInstance<Card>()
+            effectGiver = giver.card,
+
+            amount = amount,
+            duration = duration,
+
+            damageTarget = giver.card.DetermineTarget(giver),
+            damageTextTarget = giver.card.DetermineDamageTextTarget(giver)
         };
 
-        newEffect.effectGiver = giver;
-        newEffect.amount = amount;
-        newEffect.duration = duration;
-
-        if (player)
+        if (newEffect.damageTarget == FightManager.instance.player)
         {
-            playerEffects.Add(newEffect);
+            activePlayerEffects.Add(newEffect);
         }
         else
         {
-            enemyEffects.Add(newEffect);
+            activeEnemyEffects.Add(newEffect);
         }
+
+        CheckActiveEffects();
     }
 
     public void TriggerEffects()
     {
+        StartCoroutine(TriggerAllyEffects());
+        StartCoroutine(TriggerEnemyEffects());
+    }
 
+    private IEnumerator TriggerAllyEffects()
+    {
+        foreach (Effect effect in activePlayerEffects)
+        {
+            effect.effectGiver.TriggerEffect(effect.damageTarget, effect.damageTextTarget);
+            effect.duration--;
+
+            if (effect.duration == 0)
+            {
+                endedEffects.Add(effect);
+            }
+
+            yield return new WaitForSeconds(0.6f);
+        }
+
+        RemoveEndedEffects();
+    }
+
+    private IEnumerator TriggerEnemyEffects()
+    {
+        foreach (Effect effect in activeEnemyEffects)
+        {
+            effect.effectGiver.TriggerEffect(effect.damageTarget, effect.damageTextTarget);
+            effect.duration--;
+
+            if (effect.duration == 0)
+            {
+                endedEffects.Add(effect);
+            }
+
+            yield return new WaitForSeconds(0.6f);
+        }
+
+        RemoveEndedEffects();
+    }
+
+    private void RemoveEndedEffects()
+    {
+        if (endedEffects.Count > 0)
+        {
+            for (int i = 0; i < endedEffects.Count; i++)
+            {
+                activePlayerEffects.Remove(endedEffects[i]);
+            }
+        }
+
+        CheckActiveEffects();
+    }
+
+    private void CheckActiveEffects()
+    {
+        playerDotEffectIcon.SetActive(false);
+        playerHotEffectIcon.SetActive(false);
+
+        foreach (Effect effect in activePlayerEffects)
+        {
+            if (effect.effectGiver.GetType() == typeof (Card_DOT))
+            {
+                playerDotEffectIcon.SetActive(true);
+            }
+            else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+            {
+                playerHotEffectIcon.SetActive(true);
+            }
+        }
+
+        enemyDotEffectIcon.SetActive(false);
+        enemyHotEffectIcon.SetActive(false);
+
+        foreach (Effect effect in activeEnemyEffects)
+        {
+            if (effect.effectGiver.GetType() == typeof(Card_DOT))
+            {
+                enemyDotEffectIcon.SetActive(true);
+            }
+            else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+            {
+                enemyHotEffectIcon.SetActive(true);
+            }
+        }
     }
 }

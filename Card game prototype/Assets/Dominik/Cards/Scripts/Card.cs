@@ -15,9 +15,6 @@ public class Card : ScriptableObject
     [Header("General Variables")]
     public Target target;
 
-    public Character damageTarget;
-    public Transform damageTextTarget;
-
     public string cardName;
 
     public int manaCost;
@@ -26,12 +23,9 @@ public class Card : ScriptableObject
 
     public Sprite icon;
 
-    public GameObject useEffect;
-
     public virtual void Setup(CardHolder myHolder)
     {
-        damageTarget = DetermineTarget(myHolder);
-        damageTextTarget = DetermineDamageTextTarget(myHolder);
+
     }
 
     public virtual void Use(CardHolder myHolder)
@@ -43,7 +37,7 @@ public class Card : ScriptableObject
         // remove from hand
     }
 
-    public virtual void TriggerEffect()
+    public virtual void TriggerEffect(Character target, Transform damageTextPos)
     {
 
     }

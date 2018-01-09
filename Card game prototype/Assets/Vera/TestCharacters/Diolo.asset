@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Diolo
   maxHealth: 15
-  currentHealth: 10
+  currentHealth: 15
   shieldHealth: 0
   deck:
   - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
@@ -25,8 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b0e8be9d2cd74f45aa287bfc9e5b139, type: 2}
   - {fileID: 11400000, guid: af32a3cef5809554fb4ffdc98187e63f, type: 2}
   - {fileID: 11400000, guid: 8885983b139be1c44ba4b7328eb49333, type: 2}
-  isBleeding: 0
-  canHeal: 0
-  canDamage: 0
-  canGetDamaged: 0
+  - {fileID: 11400000, guid: 4aadfa43258a3b140b7033706da9294b, type: 2}
+  - {fileID: 11400000, guid: 08ef5ea8479fc83458df9af21eeac0ca, type: 2}
+  - {fileID: 11400000, guid: f0f4551343418b14fa8a952cbb2124a1, type: 2}
   type: 0

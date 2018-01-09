@@ -20,8 +20,8 @@ public class Card_Damage : Card
     {
         base.Use(myHolder);
 
-        damageTarget.currentHealth -= damage;
-        FightManager.instance.SpawnDamageText(damage, true, damageTextTarget);
+        DetermineTarget(myHolder).currentHealth -= damage;
+        FightManager.instance.SpawnDamageText(damage, true, DetermineDamageTextTarget(myHolder));
 
         Debug.Log("Damage card did " + damage + " damage");
     }

@@ -1,16 +1,14 @@
-﻿
+﻿using UnityEngine;
+
+[System.Serializable]
 public class Effect
 {
 
-    public enum Type
-    {
-        Damage,
-        Heal
-    }
-    public Type effectType;
-
+    public Card effectGiver;
+    [Space(10)]
     public int amount;
     public int duration;
-
-    public Card effectGiver;
+    [Space(10)]
+    public Character damageTarget;
+    public Transform damageTextTarget;
 }

@@ -97,6 +97,8 @@ public class FightManager : MonoBehaviour {
             myDeck.myMana.StartTurn();
             myDeck.GetNewCard();
         }
+
+        EffectManager.instance.TriggerEffects();
     }
 
     public void StartGame()

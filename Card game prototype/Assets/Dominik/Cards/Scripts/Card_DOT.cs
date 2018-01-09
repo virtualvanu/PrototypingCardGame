@@ -21,14 +21,19 @@ public class Card_DOT : Card
     {
         base.Use(myHolder);
 
-        damageTarget.currentHealth -= damage;
-        FightManager.instance.SpawnDamageText(damage, true, damageTextTarget);
+        DetermineTarget(myHolder).currentHealth -= damage;
+        FightManager.instance.SpawnDamageText(damage, true, DetermineDamageTextTarget(myHolder));
+
+        EffectManager.instance.AddEffect(myHolder, damage, duration);
 
         Debug.Log("DOT card did " + damage + " damage for " + duration + " rounds");
     }
 
-    public override void TriggerEffect()
+    public override void TriggerEffect(Character target, Transform damageTextPos)
     {
+        target.currentHealth -= damage;
+        FightManager.instance.SpawnDamageText(damage, true, damageTextPos);
 
+        Debug.Log("DOT card did " + damage + " damage as a DOT");
     }
 }
