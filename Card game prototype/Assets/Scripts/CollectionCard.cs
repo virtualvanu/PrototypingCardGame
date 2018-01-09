@@ -32,16 +32,17 @@ public class CollectionCard : MonoBehaviour {
 
     public void Click()
     {
-
+        
         if (!GetComponent<DeckCard>().inDeck)
         {
-            if (Input.GetMouseButtonDown(0) && deckEditor.isEditing)
+            if (deckEditor.isEditing)
             {
                 if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
                 {
                     GameObject w = Instantiate(gameObject);
                     deckEditor.playerDeck.Add(w);
-                    GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w);
+                   
+                    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w);
                     deckEditor.ShowDeckCards(w);
 
                 }

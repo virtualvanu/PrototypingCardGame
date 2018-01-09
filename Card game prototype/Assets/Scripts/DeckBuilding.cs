@@ -44,8 +44,8 @@ public class DeckBuilding : MonoBehaviour {
                 GameObject q = g;
 
                 q.transform.SetParent(deckContent.transform, false);
-                q.GetComponent<Image>().SetNativeSize();
-                q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
+                //q.GetComponent<Image>().SetNativeSize();
+                q.GetComponent<RectTransform>().localScale = new Vector3(.5F, .5F, 1F);
                 q.transform.localPosition = deckContent.transform.position;
                 //q = Instantiate(q, deckContent.transform.position, Quaternion.identity) as GameObject;
                 q.GetComponent<CollectionCard>().enabled = false;

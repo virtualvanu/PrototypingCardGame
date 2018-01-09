@@ -20,12 +20,12 @@ public class DeckCard : MonoBehaviour {
     {
         if (inDeck)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
+            //if (Input.GetMouseButtonDown(0))
+            //{
                 deckEditor.playerDeck.Remove(gameObject);
                 deckEditor.instantiatedCards--;
                 Destroy(gameObject);
-            }
+            //}
         }
     }
 }
