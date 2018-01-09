@@ -58,6 +58,7 @@ public class EnemyAI : MonoBehaviour {
                     myDeck.inhandie.RemoveAt(i);
                     myDeck.inHand.RemoveAt(i);
                     myDeck.usedThisGame.Add(cards[card]);
+                    //myDeck.myMana.c -= 
                     Destroy(cardholders[card]);
                     StartCoroutine(StartEnemyTurn());
                     //destroys card
@@ -67,6 +68,7 @@ public class EnemyAI : MonoBehaviour {
         }
         else
         {
+            print(CardsAvailable());
             FightManager.instance.EndTurn();
         }
     }

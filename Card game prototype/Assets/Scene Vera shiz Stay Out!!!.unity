@@ -558,6 +558,7 @@ MonoBehaviour:
   enemyDeck: []
   myDeck: {fileID: 672958490}
   enemyCurrentDeck: {fileID: 685101991}
+  enemyAI: {fileID: 685101995}
   playerHealth: {fileID: 672284145}
   enemyHealth: {fileID: 1260717603}
   turn: 0
@@ -938,6 +939,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingDeck: []
   inHand: []
+  inhandie: []
   usedThisGame: []
   cardPrefab: {fileID: 1889662723908120, guid: 43233efabcbd7a04c810893edfb89cfd, type: 2}
   myMana: {fileID: 1689512800}
@@ -1028,6 +1030,7 @@ GameObject:
   - component: {fileID: 685101993}
   - component: {fileID: 685101992}
   - component: {fileID: 685101991}
+  - component: {fileID: 685101995}
   m_Layer: 5
   m_Name: EnemyCards
   m_TagString: Untagged
@@ -1066,8 +1069,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   remainingDeck: []
   inHand: []
+  inhandie: []
   usedThisGame: []
-  cardPrefab: {fileID: 1889662723908120, guid: 43233efabcbd7a04c810893edfb89cfd, type: 2}
+  cardPrefab: {fileID: 1599152093339668, guid: d209dca8212e70947bd69edbfe85d081, type: 2}
   myMana: {fileID: 1294186933}
   startAmount: 3
   side: 1
@@ -1126,6 +1130,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 685101989}
+--- !u!114 &685101995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 685101989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621677887b1335e459c768804bb2e37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myDeck: {fileID: 685101991}
+  cardholders: []
+  cards: []
 --- !u!1 &1071971813
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,6 +1473,7 @@ MonoBehaviour:
   - {fileID: 1626964248}
   - {fileID: 648224889}
   - {fileID: 1512012300}
+  emptyManaCrystals: []
 --- !u!114 &1294186934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2036,6 +2055,7 @@ MonoBehaviour:
   - {fileID: 422631866}
   - {fileID: 1589779318}
   - {fileID: 1071971815}
+  emptyManaCrystals: []
 --- !u!1 &1711122558
 GameObject:
   m_ObjectHideFlags: 0

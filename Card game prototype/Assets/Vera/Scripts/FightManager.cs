@@ -13,6 +13,7 @@ public class FightManager : MonoBehaviour {
     public CurrentDeck myDeck;
     public CurrentDeck enemyCurrentDeck;
     public static bool inFight;
+    public EnemyAI enemyAI;
 
     public Image playerHealth;
     public Image enemyHealth;
@@ -81,6 +82,7 @@ public class FightManager : MonoBehaviour {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
             enemyCurrentDeck.GetNewCard();
+            enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
         else
         {
@@ -105,7 +107,6 @@ public class FightManager : MonoBehaviour {
         {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
-            print("TEst Mana");
         }
     }
 
