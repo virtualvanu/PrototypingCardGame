@@ -24,15 +24,37 @@ public class EnemyAI : MonoBehaviour {
 
     public bool CardsAvailable()
     {
+        bool fullhealth = false;
+        if(FightManager.instance.enemy.currentHealth == FightManager.instance.enemy.maxHealth)
+        {
+            fullhealth = true;
+        }
+        if(Random.Range(0,100) < 10)
+        {
+            return false;
+        }
         cards.Clear();
         cardholders.Clear();
         for (int i = 0; i < myDeck.inHand.Count; i++)
         {
-            if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana)
+            if(fullhealth == true)
             {
-                cards.Add(myDeck.inHand[i]);
-                cardholders.Add(myDeck.inhandie[i]);
+                if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana && myDeck.inHand[i].GetType() != typeof(Card_Heal))
+                {
+                    cards.Add(myDeck.inHand[i]);
+                    cardholders.Add(myDeck.inhandie[i]);
+                }
             }
+
+            else
+            {
+                if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana)
+                {
+                    cards.Add(myDeck.inHand[i]);
+                    cardholders.Add(myDeck.inhandie[i]);
+                }
+            }
+
         }
         if(cards.Count != 0)
         {
