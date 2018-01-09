@@ -47,6 +47,41 @@ public class FightManager : MonoBehaviour {
         myDeck.remainingDeck = playerDeck;
         enemyCurrentDeck.remainingDeck = enemyDeck;
         print(playerDeck.Count);
+        StartGame();
+    }
+
+    public void EndTurn()
+    {
+        if(turn == Turn.player)
+        {
+            turn = Turn.enemy;
+            enemyCurrentDeck.myMana.StartTurn();
+            enemyCurrentDeck.GetNewCard();
+        }
+        else
+        {
+            turn = Turn.player;
+            myDeck.myMana.StartTurn();
+            myDeck.GetNewCard();
+        }
+    }
+
+    public void StartGame()
+    {
+        enemyCurrentDeck.Setup();
         myDeck.Setup();
+
+        int i = Random.Range(0, 1);
+        if(i == 0)
+        {
+            turn = Turn.player;
+            myDeck.myMana.StartTurn();
+        }
+        else
+        {
+            turn = Turn.enemy;
+            enemyCurrentDeck.myMana.StartTurn();
+            print("TEst Mana");
+        }
     }
 }

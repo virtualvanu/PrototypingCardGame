@@ -11,7 +11,6 @@ public class ManaCount : MonoBehaviour {
     public List<Image> manaCrystals = new List<Image>();
 	void Start () {
         maxMana = manaCrystals.Count;
-        StartTurn();
 	}
 	
 	// Update is called once per frame

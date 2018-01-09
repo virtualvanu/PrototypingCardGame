@@ -115,10 +115,39 @@ public class CardHolder : MonoBehaviour
 
     public void UseButton()
     {
-        if(mana.CheckMana(card.manaCost) == true)
+        if (FightManager.instance.turn == FightManager.Turn.player && side == Side.Player)
         {
-            deck.RemoveFromHand(card);
-            card.Use(this);
+            if (mana.CheckMana(card.manaCost) == true)
+            {
+                deck.RemoveFromHand(card);
+                card.Use(this);
+            }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("Normal");
+            }
+        }
+        else
+        {
+            GetComponent<Animator>().SetTrigger("Normal");
+        }
+        
+        if (FightManager.instance.turn == FightManager.Turn.enemy && side == Side.Enemy)
+        {
+            if (mana.CheckMana(card.manaCost) == true)
+            {
+                deck.RemoveFromHand(card);
+                card.Use(this);
+            }
+            else
+            {
+                GetComponent<Animator>().SetTrigger("Normal");
+            }
+        }
+        else
+        {
+            GetComponent<Animator>().SetTrigger("Normal");
+
         }
 
     }
