@@ -14,6 +14,7 @@ public class ManaCount : MonoBehaviour
 
     [Header("Crystal Movement")]
     public float rotateSpeed;
+    public float turnSpeed;
 
     void Start ()
     {
@@ -23,6 +24,10 @@ public class ManaCount : MonoBehaviour
     private void Update()
     {
         transform.Rotate(0, 0, -(Time.deltaTime * rotateSpeed));
+        foreach (Image manaCrystal in manaCrystals)
+        {
+            manaCrystal.transform.Rotate(0, 0, -(Time.deltaTime * turnSpeed));
+        }
     }
 
     public void StartTurn()
