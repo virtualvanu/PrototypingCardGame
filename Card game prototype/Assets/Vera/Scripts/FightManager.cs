@@ -30,11 +30,27 @@ public class FightManager : MonoBehaviour {
     public Color damageColor;
     public Color healColor;
 
+    [Header("Color Lerping")]
+    public float lerpSpeed;
+    [Space(10)]
+    public Color defaultColor;
+    public Color lerpColor;
 
     private void Update()
     {
         playerHealth.fillAmount = (float)player.currentHealth / player.maxHealth;
         enemyHealth.fillAmount = (float)enemy.currentHealth / enemy.maxHealth;
+
+        if (turn == Turn.player)
+        {
+            playerHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            enemyHealth.color = defaultColor;
+        }
+        else
+        {
+            enemyHealth.color = Color.Lerp(defaultColor, lerpColor, Mathf.PingPong(Time.time * lerpSpeed, 1));
+            playerHealth.color = defaultColor;
+        }
     }
 
     private void Awake()
