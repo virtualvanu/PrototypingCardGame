@@ -1876,6 +1876,7 @@ MonoBehaviour:
   myDeck: {fileID: 685101991}
   cardholders: []
   cards: []
+  endTurnButton: {fileID: 372846037}
 --- !u!1 &731119138
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour {
 
     public CurrentDeck myDeck;
     public List<GameObject> cardholders = new List<GameObject>();
     public List<Card> cards = new List<Card>();
+
+    public Button endTurnButton;
 	void Start () {
 		
 	}
@@ -19,7 +22,7 @@ public class EnemyAI : MonoBehaviour {
     public IEnumerator StartEnemyTurn()
     {
         yield return new WaitForSeconds(Random.Range(1, 6));
-        EnemyTurn();
+        StartCoroutine(EnemyTurn());
     }
 
     public bool CardsAvailable()
@@ -65,13 +68,19 @@ public class EnemyAI : MonoBehaviour {
         }
     }
 
-    public void EnemyTurn()
+    public IEnumerator EnemyTurn()
     {
         print(CardsAvailable());
         if (CardsAvailable())
         {
             int card = Random.Range(0, cards.Count);
+
+            cardholders[card].GetComponent<Animator>().SetTrigger("Highlighted");
+            yield return new WaitForSeconds(cardholders[card].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            cardholders[card].GetComponent<Animator>().SetTrigger("Pressed");
+            yield return new WaitForSeconds(2f);
             cards[card].Use(cardholders[card].GetComponent<CardHolder>());
+
             for (int i = 0; i < myDeck.inHand.Count; i++)
             {
                 if (myDeck.inHand[i] == cards[card])
@@ -80,9 +89,9 @@ public class EnemyAI : MonoBehaviour {
                     myDeck.inHand.RemoveAt(i);
                     myDeck.usedThisGame.Add(cards[card]);
                     myDeck.myMana.CheckMana(cards[card].manaCost);
-                    Destroy(cardholders[card]);
+                    //Destroy(cardholders[card]); // de card wordt al gedestroyed in de Use() na het dissolven
                     StartCoroutine(StartEnemyTurn());
-                    return;
+                    yield break;
                     //destroys card
                 }
             }
@@ -90,7 +99,9 @@ public class EnemyAI : MonoBehaviour {
         }
         else
         {
-            FightManager.instance.EndTurn();
+            endTurnButton.GetComponent<Animator>().SetTrigger("Highlighted");
+            endTurnButton.onClick.Invoke();
+            endTurnButton.GetComponent<Animator>().SetTrigger("Pressed");
         }
     }
 }

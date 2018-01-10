@@ -33,8 +33,6 @@ public class Card : ScriptableObject
         Debug.Log("Used the card: " + cardName);
 
         myHolder.DissolveCard();
-
-        // remove from hand
     }
 
     public virtual void TriggerEffect(Character target, Transform damageTextPos)

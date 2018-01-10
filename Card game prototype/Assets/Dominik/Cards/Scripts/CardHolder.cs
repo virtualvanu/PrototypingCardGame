@@ -63,7 +63,10 @@ public class CardHolder : MonoBehaviour
         images = GetComponentsInChildren<Image>();
         foreach (Image image in images)
         {
-            image.material = new Material(image.material);
+            if (image.material.name == "Card")
+            {
+                image.material = new Material(image.material);
+            }
         }
     }
 
@@ -127,12 +130,7 @@ public class CardHolder : MonoBehaviour
                 GetComponent<Animator>().SetTrigger("Normal");
             }
         }
-        else
-        {
-            GetComponent<Animator>().SetTrigger("Normal");
-        }
-        
-        if (FightManager.instance.turn == FightManager.Turn.enemy && side == Side.Enemy)
+        else if (FightManager.instance.turn == FightManager.Turn.enemy && side == Side.Enemy)
         {
             if (mana.CheckMana(card.manaCost) == true)
             {
@@ -147,8 +145,6 @@ public class CardHolder : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetTrigger("Normal");
-
         }
-
     }
 }

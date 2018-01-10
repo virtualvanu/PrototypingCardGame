@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 222933463367162620}
   - component: {fileID: 114701372551623314}
   m_Layer: 5
-  m_Name: CardManaCrystalHolder (1)
+  m_Name: CardManaCrystalOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 222860733777317252}
   - component: {fileID: 114884052372721094}
   m_Layer: 5
-  m_Name: CardImage (1)
+  m_Name: CardOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,7 +189,7 @@ Animator:
   m_GameObject: {fileID: 1599152093339668}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: caccf57ec29814c4a83d6c634cdc0f90, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3588ffbbc2941c047b9a39d7093c2ad3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a6b6aa2f38222bd4791c3636c7190674, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: a6b6aa2f38222bd4791c3636c7190674, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
