@@ -42,7 +42,7 @@ public class EffectManager : MonoBehaviour
         {
             activePlayerEffects.Add(newEffect);
         }
-        else
+        else if (newEffect.damageTarget == FightManager.instance.enemy)
         {
             activeEnemyEffects.Add(newEffect);
         }
@@ -98,7 +98,14 @@ public class EffectManager : MonoBehaviour
         {
             for (int i = 0; i < endedEffects.Count; i++)
             {
-                activePlayerEffects.Remove(endedEffects[i]);
+                if (endedEffects[i].damageTarget == FightManager.instance.player)
+                {
+                    activePlayerEffects.Remove(endedEffects[i]);
+                }
+                else if (endedEffects[i].damageTarget == FightManager.instance.enemy)
+                {
+                    activeEnemyEffects.Remove(endedEffects[i]);
+                }
             }
         }
 

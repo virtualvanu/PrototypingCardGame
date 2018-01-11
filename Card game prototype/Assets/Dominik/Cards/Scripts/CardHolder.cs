@@ -92,6 +92,12 @@ public class CardHolder : MonoBehaviour
                 newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
                 newAttribute.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = duration.ToString();
                 break;
+            case 3:
+
+                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
+                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                newAttribute.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = duration.ToString();
+                break;
         }
     }
 
