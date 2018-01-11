@@ -31,13 +31,13 @@ public class Character : ScriptableObject
         {
             case Type.Enemy:
 
-                FightManager.instance.enemy = this;
-                FightManager.instance.enemyDeck = new List<Card>(deck);
+                //FightManager.instance.enemy = this;
+                //FightManager.instance.enemyDeck = new List<Card>(deck);
                 break;
             case Type.Player:
 
-                FightManager.instance.player = this;
-                FightManager.instance.playerDeck = new List<Card>(deck);
+                //FightManager.instance.player = this;
+                //FightManager.instance.playerDeck = new List<Card>(deck);
                 break;
         }
 
