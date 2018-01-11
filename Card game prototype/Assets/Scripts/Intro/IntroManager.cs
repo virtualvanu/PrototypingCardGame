@@ -52,7 +52,7 @@ public class IntroManager : MonoBehaviour
 
     public void ConfirmCharacterButton()
     {
-
+        GameManager.instance.opponents.Remove(GameManager.instance.player);
     }
 
     public void DeselectAllCharacters()

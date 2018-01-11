@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: 1
   cardName: Entangling of Doom
-  manaCost: 0
+  manaCost: 1
   level: 1
   icon: {fileID: 0}
   damage: 1

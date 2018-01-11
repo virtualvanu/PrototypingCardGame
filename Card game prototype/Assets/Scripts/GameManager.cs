@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Characters")]
     public Character player;
-    public List<Character> allCharacters = new List<Character>();
+    public List<Character> opponents = new List<Character>();
 
     private void Awake()
     {
