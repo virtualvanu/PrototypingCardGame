@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
+  m_Name: Amasea
+  m_EditorClassIdentifier: 
+  characterName: Amasea
+  maxHealth: 0
+  currentHealth: 0
+  shieldHealth: 0
+  deck:
+  - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
+  - {fileID: 11400000, guid: b9518dad44b73614d91b195aa7f8d956, type: 2}
+  - {fileID: 11400000, guid: fde39bb5942612144b907ac9949fe5d8, type: 2}
+  - {fileID: 11400000, guid: 2ccd764b2517acb4fa8ae3ffdfc199da, type: 2}
+  - {fileID: 11400000, guid: f8166a906683fc64684792a4b43a4878, type: 2}
+  - {fileID: 11400000, guid: 5af409bc7479d0f4da8da3667203bf6c, type: 2}
+  - {fileID: 11400000, guid: 1b0e8be9d2cd74f45aa287bfc9e5b139, type: 2}
+  - {fileID: 11400000, guid: af32a3cef5809554fb4ffdc98187e63f, type: 2}
+  - {fileID: 11400000, guid: 8885983b139be1c44ba4b7328eb49333, type: 2}
+  type: 0
