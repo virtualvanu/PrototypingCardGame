@@ -91,13 +91,14 @@ public class FightManager : MonoBehaviour {
             enemyCurrentDeck.GetNewCard();
             enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
-        else
-        {
-            turn = Turn.player;
-            myDeck.myMana.StartTurn();
-            myDeck.GetNewCard();
-        }
+        EffectManager.instance.TriggerEffects();
+    }
 
+    public void EndTurnEnemy()
+    {
+        turn = Turn.player;
+        myDeck.myMana.StartTurn();
+        myDeck.GetNewCard();
         EffectManager.instance.TriggerEffects();
     }
 

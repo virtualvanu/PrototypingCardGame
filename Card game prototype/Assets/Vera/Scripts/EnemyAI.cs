@@ -100,7 +100,7 @@ public class EnemyAI : MonoBehaviour {
         else
         {
             endTurnButton.GetComponent<Animator>().SetTrigger("Highlighted");
-            endTurnButton.onClick.Invoke();
+            FightManager.instance.EndTurnEnemy();
             endTurnButton.GetComponent<Animator>().SetTrigger("Pressed");
         }
     }
