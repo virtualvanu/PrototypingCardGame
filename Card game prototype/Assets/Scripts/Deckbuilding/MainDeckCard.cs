@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class MainDeckCard : MonoBehaviour {
     MainDeck mDeck;
-    GameManager gm;
-	// Use this for initialization
-	void Start () {
+
+    public GameObject fightButton;
+    public GameObject deckButton;
+
+    // Use this for initialization
+    void Start () {
         mDeck = GameObject.FindGameObjectWithTag("MainDeck").GetComponent<MainDeck>();
-        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+        fightButton = GameObject.FindGameObjectWithTag("FightButton");
+        deckButton = GameObject.FindGameObjectWithTag("DeckButton");
+
+        fightButton.SetActive(false);
+        deckButton.SetActive(false);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -21,8 +30,8 @@ public class MainDeckCard : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             GameObject g = Instantiate(mDeck.deck[Random.Range(0, mDeck.deck.Count)].gameObject, transform.position, Quaternion.identity);
-            gm.fightButton.SetActive(true);
-            gm.deckButton.SetActive(true);
+            fightButton.SetActive(true);
+            deckButton.SetActive(true);
             Destroy(gameObject);
         }
     }
