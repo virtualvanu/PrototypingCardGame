@@ -24,12 +24,10 @@ public class Card_Heal : Card
 
         if (myTarget.currentHealth > (myTarget.maxHealth - healAmount))
         {
-            Debug.Log("Heal card healed " + (myTarget.maxHealth - myTarget.currentHealth) + " health");
             myTarget.currentHealth = myTarget.maxHealth;
         }
         else
         {
-            Debug.Log("Heal card healed " + healAmount + " health");
             myTarget.currentHealth += healAmount;
         }
 

@@ -4,4 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Intro.unity
+    guid: 2a64af0473565b747b11a911995b2bc1
+  - enabled: 1
+    path: Assets/Scene Peter.unity
+    guid: f6a73e3497a22614a9e09927e1b0e92e
+  - enabled: 1
+    path: Assets/Scene Vera shiz Stay Out!!!.unity
+    guid: 752f70e63797ece43ac13309eb81f7ee

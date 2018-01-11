@@ -21,20 +21,6 @@ public class Card_HOT : Card
     {
         base.Use(myHolder);
 
-        Character myTarget = DetermineTarget(myHolder);
-
-        if (myTarget.currentHealth > (myTarget.maxHealth - healAmount))
-        {
-            Debug.Log("HOT card healed " + (myTarget.maxHealth - myTarget.currentHealth) + " health");
-            myTarget.currentHealth = myTarget.maxHealth;
-        }
-        else
-        {
-            Debug.Log("HOT card healed " + healAmount + " health");
-            myTarget.currentHealth += healAmount;
-        }
-
-        FightManager.instance.SpawnDamageText(healAmount, false, DetermineDamageTextTarget(myHolder));
         EffectManager.instance.AddEffect(myHolder, healAmount, duration);
     }
 
@@ -42,12 +28,10 @@ public class Card_HOT : Card
     {
         if (target.currentHealth > (target.maxHealth - healAmount))
         {
-            Debug.Log("HOT card healed " + (target.maxHealth - target.currentHealth) + " health");
             target.currentHealth = target.maxHealth;
         }
         else
         {
-            Debug.Log("HOT card healed " + healAmount + " health");
             target.currentHealth += healAmount;
         }
 

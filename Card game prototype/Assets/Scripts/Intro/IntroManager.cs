@@ -5,6 +5,8 @@ using UnityEngine;
 public class IntroManager : MonoBehaviour
 {
 
+    public static IntroManager instance;
+
     public static bool hasCharacter;
 
     public GameObject titlePanel;
@@ -14,35 +16,23 @@ public class IntroManager : MonoBehaviour
 
     public float buttonLerpDelay;
 
-    public GameObject testParticle;
-    public Transform testRayOrigin;
-
-    private void Update()
+    private void Awake()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (instance == null)
         {
-            Test();
+            instance = this;
         }
-    }
-
-    private void Test()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Camera.main.transform.forward);
-        Vector3 rayEnd = ray.origin + (ray.direction * 10);
-
-        print(rayEnd);
-        testParticle.transform.position = rayEnd;
     }
 
     public void PlayButton()
     {
         if (hasCharacter)
         {
-            // continue to level select scene
+            // Go to level select scene
         }
         else
         {
-            // create a character
+            // Pick a character to play
             titlePanel.SetActive(false);
             characterCreationPanel.SetActive(true);
             StartCoroutine(ReadyClassButtons());
@@ -57,6 +47,19 @@ public class IntroManager : MonoBehaviour
             child.GetComponent<ClassButton>().canLerp = true;
 
             yield return new WaitForSeconds(buttonLerpDelay);
+        }
+    }
+
+    public void ConfirmCharacterButton()
+    {
+
+    }
+
+    public void DeselectAllCharacters()
+    {
+        for (int i = 0; i < classButtons.transform.childCount; i++)
+        {
+            classButtons.transform.GetChild(i).GetComponent<ClassButton>().selectedOverlay.SetActive(false);
         }
     }
 }
