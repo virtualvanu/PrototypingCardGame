@@ -28,11 +28,6 @@ public class DeckBuilderCardHolder : MonoBehaviour
     {
         if (!awakened)
         {
-            if (!FightManager.inFight)
-            {
-                LoadCard();
-            }
-
             awakened = true;
         }
        

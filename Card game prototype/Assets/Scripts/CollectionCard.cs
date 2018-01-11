@@ -10,6 +10,10 @@ public class CollectionCard : MonoBehaviour {
 
     private GameObject previewCard;
     private Vector3 startScale;
+
+    public bool inCollection;
+
+    
 	// Use this for initialization
 	void Start () {
         //If scene = collection scene of iets dergelijks
@@ -30,6 +34,8 @@ public class CollectionCard : MonoBehaviour {
 		
 	}
 
+    
+
     public void Click()
     {
         
@@ -37,15 +43,16 @@ public class CollectionCard : MonoBehaviour {
         {
             if (deckEditor.isEditing)
             {
-                if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
-                {
-                    GameObject w = Instantiate(gameObject);
-                    deckEditor.playerDeck.Add(w.GetComponent<DeckBuilderCardHolder>().card);
+                deckEditor.AddToDeck(gameObject);
+                //if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
+                //{
+                //    GameObject w = Instantiate(gameObject);
+                //    deckEditor.playerDeck.Add(w.GetComponent<DeckBuilderCardHolder>().card);
                    
-                    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
-                    deckEditor.ShowDeckCards(w);
+                //    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
+                //    deckEditor.ShowDeckCards(w);
 
-                }
+                //}
 
                 
             }

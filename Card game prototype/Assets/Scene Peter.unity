@@ -425,12 +425,6 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114076359175921520, guid: a27d3f6eb53ebb84f8f055ea2d88be70,
-        type: 2}
-      propertyPath: card
-      value: 
-      objectReference: {fileID: 11400000, guid: 129b7b69abb6cde43b7c6d9a47963ee0,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a27d3f6eb53ebb84f8f055ea2d88be70, type: 2}
   m_IsPrefabParent: 0
@@ -1147,12 +1141,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1182707015}
-        m_MethodName: AddCardToCollection
+        m_MethodName: AddToDeck
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 27b55955c93e911479ca0fadb9c662ba,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Card, Assembly-CSharp
+          m_ObjectArgument: {fileID: 1954200918}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1499,13 +1492,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerDeck: []
+  collection: []
   maxDeckSize: 30
   zoompos: {fileID: 1824876481}
   instantiatedCards: 0
   isEditing: 0
   currentlyPreviewing: {fileID: 0}
-  deckBuilderCardHolderPrefab: {fileID: 1150589841869092, guid: a27d3f6eb53ebb84f8f055ea2d88be70,
-    type: 2}
+  deckBuilderCardHolderPrefab: {fileID: 1954200918}
+  test: {fileID: 11400000, guid: ebe7d31933bc610418799532c37db9c2, type: 2}
 --- !u!4 &1182707016
 Transform:
   m_ObjectHideFlags: 0
@@ -2249,6 +2243,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &1954200918 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1150589841869092, guid: a27d3f6eb53ebb84f8f055ea2d88be70,
+    type: 2}
+  m_PrefabInternal: {fileID: 195226582}
 --- !u!1 &1983855115
 GameObject:
   m_ObjectHideFlags: 0
