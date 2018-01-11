@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour {
     public static FightManager instance;
@@ -19,6 +20,9 @@ public class FightManager : MonoBehaviour {
     public GameObject playerHealthObject;
     public Image enemyHealth;
     public GameObject enemyHealthObject;
+
+    public GameObject gameEndPanel;
+    public TextMeshProUGUI resultText;
 
     public enum Turn
     {
@@ -59,10 +63,21 @@ public class FightManager : MonoBehaviour {
 
             enemyHealthObject.transform.localScale = new Vector3(Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f, Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f);
         }
+
+        if (player.currentHealth <= 0)
+        {
+            EndGame(false);
+        }
+        else if (enemy.currentHealth <= 0)
+        {
+            EndGame(true);
+        }
     }
 
     private void Awake()
     {
+        Time.timeScale = 1;
+
         inFight = true;
         if(instance == null)
         {
@@ -143,5 +158,31 @@ public class FightManager : MonoBehaviour {
 
             damageTextComponent.text.color = healColor;
         }
+    }
+
+    public void EndGame(bool victory)
+    {
+        Time.timeScale = 0;
+
+        switch (victory)
+        {
+            case true:
+
+                resultText.text = "Victory!";
+                resultText.color = Color.green;
+                break;
+            case false:
+
+                resultText.text = "Defeat!";
+                resultText.color = Color.red;
+                break;
+        }
+
+        gameEndPanel.SetActive(true);
+    }
+
+    public void RestartGameButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

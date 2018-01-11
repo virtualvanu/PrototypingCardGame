@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Alanea
   maxHealth: 15
-  currentHealth: 13
+  currentHealth: 9
   shieldHealth: 0
   deck:
   - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
