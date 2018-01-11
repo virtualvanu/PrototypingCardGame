@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: New Card_HOT 1
   m_EditorClassIdentifier: 
   target: 0
-  cardName: 
-  manaCost: 0
-  level: 0
+  cardName: Chain Heal
+  manaCost: 2
+  level: 1
   icon: {fileID: 0}
-  healAmount: 0
-  duration: 0
+  healAmount: 1
+  duration: 4

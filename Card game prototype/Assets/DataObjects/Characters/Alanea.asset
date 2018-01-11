@@ -12,20 +12,38 @@ MonoBehaviour:
   m_Name: Alanea
   m_EditorClassIdentifier: 
   characterName: Alanea
-  maxHealth: 15
-  currentHealth: 9
+  maxHealth: 30
+  currentHealth: 30
   shieldHealth: 0
   deck:
-  - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
-  - {fileID: 11400000, guid: b9518dad44b73614d91b195aa7f8d956, type: 2}
-  - {fileID: 11400000, guid: fde39bb5942612144b907ac9949fe5d8, type: 2}
-  - {fileID: 11400000, guid: f8166a906683fc64684792a4b43a4878, type: 2}
-  - {fileID: 11400000, guid: 5af409bc7479d0f4da8da3667203bf6c, type: 2}
-  - {fileID: 11400000, guid: 1b0e8be9d2cd74f45aa287bfc9e5b139, type: 2}
-  - {fileID: 11400000, guid: af32a3cef5809554fb4ffdc98187e63f, type: 2}
-  - {fileID: 11400000, guid: 8885983b139be1c44ba4b7328eb49333, type: 2}
-  - {fileID: 11400000, guid: 2ccd764b2517acb4fa8ae3ffdfc199da, type: 2}
-  - {fileID: 11400000, guid: 4aadfa43258a3b140b7033706da9294b, type: 2}
-  - {fileID: 11400000, guid: 08ef5ea8479fc83458df9af21eeac0ca, type: 2}
-  - {fileID: 11400000, guid: f0f4551343418b14fa8a952cbb2124a1, type: 2}
+  - {fileID: 11400000, guid: 17b8872dd0e0ff74b8afcc745fd49158, type: 2}
+  - {fileID: 11400000, guid: c9e0f7ebd75a3534ab2a64cc2cc991bf, type: 2}
+  - {fileID: 11400000, guid: 94079a165f6f34c46b90c1d30b0706e6, type: 2}
+  - {fileID: 11400000, guid: 5647501cb1d8a0840a636400b00d56e9, type: 2}
+  - {fileID: 11400000, guid: ba034a84938e8934db09968f677d7179, type: 2}
+  - {fileID: 11400000, guid: f6a8be3398831fa418d06cafb3b17b55, type: 2}
+  - {fileID: 11400000, guid: c13f14ff14a037543ad8bc717f1fb129, type: 2}
+  - {fileID: 11400000, guid: d007d30c774926341a8dc394006ea7cf, type: 2}
+  - {fileID: 11400000, guid: 8ad679c6068461b46a1cfc43537f8283, type: 2}
+  - {fileID: 11400000, guid: 46fb25e70a890454ba5199a83cbbc281, type: 2}
+  - {fileID: 11400000, guid: 16007c3a4c5db674cac12f13589ca17d, type: 2}
+  - {fileID: 11400000, guid: 67fa40e9eb9a9bc42927f87eaab4cbca, type: 2}
+  - {fileID: 11400000, guid: e9a9e90e8c965eb438874183918ab4d6, type: 2}
+  - {fileID: 11400000, guid: 28286837a894d6d4baa155c61f12016e, type: 2}
+  - {fileID: 11400000, guid: b71e4d8585b550a4189233f6d71f039d, type: 2}
+  - {fileID: 11400000, guid: 3cf4ce7dc91b802498e2ece6728f1a9e, type: 2}
+  - {fileID: 11400000, guid: 7e404c3767ceb4c4b8270fee035a52ff, type: 2}
+  - {fileID: 11400000, guid: c27252f157d80cd4595eec8acbe9175f, type: 2}
+  - {fileID: 11400000, guid: a8d4183e41b30f14b8c8d750f8ae5be1, type: 2}
+  - {fileID: 11400000, guid: d85eae21362283d43824c7459d4e67f6, type: 2}
+  - {fileID: 11400000, guid: 8ede067e5cac7c54a8a1c151d895ae4e, type: 2}
+  - {fileID: 11400000, guid: a2aa4d4aac441b647ab4f31b72380ced, type: 2}
+  - {fileID: 11400000, guid: 561f36ce147925a4a981ebf7f6878e6d, type: 2}
+  - {fileID: 11400000, guid: 98f46aa60397fc143844a3599755e270, type: 2}
+  - {fileID: 11400000, guid: f43a4fa42b50db84fb3472826c0b8934, type: 2}
+  - {fileID: 11400000, guid: 403c2b5838d87bb408656e517a24ac11, type: 2}
+  - {fileID: 11400000, guid: a61d2a8ff907619408d7edf6dcd43c61, type: 2}
+  - {fileID: 11400000, guid: d0616f79d55bdcb489229c683dcbacd9, type: 2}
+  - {fileID: 11400000, guid: 9dd8525d1d671d245a71bb831ca79a48, type: 2}
+  - {fileID: 11400000, guid: 4df0edd7e640cc9409a6dcd2a143b94c, type: 2}
   type: 1
