@@ -10,12 +10,19 @@ public class EffectManager : MonoBehaviour
     public List<Effect> activePlayerEffects = new List<Effect>();
     public List<Effect> activeEnemyEffects = new List<Effect>();
     [Space(10)]
+    public List<Effect> passivePlayerEffects = new List<Effect>();
+    public List<Effect> passiveEnemyEffects = new List<Effect>();
+    [Space(10)]
     private List<Effect> endedEffects = new List<Effect>();
+    [Space(10)]
+    private List<Effect> endedPassiveEffects = new List<Effect>();
 
     public GameObject playerDotEffectIcon;
     public GameObject playerHotEffectIcon;
+    public GameObject playerDmgIncreaseEffectIcon;
     public GameObject enemyDotEffectIcon;
     public GameObject enemyHotEffectIcon;
+    public GameObject enemyDmgIncreaseEffectIcon;
 
     private void Awake()
     {
@@ -25,10 +32,11 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void AddEffect(CardHolder giver, int amount, int duration)
+    public void AddEffect(CardHolder giver, Effect.Type type, int amount, int duration)
     {
         Effect newEffect = new Effect
         {
+            type = type,
             effectGiver = giver.card,
 
             amount = amount,
@@ -48,6 +56,33 @@ public class EffectManager : MonoBehaviour
         }
 
         CheckActiveEffects();
+        CheckActivePassiveEffects();
+    }
+
+    public void AddEffect(CardHolder giver, Effect.Type type, int amount)
+    {
+        Effect newEffect = new Effect
+        {
+            type = type,
+            effectGiver = giver.card,
+
+            amount = amount,
+
+            damageTarget = giver.card.DetermineTarget(giver),
+            damageTextTarget = giver.card.DetermineDamageTextTarget(giver)
+        };
+
+        if (newEffect.damageTarget == FightManager.instance.player)
+        {
+            passivePlayerEffects.Add(newEffect);
+        }
+        else if (newEffect.damageTarget == FightManager.instance.enemy)
+        {
+            passiveEnemyEffects.Add(newEffect);
+        }
+
+        CheckActiveEffects();
+        CheckActivePassiveEffects();
     }
 
     public void TriggerEffects()
@@ -92,6 +127,26 @@ public class EffectManager : MonoBehaviour
         RemoveEndedEffects();
     }
 
+    public void TriggerPassiveEffects(Character target)
+    {
+        if (target == FightManager.instance.player)
+        {
+            foreach (Effect effect in passiveEnemyEffects)
+            {
+                endedPassiveEffects.Add(effect);
+            }
+        }
+        else if (target == FightManager.instance.enemy)
+        {
+            foreach (Effect effect in passivePlayerEffects)
+            {
+                endedPassiveEffects.Add(effect);
+            }
+        }
+
+        RemoveEndedPassiveEffects();
+    }
+
     private void RemoveEndedEffects()
     {
         if (endedEffects.Count > 0)
@@ -110,6 +165,26 @@ public class EffectManager : MonoBehaviour
         }
 
         CheckActiveEffects();
+    }
+
+    private void RemoveEndedPassiveEffects()
+    {
+        if (endedPassiveEffects.Count > 0)
+        {
+            for (int i = 0; i < endedPassiveEffects.Count; i++)
+            {
+                if (endedPassiveEffects[i].damageTarget == FightManager.instance.player)
+                {
+                    passivePlayerEffects.Remove(endedPassiveEffects[i]);
+                }
+                else if (endedPassiveEffects[i].damageTarget == FightManager.instance.enemy)
+                {
+                    passiveEnemyEffects.Remove(endedPassiveEffects[i]);
+                }
+            }
+        }
+
+        CheckActivePassiveEffects();
     }
 
     private void CheckActiveEffects()
@@ -143,5 +218,53 @@ public class EffectManager : MonoBehaviour
                 enemyHotEffectIcon.SetActive(true);
             }
         }
+    }
+
+    public void CheckActivePassiveEffects()
+    {
+        playerDmgIncreaseEffectIcon.SetActive(false);
+
+        foreach (Effect effect in passivePlayerEffects)
+        {
+            if (effect.type == Effect.Type.DamageIncrease)
+            {
+                playerDmgIncreaseEffectIcon.SetActive(true);
+            }
+        }
+
+        enemyDmgIncreaseEffectIcon.SetActive(false);
+
+        foreach (Effect effect in passiveEnemyEffects)
+        {
+            if (effect.type == Effect.Type.DamageIncrease)
+            {
+                enemyDmgIncreaseEffectIcon.SetActive(true);
+            }
+        }
+    }
+
+    public int CheckForPassiveEffect(Effect.Type type, Character target)
+    {
+        List<Effect> toSearchThrough = new List<Effect>();
+        int effectValue = 0;
+
+        if (target == FightManager.instance.player)
+        {
+            toSearchThrough = passiveEnemyEffects;
+        }
+        else if (target == FightManager.instance.enemy)
+        {
+            toSearchThrough = passivePlayerEffects;
+        }
+
+        for (int i = 0; i < toSearchThrough.Count; i++)
+        {
+            if (toSearchThrough[i].type == type)
+            {
+                effectValue += toSearchThrough[i].amount;
+            }
+        }
+
+        return effectValue;
     }
 }

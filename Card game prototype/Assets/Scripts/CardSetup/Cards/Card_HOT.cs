@@ -21,7 +21,7 @@ public class Card_HOT : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, healAmount, duration);
+        EffectManager.instance.AddEffect(myHolder, Effect.Type.HOT, healAmount, duration);
     }
 
     public override void TriggerEffect(Character target, Transform damageTextPos)
