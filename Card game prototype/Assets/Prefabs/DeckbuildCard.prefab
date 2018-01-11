@@ -183,7 +183,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: dot3
+  m_text: Blob
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1141d87c2aeef60429d6a830c982acf9, type: 2}
   m_sharedMaterial: {fileID: 21816672380319136, guid: 1141d87c2aeef60429d6a830c982acf9,
@@ -312,6 +312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySprite: {fileID: 0}
   deckEditor: {fileID: 0}
+  inCollection: 0
+  amountInCollection: 0
 --- !u!114 &114076359175921520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -324,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   awakened: 0
-  card: {fileID: 0}
+  card: {fileID: 11400000, guid: 129b7b69abb6cde43b7c6d9a47963ee0, type: 2}
   nameText: {fileID: 114013130757713714}
   iconImage: {fileID: 114434010824516940}
   manaCrystalHolder: {fileID: 224151409744568734}
@@ -349,6 +351,7 @@ MonoBehaviour:
   deckEditor: {fileID: 0}
   inDeck: 0
   myIndex: 0
+  mySceneObject: {fileID: 0}
 --- !u!114 &114434010824516940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -368,7 +371,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: ad8e0c64dea86894cb59d15c0fd0e653, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

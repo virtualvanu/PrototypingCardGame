@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class DeckBuilding : MonoBehaviour {
     public List<Card> playerDeck = new List<Card>();
     public List<GameObject> collection = new List<GameObject>();
@@ -18,7 +19,8 @@ public class DeckBuilding : MonoBehaviour {
 
     public GameObject deckBuilderCardHolderPrefab;
 
-    public Character test;
+    public Character test; //DELET DIS(Testing var)
+    public TextMeshProUGUI amountLeftText;
 	// Use this for initialization
 	void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
@@ -34,6 +36,11 @@ public class DeckBuilding : MonoBehaviour {
 	void Update () {
        
 	}
+
+    public void SetAmountText(GameObject card)
+    {
+        amountLeftText.text = "Amount of " + card.GetComponent<DeckBuilderCardHolder>().card.cardName + " " + "left: " + "\n" + card.GetComponent<CollectionCard>().amountInCollection;
+    }
 
     public void StartEditing()
     {
@@ -95,6 +102,7 @@ public class DeckBuilding : MonoBehaviour {
 
             w.GetComponent<DeckCard>().myIndex = playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
             w.GetComponent<DeckCard>().mySceneObject = toAdd;
+
             ShowDeckCards(w);
         }
      
@@ -103,9 +111,13 @@ public class DeckBuilding : MonoBehaviour {
     public void AddCardToCollection(Card cardToAdd)
     {
         GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
-        DeckBuilderCardHolder d = deckBuilderCardHolderPrefab.GetComponent<DeckBuilderCardHolder>();
+        DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
 
         d.card = cardToAdd;
+        d.LoadCard();
+
+        q.GetComponent<CollectionCard>().AddOne();
+
         collection.Add(q);
         
 
@@ -115,6 +127,7 @@ public class DeckBuilding : MonoBehaviour {
         q.transform.localPosition = collectionContent.transform.position;
   
         q.GetComponent<CollectionCard>().enabled = true;
+        q.GetComponent<CollectionCard>().inCollection = true;
         q.GetComponent<DeckCard>().enabled = false;
        
     }
@@ -123,23 +136,24 @@ public class DeckBuilding : MonoBehaviour {
     {
         foreach (Card c in cardToAdd)
         {
-            GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
-            DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
+            AddCardToCollection(c);
+            //GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
+            //DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
 
-            d.card = c;
-            d.LoadCard();
-            collection.Add(q);
+            //d.card = c;
+            //d.LoadCard();
+            //collection.Add(q);
             
 
 
-            q.transform.SetParent(collectionContent.transform, false);
+            //q.transform.SetParent(collectionContent.transform, false);
 
-            q.GetComponent<RectTransform>().localScale = new Vector3(.5F, .5F, 1F);
-            q.transform.localPosition = collectionContent.transform.position;
+            //q.GetComponent<RectTransform>().localScale = new Vector3(.5F, .5F, 1F);
+            //q.transform.localPosition = collectionContent.transform.position;
 
-            q.GetComponent<CollectionCard>().enabled = true;
-            q.GetComponent<CollectionCard>().inCollection = true;
-            q.GetComponent<DeckCard>().enabled = false;
+            //q.GetComponent<CollectionCard>().enabled = true;
+            //q.GetComponent<CollectionCard>().inCollection = true;
+            //q.GetComponent<DeckCard>().enabled = false;
 
             
         }

@@ -25,6 +25,7 @@ public class DeckCard : MonoBehaviour {
             //{
                 deckEditor.playerDeck.Remove(GetComponent<DeckBuilderCardHolder>().card);
                 deckEditor.instantiatedCards--;
+                mySceneObject.GetComponent<CollectionCard>().amountInCollection++;
                 if (!mySceneObject.GetComponent<CollectionCard>().inCollection)
                 {
                     Destroy(mySceneObject);

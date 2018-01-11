@@ -13,6 +13,8 @@ public class CollectionCard : MonoBehaviour {
 
     public bool inCollection;
 
+    public int amountInCollection;
+
     
 	// Use this for initialization
 	void Start () {
@@ -26,6 +28,8 @@ public class CollectionCard : MonoBehaviour {
 
             previewCard = gameObject;
             startScale = transform.localScale;
+
+            //amountInCollection = 5;
 
 	}
 	
@@ -43,7 +47,13 @@ public class CollectionCard : MonoBehaviour {
         {
             if (deckEditor.isEditing)
             {
-                deckEditor.AddToDeck(gameObject);
+                if(amountInCollection > 0)
+                {
+                    deckEditor.AddToDeck(gameObject);
+                    amountInCollection--;
+                    deckEditor.SetAmountText(gameObject);
+                }
+               
                 //if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
                 //{
                 //    GameObject w = Instantiate(gameObject);
@@ -83,6 +93,11 @@ public class CollectionCard : MonoBehaviour {
 
 
         }
+    }
+
+    public void AddOne()
+    {
+        amountInCollection++;
     }
 
     public void HoverEnter()
