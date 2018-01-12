@@ -42,7 +42,7 @@ public class EnemyAI : MonoBehaviour {
         {
             if(fullhealth == true)
             {
-                if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana && myDeck.inHand[i].GetType() != typeof(Card_Heal))
+                if (myDeck.inHand[i].manaCost <= myDeck.myMana.currentMana && myDeck.inHand[i].GetType() != typeof(Card_Heal) && myDeck.inHand[i].GetType() != typeof(Card_HOT))
                 {
                     cards.Add(myDeck.inHand[i]);
                     cardholders.Add(myDeck.inhandie[i]);

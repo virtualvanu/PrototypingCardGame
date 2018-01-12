@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Marcus
   m_EditorClassIdentifier: 
   characterName: Marcus
+  avatar: {fileID: 21300000, guid: 6bcfa7fd07be86a47a8ebb70e1f58ca1, type: 3}
   maxHealth: 0
   currentHealth: 0
   shieldHealth: 0

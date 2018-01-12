@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Diolo
   m_EditorClassIdentifier: 
   characterName: Diolo
+  avatar: {fileID: 21300000, guid: b3db705ace3d48b499e231dc7ee13090, type: 3}
   maxHealth: 30
   currentHealth: 30
   shieldHealth: 0

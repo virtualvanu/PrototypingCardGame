@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: TEST
   m_EditorClassIdentifier: 
   characterName: TEST
+  avatar: {fileID: 21300000, guid: ad8e0c64dea86894cb59d15c0fd0e653, type: 3}
   maxHealth: 30
   currentHealth: 25
   shieldHealth: 0

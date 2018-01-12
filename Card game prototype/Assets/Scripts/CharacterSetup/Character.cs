@@ -7,6 +7,7 @@ public class Character : ScriptableObject
 {
 
     public string characterName;
+    public Sprite avatar;
 
     [Header("Stats")]
     public int maxHealth;

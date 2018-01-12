@@ -24,6 +24,10 @@ public class FightManager : MonoBehaviour {
     public Image enemyHealth;
     public GameObject enemyHealthObject;
 
+    [Header("icons")]
+    public Image playerIcon;
+    public Image EnemyIcon;
+
     public enum Turn
     {
         player,
@@ -86,47 +90,20 @@ public class FightManager : MonoBehaviour {
             instance = this;
         }
         //StartGame(testPlayer, testEnemy);
-        StartCoroutine(SetPlayerDeck());
+        
+        StartGame(testPlayer, testEnemy);
     }
 
     public IEnumerator SetPlayerDeck()
     {
         yield return new WaitForSeconds(0.5f);
-        StartGame(testPlayer, testEnemy);
-        //StartGame();
-    }
-
-    public void EndTurn()
-    {
-        if(turn == Turn.player)
-        {
-            turn = Turn.enemy;
-            enemyCurrentDeck.myMana.StartTurn();
-            enemyCurrentDeck.GetNewCard(1);
-            enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
-        }
-        EffectManager.instance.TriggerEffects();
-    }
-
-    public void EndTurnEnemy()
-    {
-        turn = Turn.player;
-        myDeck.myMana.StartTurn();
-        myDeck.GetNewCard(1);
-        EffectManager.instance.TriggerEffects();
-    }
-
-    public void StartGame(Character playerChar,Character enemyChar)
-    {
-        enemy = enemyChar;
-        player = playerChar;
         enemyCurrentDeck.remainingDeck = new List<Card>(enemy.deck);
         myDeck.remainingDeck = new List<Card>(player.deck);
         enemyCurrentDeck.Setup();
         myDeck.Setup();
 
         int i = Random.Range(0, 2);
-        if(i == 0)
+        if (i == 0)
         {
             turn = Turn.player;
             myDeck.myMana.StartTurn();
@@ -137,6 +114,35 @@ public class FightManager : MonoBehaviour {
             enemyCurrentDeck.myMana.StartTurn();
             enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
+        playerIcon.sprite = player.avatar;
+        EnemyIcon.sprite = enemy.avatar;
+    }
+
+    public void EndTurn()
+    {
+        if(turn == Turn.player)
+        {
+            turn = Turn.enemy;
+            enemyCurrentDeck.myMana.StartTurn();
+            StartCoroutine(enemyCurrentDeck.GetNewCard(1));
+            enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
+        }
+        EffectManager.instance.TriggerEffects();
+    }
+
+    public void EndTurnEnemy()
+    {
+        turn = Turn.player;
+        myDeck.myMana.StartTurn();
+        StartCoroutine(myDeck.GetNewCard(1));
+        EffectManager.instance.TriggerEffects();
+    }
+
+    public void StartGame(Character playerChar,Character enemyChar)
+    {
+        enemy = enemyChar;
+        player = playerChar;
+        StartCoroutine(SetPlayerDeck());
     }
 
     public void SpawnDamageText(int value, bool damage, Transform spawn)
