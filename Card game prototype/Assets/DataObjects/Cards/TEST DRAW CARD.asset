@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66273171c0ba83f4ca2937520acd8c06, type: 3}
+  m_Name: TEST DRAW CARD
+  m_EditorClassIdentifier: 
+  target: 0
+  cardName: TEST DRAW
+  manaCost: 1
+  level: 1
+  icon: {fileID: 0}
+  amountToDraw: 3

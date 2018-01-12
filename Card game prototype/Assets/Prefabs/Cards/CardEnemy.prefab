@@ -316,11 +316,13 @@ MonoBehaviour:
   manaCrystal: {fileID: 1538430227244020, guid: a930b660146f4be439d9931fd4510bd5,
     type: 2}
   attributeHolder: {fileID: 224072896223885294}
-  attributes:
-  - {fileID: 1450110594902340, guid: d4663e110b3738946b6adb69f58f1697, type: 2}
-  - {fileID: 1310473279448274, guid: 0d726f65239ec1a4b9ab2c4645105276, type: 2}
-  - {fileID: 1721793297980052, guid: 19d0b6efafc01fe449472fa8241c07af, type: 2}
-  - {fileID: 1127703956843112, guid: 7929c15b5a03a0d4090adfa6a0b2095a, type: 2}
+  attributePrefab: {fileID: 1894008558545740, guid: 3c16de16e6b2ea441b43d0313a4a490b,
+    type: 2}
+  attributeIcons:
+  - {fileID: 21300000, guid: 97886313cc5512f44b50819d62aec68a, type: 3}
+  - {fileID: 21300000, guid: 0cceefaef63bcde4e9597e026fc62c77, type: 3}
+  - {fileID: 21300000, guid: fd7d78e6f449b2c459624622a1e84636, type: 3}
+  - {fileID: 21300000, guid: d024d124f170736468c90bbed874fe17, type: 3}
 --- !u!114 &114476682616606490
 MonoBehaviour:
   m_ObjectHideFlags: 1

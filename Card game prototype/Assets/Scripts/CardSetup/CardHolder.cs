@@ -28,7 +28,8 @@ public class CardHolder : MonoBehaviour
     public GameObject manaCrystal;
     [Space(10)]
     public Transform attributeHolder;
-    public List<GameObject> attributes = new List<GameObject>();
+    public GameObject attributePrefab;
+    public List<Sprite> attributeIcons = new List<Sprite>();
 
     Image[] images;
 
@@ -70,36 +71,50 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-    public void CreateAttribute(int attribute, int value, int duration)
+    public void CreateAttribute(CardAttribute.Type type, int value1)
     {
-        GameObject newAttribute;
+        GameObject newAttribute = Instantiate(attributePrefab, attributeHolder.position, Quaternion.identity, attributeHolder);
+        CardAttribute attribute = newAttribute.GetComponent<CardAttribute>();
 
-        switch (attribute)
+        switch (type)
         {
-            case 0:
+            case CardAttribute.Type.Damage:
 
-                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                attribute.Setup(attributeIcons[0], value1.ToString());
                 break;
-            case 1:
+            case CardAttribute.Type.Heal:
 
-                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
+                attribute.Setup(attributeIcons[1], value1.ToString());
                 break;
-            case 2:
+            case CardAttribute.Type.DamageIncrease:
 
-                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
-                newAttribute.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = duration.ToString();
-                break;
-            case 3:
-
-                newAttribute = Instantiate(attributes[attribute], attributeHolder.position, Quaternion.identity, attributeHolder);
-                newAttribute.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = value.ToString();
-                newAttribute.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = duration.ToString();
+                attribute.Setup(attributeIcons[0], value1.ToString());
                 break;
         }
     }
+
+    public void CreateAttribute(CardAttribute.Type type, int value1, int value2)
+    {
+        GameObject newAttribute = Instantiate(attributePrefab, attributeHolder.position, Quaternion.identity, attributeHolder);
+        CardAttribute attribute = newAttribute.GetComponent<CardAttribute>();
+
+        switch (type)
+        {
+            case CardAttribute.Type.DOT:
+
+                attribute.Setup(attributeIcons[2], value1.ToString(), attributeIcons[3], value2.ToString());
+                break;
+            case CardAttribute.Type.HOT:
+
+                attribute.Setup(attributeIcons[1], value1.ToString(), attributeIcons[3], value2.ToString());
+                break;
+            case CardAttribute.Type.DamageIncrease:
+
+                attribute.Setup(attributeIcons[0], value1.ToString(), attributeIcons[3], value2.ToString());
+                break;
+        }
+    }
+
 
     public void DissolveCard()
     {

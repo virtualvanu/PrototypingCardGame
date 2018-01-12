@@ -27,41 +27,44 @@ public class CurrentDeck : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            GetNewCard();
+            StartCoroutine(GetNewCard(1));
         }
 	}
     
-    public void GetNewCard()
+    public IEnumerator GetNewCard(int amount)
     {
-        if (remainingDeck.Count != 0)
+        for (int i = 0; i < amount; i++)
         {
-            int rand = Random.Range(0, remainingDeck.Count);
-            inHand.Add(remainingDeck[rand]);
-
-            GameObject nc = Instantiate(cardPrefab, transform.position, Quaternion.identity);
-            inhandie.Add(nc);
-            nc.transform.SetParent(gameObject.transform);
-            CardHolder newC = nc.GetComponent<CardHolder>();
-            newC.card = remainingDeck[rand];
-            newC.LoadCard();
-            newC.deck = this;
-            newC.mana = myMana;
-            if(side == Side.player)
+            if (remainingDeck.Count != 0)
             {
-                nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
+                int rand = Random.Range(0, remainingDeck.Count);
+                inHand.Add(remainingDeck[rand]);
+
+                GameObject nc = Instantiate(cardPrefab, transform.position, Quaternion.identity);
+                inhandie.Add(nc);
+                nc.transform.SetParent(gameObject.transform);
+                CardHolder newC = nc.GetComponent<CardHolder>();
+                newC.card = remainingDeck[rand];
+                newC.LoadCard();
+                newC.deck = this;
+                newC.mana = myMana;
+                if(side == Side.player)
+                {
+                    nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
+                }
+
+                nc.transform.localScale = new Vector3(2, 2, 2);
+                remainingDeck.RemoveAt(rand);
+
             }
 
-            nc.transform.localScale = new Vector3(2, 2, 2);
-            remainingDeck.RemoveAt(rand);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
     public void Setup()
     {
-        for (int i = 0; i < startAmount; i++)
-        {
-            GetNewCard();
-        }
+        StartCoroutine(GetNewCard(startAmount));
     }
 
     public void RemoveFromHand(Card cardUsed)

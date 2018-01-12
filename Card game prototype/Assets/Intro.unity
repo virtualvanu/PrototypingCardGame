@@ -952,7 +952,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.066176474, g: 0.051665973, b: 0.020436851, a: 0}
+  m_BackGroundColor: {r: 0.15294118, g: 0.105882354, b: 0.003921569, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1508,12 +1508,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 882480603}
-  m_Father: {fileID: 1598805222}
-  m_RootOrder: 2
+  m_Father: {fileID: 957251071}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
+  m_AnchoredPosition: {x: 0, y: -440.3645}
   m_SizeDelta: {x: 140, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &807435436
@@ -2226,7 +2226,7 @@ RectTransform:
   - {fileID: 1019166322}
   - {fileID: 1199887358}
   m_Father: {fileID: 1598805222}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2262,6 +2262,7 @@ RectTransform:
   - {fileID: 929913444}
   - {fileID: 510912150}
   - {fileID: 1416335199}
+  - {fileID: 807435435}
   m_Father: {fileID: 1598805222}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6424,13 +6425,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  allCharacters:
+  opponents:
   - {fileID: 11400000, guid: ebe7d31933bc610418799532c37db9c2, type: 2}
   - {fileID: 11400000, guid: ba62b89ba77ec1e48832d7d307a66102, type: 2}
   - {fileID: 11400000, guid: 619cdf09025a7c349847c1bec8bfb6f7, type: 2}
   - {fileID: 11400000, guid: 6ca0b971c8196e741ac8fa94c612528f, type: 2}
   - {fileID: 11400000, guid: 023ca71bf3045bb419770f1af8c2b002, type: 2}
   - {fileID: 11400000, guid: ce7dfe6d52df48840a78b0df3dd88b9a, type: 2}
+  - {fileID: 11400000, guid: 03fca3f0d8021764aad2057f9fd0cd41, type: 2}
 --- !u!4 &1477980346
 Transform:
   m_ObjectHideFlags: 0
@@ -6874,7 +6876,6 @@ RectTransform:
   m_Children:
   - {fileID: 916034223}
   - {fileID: 957251071}
-  - {fileID: 807435435}
   - {fileID: 935274150}
   m_Father: {fileID: 0}
   m_RootOrder: 3

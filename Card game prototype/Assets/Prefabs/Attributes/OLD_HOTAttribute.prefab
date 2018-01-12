@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224316593474898382}
   m_Layer: 5
-  m_Name: HOTAttribute
+  m_Name: OLD_HOTAttribute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

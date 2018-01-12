@@ -13,7 +13,7 @@ public class Card_Heal : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(1, healAmount, 1);
+        myHolder.CreateAttribute(CardAttribute.Type.Heal, healAmount);
     }
 
     public override void Use(CardHolder myHolder)

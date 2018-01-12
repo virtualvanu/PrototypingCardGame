@@ -44,6 +44,11 @@ public class FightManager : MonoBehaviour {
     public Color defaultColor;
     public Color lerpColor;
 
+    [Header("Health Popup")]
+    public GameObject healthPopup;
+    public TextMeshProUGUI healthPopupText;
+    private bool showHealthPopup;
+
     private void Update()
     {
         playerHealth.fillAmount = (float)player.currentHealth / player.maxHealth;
@@ -62,6 +67,11 @@ public class FightManager : MonoBehaviour {
             playerHealth.color = defaultColor;
 
             enemyHealthObject.transform.localScale = new Vector3(Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f, Mathf.PingPong(Time.time * scaleLerpSpeed, 0.1f) + 1f);
+        }
+
+        if (showHealthPopup)
+        {
+            healthPopup.transform.position = Input.mousePosition;
         }
 
     }
@@ -92,7 +102,7 @@ public class FightManager : MonoBehaviour {
         {
             turn = Turn.enemy;
             enemyCurrentDeck.myMana.StartTurn();
-            enemyCurrentDeck.GetNewCard();
+            enemyCurrentDeck.GetNewCard(1);
             enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
         EffectManager.instance.TriggerEffects();
@@ -102,7 +112,7 @@ public class FightManager : MonoBehaviour {
     {
         turn = Turn.player;
         myDeck.myMana.StartTurn();
-        myDeck.GetNewCard();
+        myDeck.GetNewCard(1);
         EffectManager.instance.TriggerEffects();
     }
 
@@ -151,5 +161,28 @@ public class FightManager : MonoBehaviour {
 
             damageTextComponent.text.color = healColor;
         }
+    }
+
+    public void ShowHealth(bool isPlayer)
+    {
+        showHealthPopup = true;
+
+        if (isPlayer)
+        {
+            healthPopupText.text = "Health: " + player.currentHealth;
+        }
+        else
+        {
+            healthPopupText.text = "Health: " + enemy.currentHealth;
+        }
+
+        healthPopup.SetActive(true);
+    }
+
+    public void HideHealth()
+    {
+        showHealthPopup = false;
+
+        healthPopup.SetActive(false);
     }
 }

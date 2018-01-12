@@ -20,9 +20,6 @@ public class Card_Draw : Card
     {
         base.Use(myHolder);
 
-        for (int i = 0; i < amountToDraw; i++)
-        {
-            FightManager.instance.myDeck.GetNewCard();
-        }
+        FightManager.instance.StartCoroutine(FightManager.instance.myDeck.GetNewCard(amountToDraw));
     }
 }

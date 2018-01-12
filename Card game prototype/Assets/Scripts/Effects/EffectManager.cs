@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EffectManager : MonoBehaviour
 {
@@ -17,12 +18,25 @@ public class EffectManager : MonoBehaviour
     [Space(10)]
     private List<Effect> endedPassiveEffects = new List<Effect>();
 
+    [Header("Effect Icons")]
     public GameObject playerDotEffectIcon;
     public GameObject playerHotEffectIcon;
     public GameObject playerDmgIncreaseEffectIcon;
     public GameObject enemyDotEffectIcon;
     public GameObject enemyHotEffectIcon;
     public GameObject enemyDmgIncreaseEffectIcon;
+
+    [Header("Effect Popup")]
+    public GameObject effectPopup;
+
+    public Transform playerPopupSpawn;
+    public Transform enemyPopupSpawn;
+
+    public TextMeshProUGUI dotAmountText;
+    public TextMeshProUGUI dotDurationText;
+    public TextMeshProUGUI hotAmountText;
+    public TextMeshProUGUI hotDurationText;
+    public TextMeshProUGUI dmgIncreaseAmountText;
 
     private void Awake()
     {
@@ -266,5 +280,80 @@ public class EffectManager : MonoBehaviour
         }
 
         return effectValue;
+    }
+
+    public void ShowEffectPopup(bool isPlayer)
+    {
+        int dotAmount = 0;
+        int dotDuration = 0;
+        int hotAmount = 0;
+        int hotDuration = 0;
+        int dmgIncreaseAmount = 0;
+
+        if (isPlayer)
+        {
+            effectPopup.transform.position = playerPopupSpawn.position;
+
+            foreach (Effect effect in activePlayerEffects)
+            {
+                if (effect.effectGiver.GetType() == typeof(Card_DOT))
+                {
+                    dotAmount += effect.amount;
+                    dotDuration += effect.duration;
+                }
+                else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+                {
+                    hotAmount += effect.amount;
+                    hotAmount += effect.duration;
+                }
+            }
+
+            foreach (Effect effect in passivePlayerEffects)
+            {
+                if (effect.type == Effect.Type.DamageIncrease)
+                {
+                    dmgIncreaseAmount += effect.amount;
+                }
+            }
+        }
+        else
+        {
+            effectPopup.transform.position = enemyPopupSpawn.position;
+
+            foreach (Effect effect in activeEnemyEffects)
+            {
+                if (effect.effectGiver.GetType() == typeof(Card_DOT))
+                {
+                    dotAmount += effect.amount;
+                    dotDuration += effect.duration;
+                }
+                else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+                {
+                    hotAmount += effect.amount;
+                    hotAmount += effect.duration;
+                }
+            }
+
+            foreach (Effect effect in passiveEnemyEffects)
+            {
+                if (effect.type == Effect.Type.DamageIncrease)
+                {
+                    dmgIncreaseAmount += effect.amount;
+                }
+            }
+        }
+
+        dotAmountText.text = dotAmount.ToString();
+        dotDurationText.text = dotDuration.ToString();
+        hotAmountText.text = hotAmount.ToString();
+        hotDurationText.text = hotDuration.ToString();
+        dmgIncreaseAmountText.text = dmgIncreaseAmount.ToString();
+
+        effectPopup.SetActive(true);
+    }
+
+    public void HideEffectPopup()
+    {
+        effectPopup.SetActive(false);
     }
 }

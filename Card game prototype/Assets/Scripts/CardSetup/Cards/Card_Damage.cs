@@ -13,7 +13,7 @@ public class Card_Damage : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(0, damage, 1);
+        myHolder.CreateAttribute(CardAttribute.Type.Damage, damage);
     }
 
     public override void Use(CardHolder myHolder)

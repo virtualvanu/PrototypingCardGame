@@ -14,7 +14,7 @@ public class Card_HOT : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(3, healAmount, duration);
+        myHolder.CreateAttribute(CardAttribute.Type.HOT, healAmount, duration);
     }
 
     public override void Use(CardHolder myHolder)

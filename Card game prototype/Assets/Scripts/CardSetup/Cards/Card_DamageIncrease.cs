@@ -14,7 +14,7 @@ public class Card_DamageIncrease : Card
     {
         base.Setup(myHolder);
 
-        //myHolder.CreateAttribute(0, damage, 1);
+        myHolder.CreateAttribute(CardAttribute.Type.DamageIncrease, damage);
     }
 
     public override void Use(CardHolder myHolder)

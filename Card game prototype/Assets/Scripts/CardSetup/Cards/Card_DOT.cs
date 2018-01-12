@@ -16,7 +16,7 @@ public class Card_DOT : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(2, damage, duration);
+        myHolder.CreateAttribute(CardAttribute.Type.DOT, damage, duration);
     }
 
     public override void Use(CardHolder myHolder)

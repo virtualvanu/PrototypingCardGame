@@ -71,7 +71,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224807373575793790}
   m_Layer: 5
-  m_Name: DOTAttribute
+  m_Name: OLD_DOTAttribute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

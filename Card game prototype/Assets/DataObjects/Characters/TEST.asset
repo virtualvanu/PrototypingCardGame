@@ -13,10 +13,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: TEST
   maxHealth: 30
-  currentHealth: 30
+  currentHealth: 25
   shieldHealth: 0
   deck:
   - {fileID: 11400000, guid: 24034e63b0129cf4bbd8396325cb8bde, type: 2}
   - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
   - {fileID: 11400000, guid: 2ccd764b2517acb4fa8ae3ffdfc199da, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   type: 1
