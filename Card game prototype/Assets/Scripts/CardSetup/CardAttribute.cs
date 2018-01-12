@@ -25,20 +25,24 @@ public class CardAttribute : MonoBehaviour
     public TextMeshProUGUI text2;
 
 
-    public void Setup(Sprite i1, string t1)
+    public void Setup(Sprite i1, string t1, Color color)
     {
         icon1.sprite = i1;
         text1.text = t1;
+        text1.color = color;
 
         icon2.enabled = false;
         text2.enabled = false;
     }
 
-    public void Setup(Sprite i1, string t1, Sprite i2, string t2)
+    public void Setup(Sprite i1, string t1, Sprite i2, string t2, Color color)
     {
         icon1.sprite = i1;
         text1.text = t1;
+        text1.color = color;
+
         icon2.sprite = i2;
         text2.text = t2;
+        text2.color = color;
     }
 }

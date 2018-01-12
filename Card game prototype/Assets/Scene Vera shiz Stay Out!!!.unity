@@ -3079,7 +3079,7 @@ MonoBehaviour:
   turn: 0
   damageText: {fileID: 1289887194738512, guid: b1520912151edd14d818faaaa1ab19d8, type: 2}
   damageColor: {r: 0.9558824, g: 0, b: 0, a: 1}
-  healColor: {r: 0, g: 0.8455882, b: 0.04082157, a: 1}
+  healColor: {r: 0.007028553, g: 0.47794116, b: 0.028272761, a: 1}
   colorLerpSpeed: 1
   scaleLerpSpeed: 0.1
   defaultColor: {r: 1, g: 1, b: 1, a: 1}

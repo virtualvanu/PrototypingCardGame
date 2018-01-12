@@ -293,6 +293,7 @@ public class EffectManager : MonoBehaviour
         if (isPlayer)
         {
             effectPopup.transform.position = playerPopupSpawn.position;
+            effectPopup.transform.SetParent(playerPopupSpawn);
 
             foreach (Effect effect in activePlayerEffects)
             {
@@ -304,7 +305,7 @@ public class EffectManager : MonoBehaviour
                 else if (effect.effectGiver.GetType() == typeof(Card_HOT))
                 {
                     hotAmount += effect.amount;
-                    hotAmount += effect.duration;
+                    hotDuration += effect.duration;
                 }
             }
 
@@ -319,6 +320,7 @@ public class EffectManager : MonoBehaviour
         else
         {
             effectPopup.transform.position = enemyPopupSpawn.position;
+            effectPopup.transform.SetParent(enemyPopupSpawn);
 
             foreach (Effect effect in activeEnemyEffects)
             {
@@ -330,7 +332,7 @@ public class EffectManager : MonoBehaviour
                 else if (effect.effectGiver.GetType() == typeof(Card_HOT))
                 {
                     hotAmount += effect.amount;
-                    hotAmount += effect.duration;
+                    hotDuration += effect.duration;
                 }
             }
 

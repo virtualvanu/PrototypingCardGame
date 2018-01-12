@@ -80,15 +80,15 @@ public class CardHolder : MonoBehaviour
         {
             case CardAttribute.Type.Damage:
 
-                attribute.Setup(attributeIcons[0], value1.ToString());
+                attribute.Setup(attributeIcons[0], value1.ToString(), FightManager.instance.damageColor);
                 break;
             case CardAttribute.Type.Heal:
 
-                attribute.Setup(attributeIcons[1], value1.ToString());
+                attribute.Setup(attributeIcons[1], value1.ToString(), FightManager.instance.healColor);
                 break;
             case CardAttribute.Type.DamageIncrease:
 
-                attribute.Setup(attributeIcons[0], value1.ToString());
+                attribute.Setup(attributeIcons[0], value1.ToString(), FightManager.instance.healColor);
                 break;
         }
     }
@@ -102,15 +102,15 @@ public class CardHolder : MonoBehaviour
         {
             case CardAttribute.Type.DOT:
 
-                attribute.Setup(attributeIcons[2], value1.ToString(), attributeIcons[3], value2.ToString());
+                attribute.Setup(attributeIcons[2], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.damageColor);
                 break;
             case CardAttribute.Type.HOT:
 
-                attribute.Setup(attributeIcons[1], value1.ToString(), attributeIcons[3], value2.ToString());
+                attribute.Setup(attributeIcons[1], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.healColor);
                 break;
             case CardAttribute.Type.DamageIncrease:
 
-                attribute.Setup(attributeIcons[0], value1.ToString(), attributeIcons[3], value2.ToString());
+                attribute.Setup(attributeIcons[0], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.healColor);
                 break;
         }
     }
