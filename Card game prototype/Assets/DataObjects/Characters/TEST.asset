@@ -14,7 +14,7 @@ MonoBehaviour:
   characterName: TEST
   avatar: {fileID: 21300000, guid: ad8e0c64dea86894cb59d15c0fd0e653, type: 3}
   maxHealth: 30
-  currentHealth: 25
+  currentHealth: 23
   shieldHealth: 0
   deck:
   - {fileID: 11400000, guid: 24034e63b0129cf4bbd8396325cb8bde, type: 2}
@@ -22,9 +22,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ccd764b2517acb4fa8ae3ffdfc199da, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
+  - {fileID: 11400000, guid: 72cf358d68f6c3d488e93a8fbc3eb388, type: 2}
   type: 1
