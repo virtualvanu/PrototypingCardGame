@@ -6,6 +6,8 @@ using UnityEngine;
 public class Character : ScriptableObject
 {
 
+    public bool defeated;
+    [Space(10)]
     public string characterName;
     public Sprite avatar;
 

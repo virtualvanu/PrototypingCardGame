@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -17,18 +18,16 @@ public class ClassButton : MonoBehaviour
 
     [Header("Other Stuff")]
     public GameObject selectedOverlay;
-    [HideInInspector]public TextMeshProUGUI nameText;
-
-    private void Awake()
-    {
-        nameText = GetComponentInChildren<TextMeshProUGUI>();
-    }
+    public GameObject defeatedOverlay;
+    public TextMeshProUGUI nameText;
+    public Image avatarImage;
 
     public void OnEnable()
     {
         if (pickableCharacter != null)
         {
             nameText.text = pickableCharacter.characterName;
+            avatarImage.sprite = pickableCharacter.avatar;
         }
     }
 
@@ -55,7 +54,10 @@ public class ClassButton : MonoBehaviour
 
     public void SelectLevel()
     {
-        GameManager.instance.opponent = pickableCharacter;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        if (!pickableCharacter.defeated)
+        {
+            GameManager.instance.opponent = pickableCharacter;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
     }
 }

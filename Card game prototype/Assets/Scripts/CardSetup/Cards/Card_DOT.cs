@@ -21,14 +21,12 @@ public class Card_DOT : Card
     {
         base.Use(myHolder);
 
-        Character target = DetermineTarget(myHolder);
-
         EffectManager.instance.AddEffect(myHolder, Effect.Type.DOT, damage, duration);
     }
 
-    public override void TriggerEffect(Character target, Transform damageTextPos)
+    public override void TriggerEffect(Character target)
     {
         target.currentHealth -= damage;
-        FightManager.instance.SpawnDamageText(damage, true, damageTextPos);
+        FightManager.instance.SpawnDamageText(damage, true, target);
     }
 }

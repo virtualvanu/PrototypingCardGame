@@ -115,7 +115,6 @@ public class CardHolder : MonoBehaviour
         }
     }
 
-
     public void DissolveCard()
     {
         canDissolve = true;
@@ -166,6 +165,7 @@ public class CardHolder : MonoBehaviour
         else
         {
             GetComponent<Animator>().SetTrigger("Normal");
+            print("test print voor animation bug");
         }
     }
 }

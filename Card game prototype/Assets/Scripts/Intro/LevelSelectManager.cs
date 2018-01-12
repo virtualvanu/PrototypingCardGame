@@ -29,6 +29,12 @@ public class LevelSelectManager : MonoBehaviour
         for (int i = 0; i < levelButtons.Count; i++)
         {
             levelButtons[i].pickableCharacter = GameManager.instance.opponents[i];
+
+            if (levelButtons[i].pickableCharacter.defeated)
+            {
+                levelButtons[i].defeatedOverlay.SetActive(true);
+            }
+
             levelButtons[i].gameObject.SetActive(true);
             levelButtons[i].canLerp = true;
 

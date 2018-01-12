@@ -21,10 +21,10 @@ public class EffectManager : MonoBehaviour
     [Header("Effect Icons")]
     public GameObject playerDotEffectIcon;
     public GameObject playerHotEffectIcon;
-    public GameObject playerDmgIncreaseEffectIcon;
+    public GameObject playerSpellpowerEffectIcon;
     public GameObject enemyDotEffectIcon;
     public GameObject enemyHotEffectIcon;
-    public GameObject enemyDmgIncreaseEffectIcon;
+    public GameObject enemySpellpowerEffectIcon;
 
     [Header("Effect Popup")]
     public GameObject effectPopup;
@@ -38,6 +38,11 @@ public class EffectManager : MonoBehaviour
     public TextMeshProUGUI hotDurationText;
     public TextMeshProUGUI dmgIncreaseAmountText;
 
+    [Header("TEST")]
+    public List<Effect> activeEffects = new List<Effect>();
+    public List<Effect> activePassiveEffects = new List<Effect>();
+    public List<Effect> test_endedEffects = new List<Effect>();
+
     private void Awake()
     {
         if (instance == null)
@@ -46,25 +51,154 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void AddEffect(CardHolder giver, Effect.Type type, int amount, int duration)
+    public void TEST_AddEffect(CardHolder cardHolder, Effect.Type type, int amount, int duration)
     {
         Effect newEffect = new Effect
         {
             type = type,
-            effectGiver = giver.card,
+            effectCard = cardHolder.card,
 
             amount = amount,
             duration = duration,
 
-            damageTarget = giver.card.DetermineTarget(giver),
-            damageTextTarget = giver.card.DetermineDamageTextTarget(giver)
+            effectReceiver = cardHolder.card.DetermineTarget(cardHolder)
         };
 
-        if (newEffect.damageTarget == FightManager.instance.player)
+        activeEffects.Add(newEffect);
+
+        TEST_CheckActiveEffects();
+    }
+
+    private void TEST_CheckActiveEffects()
+    {
+        playerDotEffectIcon.SetActive(false);
+        playerHotEffectIcon.SetActive(false);
+        playerSpellpowerEffectIcon.SetActive(false);
+
+        enemyDotEffectIcon.SetActive(false);
+        enemyHotEffectIcon.SetActive(false);
+        enemySpellpowerEffectIcon.SetActive(false);
+
+        foreach (Effect effect in activeEffects)
+        {
+            switch (effect.type)
+            {
+                case Effect.Type.DOT:
+
+                    if (effect.effectReceiver == FightManager.instance.player)
+                    {
+                        playerDotEffectIcon.SetActive(true);
+                    }
+                    else if (effect.effectReceiver == FightManager.instance.enemy)
+                    {
+                        enemyDotEffectIcon.SetActive(true);
+                    }
+                    break;
+                case Effect.Type.HOT:
+
+                    if (effect.effectReceiver == FightManager.instance.player)
+                    {
+                        playerHotEffectIcon.SetActive(true);
+                    }
+                    else if (effect.effectReceiver == FightManager.instance.enemy)
+                    {
+                        enemyHotEffectIcon.SetActive(true);
+                    }
+                    break;
+                case Effect.Type.SpellPower:
+
+                    if (effect.effectReceiver == FightManager.instance.player)
+                    {
+                        playerSpellpowerEffectIcon.SetActive(false);
+                    }
+                    else if (effect.effectReceiver == FightManager.instance.enemy)
+                    {
+                        enemySpellpowerEffectIcon.SetActive(false);
+                    }
+                    break;
+            }
+        }
+    }
+
+    private IEnumerator TEST_TriggerEffects(bool passive)
+    {
+        foreach (Effect effect in activeEffects)
+        {
+            if (passive)
+            {
+                //if (FightManager.instance.turn == FightManager.Turn.player)
+                //{
+                //    if (effect.type == Effect.Type.SpellPower)
+                //    {
+                //        if (effect.effectReceiver == FightManager.instance.player)
+                //        {
+                //            effect.effectCard.TriggerEffect(effect.effectReceiver);
+                //            effect.duration--;
+                //        }
+                //    }
+                //}
+                //else if (FightManager.instance.turn == FightManager.Turn.enemy)
+                //{
+                //    if (effect.type == Effect.Type.SpellPower)
+                //    {
+                //        if (effect.effectReceiver == FightManager.instance.enemy)
+                //        {
+                //            effect.effectCard.TriggerEffect(effect.effectReceiver);
+                //            effect.duration--;
+                //        }
+                //    }
+                //}
+
+                test_endedEffects.Add(effect);
+            }
+            else
+            {
+                if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+                {
+                    effect.effectCard.TriggerEffect(effect.effectReceiver);
+                    effect.duration--;
+                }
+            }
+
+            if (effect.duration == 0)
+            {
+                test_endedEffects.Add(effect);
+            }
+
+            yield return new WaitForSeconds(0.6f);
+        }
+
+        TEST_RemoveEndedEffects();
+    }
+
+    private void TEST_RemoveEndedEffects()
+    {
+        for (int i = 0; i < test_endedEffects.Count; i++)
+        {
+            activeEffects.Remove(test_endedEffects[i]);
+        }
+
+        TEST_CheckActiveEffects();
+    }
+
+    public void AddEffect(CardHolder cardHolder, Effect.Type type, int amount, int duration)
+    {
+        Effect newEffect = new Effect
+        {
+            type = type,
+            effectCard = cardHolder.card,
+
+            amount = amount,
+            duration = duration,
+
+            effectReceiver = cardHolder.card.DetermineTarget(cardHolder)
+        };
+
+        if (newEffect.effectReceiver == FightManager.instance.player)
         {
             activePlayerEffects.Add(newEffect);
         }
-        else if (newEffect.damageTarget == FightManager.instance.enemy)
+        else if (newEffect.effectReceiver == FightManager.instance.enemy)
         {
             activeEnemyEffects.Add(newEffect);
         }
@@ -73,24 +207,23 @@ public class EffectManager : MonoBehaviour
         CheckActivePassiveEffects();
     }
 
-    public void AddEffect(CardHolder giver, Effect.Type type, int amount)
+    public void AddEffect(CardHolder cardHolder, Effect.Type type, int amount)
     {
         Effect newEffect = new Effect
         {
             type = type,
-            effectGiver = giver.card,
+            effectCard = cardHolder.card,
 
             amount = amount,
 
-            damageTarget = giver.card.DetermineTarget(giver),
-            damageTextTarget = giver.card.DetermineDamageTextTarget(giver)
+            effectReceiver = cardHolder.card.DetermineTarget(cardHolder)
         };
 
-        if (newEffect.damageTarget == FightManager.instance.player)
+        if (newEffect.effectReceiver == FightManager.instance.player)
         {
             passivePlayerEffects.Add(newEffect);
         }
-        else if (newEffect.damageTarget == FightManager.instance.enemy)
+        else if (newEffect.effectReceiver == FightManager.instance.enemy)
         {
             passiveEnemyEffects.Add(newEffect);
         }
@@ -109,7 +242,7 @@ public class EffectManager : MonoBehaviour
     {
         foreach (Effect effect in activePlayerEffects)
         {
-            effect.effectGiver.TriggerEffect(effect.damageTarget, effect.damageTextTarget);
+            effect.effectCard.TriggerEffect(effect.effectReceiver);
             effect.duration--;
 
             if (effect.duration == 0)
@@ -127,7 +260,7 @@ public class EffectManager : MonoBehaviour
     {
         foreach (Effect effect in activeEnemyEffects)
         {
-            effect.effectGiver.TriggerEffect(effect.damageTarget, effect.damageTextTarget);
+            effect.effectCard.TriggerEffect(effect.effectReceiver);
             effect.duration--;
 
             if (effect.duration == 0)
@@ -167,11 +300,11 @@ public class EffectManager : MonoBehaviour
         {
             for (int i = 0; i < endedEffects.Count; i++)
             {
-                if (endedEffects[i].damageTarget == FightManager.instance.player)
+                if (endedEffects[i].effectReceiver == FightManager.instance.player)
                 {
                     activePlayerEffects.Remove(endedEffects[i]);
                 }
-                else if (endedEffects[i].damageTarget == FightManager.instance.enemy)
+                else if (endedEffects[i].effectReceiver == FightManager.instance.enemy)
                 {
                     activeEnemyEffects.Remove(endedEffects[i]);
                 }
@@ -187,11 +320,11 @@ public class EffectManager : MonoBehaviour
         {
             for (int i = 0; i < endedPassiveEffects.Count; i++)
             {
-                if (endedPassiveEffects[i].damageTarget == FightManager.instance.player)
+                if (endedPassiveEffects[i].effectReceiver == FightManager.instance.player)
                 {
                     passivePlayerEffects.Remove(endedPassiveEffects[i]);
                 }
-                else if (endedPassiveEffects[i].damageTarget == FightManager.instance.enemy)
+                else if (endedPassiveEffects[i].effectReceiver == FightManager.instance.enemy)
                 {
                     passiveEnemyEffects.Remove(endedPassiveEffects[i]);
                 }
@@ -208,11 +341,11 @@ public class EffectManager : MonoBehaviour
 
         foreach (Effect effect in activePlayerEffects)
         {
-            if (effect.effectGiver.GetType() == typeof (Card_DOT))
+            if (effect.effectCard.GetType() == typeof (Card_DOT))
             {
                 playerDotEffectIcon.SetActive(true);
             }
-            else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+            else if (effect.effectCard.GetType() == typeof(Card_HOT))
             {
                 playerHotEffectIcon.SetActive(true);
             }
@@ -223,11 +356,11 @@ public class EffectManager : MonoBehaviour
 
         foreach (Effect effect in activeEnemyEffects)
         {
-            if (effect.effectGiver.GetType() == typeof(Card_DOT))
+            if (effect.effectCard.GetType() == typeof(Card_DOT))
             {
                 enemyDotEffectIcon.SetActive(true);
             }
-            else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+            else if (effect.effectCard.GetType() == typeof(Card_HOT))
             {
                 enemyHotEffectIcon.SetActive(true);
             }
@@ -236,23 +369,23 @@ public class EffectManager : MonoBehaviour
 
     public void CheckActivePassiveEffects()
     {
-        playerDmgIncreaseEffectIcon.SetActive(false);
+        playerSpellpowerEffectIcon.SetActive(false);
 
         foreach (Effect effect in passivePlayerEffects)
         {
-            if (effect.type == Effect.Type.DamageIncrease)
+            if (effect.type == Effect.Type.SpellPower)
             {
-                playerDmgIncreaseEffectIcon.SetActive(true);
+                playerSpellpowerEffectIcon.SetActive(true);
             }
         }
 
-        enemyDmgIncreaseEffectIcon.SetActive(false);
+        enemySpellpowerEffectIcon.SetActive(false);
 
         foreach (Effect effect in passiveEnemyEffects)
         {
-            if (effect.type == Effect.Type.DamageIncrease)
+            if (effect.type == Effect.Type.SpellPower)
             {
-                enemyDmgIncreaseEffectIcon.SetActive(true);
+                enemySpellpowerEffectIcon.SetActive(true);
             }
         }
     }
@@ -297,12 +430,12 @@ public class EffectManager : MonoBehaviour
 
             foreach (Effect effect in activePlayerEffects)
             {
-                if (effect.effectGiver.GetType() == typeof(Card_DOT))
+                if (effect.effectCard.GetType() == typeof(Card_DOT))
                 {
                     dotAmount += effect.amount;
                     dotDuration += effect.duration;
                 }
-                else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+                else if (effect.effectCard.GetType() == typeof(Card_HOT))
                 {
                     hotAmount += effect.amount;
                     hotDuration += effect.duration;
@@ -311,7 +444,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Effect effect in passivePlayerEffects)
             {
-                if (effect.type == Effect.Type.DamageIncrease)
+                if (effect.type == Effect.Type.SpellPower)
                 {
                     dmgIncreaseAmount += effect.amount;
                 }
@@ -324,12 +457,12 @@ public class EffectManager : MonoBehaviour
 
             foreach (Effect effect in activeEnemyEffects)
             {
-                if (effect.effectGiver.GetType() == typeof(Card_DOT))
+                if (effect.effectCard.GetType() == typeof(Card_DOT))
                 {
                     dotAmount += effect.amount;
                     dotDuration += effect.duration;
                 }
-                else if (effect.effectGiver.GetType() == typeof(Card_HOT))
+                else if (effect.effectCard.GetType() == typeof(Card_HOT))
                 {
                     hotAmount += effect.amount;
                     hotDuration += effect.duration;
@@ -338,7 +471,7 @@ public class EffectManager : MonoBehaviour
 
             foreach (Effect effect in passiveEnemyEffects)
             {
-                if (effect.type == Effect.Type.DamageIncrease)
+                if (effect.type == Effect.Type.SpellPower)
                 {
                     dmgIncreaseAmount += effect.amount;
                 }

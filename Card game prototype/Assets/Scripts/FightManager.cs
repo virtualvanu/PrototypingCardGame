@@ -149,11 +149,18 @@ public class FightManager : MonoBehaviour {
         StartCoroutine(SetPlayerDeck());
     }
 
-    public void SpawnDamageText(int value, bool damage, Transform spawn)
+    public void SpawnDamageText(int value, bool damage, Character target)
     {
-        GameObject newDamageText;
+        GameObject newDamageText = new GameObject();
 
-        newDamageText = Instantiate(damageText, spawn.transform);
+        if (target == player)
+        {
+            newDamageText = Instantiate(damageText, playerHealth.transform);
+        }
+        else if (target == enemy)
+        {
+            newDamageText = Instantiate(damageText, enemyHealth.transform);
+        }
 
         DamageText damageTextComponent = newDamageText.GetComponent<DamageText>();
 

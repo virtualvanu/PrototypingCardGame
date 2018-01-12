@@ -24,7 +24,7 @@ public class Card_HOT : Card
         EffectManager.instance.AddEffect(myHolder, Effect.Type.HOT, healAmount, duration);
     }
 
-    public override void TriggerEffect(Character target, Transform damageTextPos)
+    public override void TriggerEffect(Character target)
     {
         if (target.currentHealth > (target.maxHealth - healAmount))
         {
@@ -35,6 +35,6 @@ public class Card_HOT : Card
             target.currentHealth += healAmount;
         }
 
-        FightManager.instance.SpawnDamageText(healAmount, false, damageTextPos);
+        FightManager.instance.SpawnDamageText(healAmount, false, target);
     }
 }

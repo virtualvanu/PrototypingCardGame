@@ -8,15 +8,17 @@ public class Effect
     {
         DOT,
         HOT,
-        DamageIncrease
+        SpellPower
     }
     public Type type;
     [Space(10)]
-    public Card effectGiver;
-    [Space(10)]
+    public Card effectCard;
+
+    [Header("Stats")]
     public int amount;
     public int duration;
-    [Space(10)]
-    public Character damageTarget;
-    public Transform damageTextTarget;
+
+    [Header("Targets")]
+    public Character effectGiver;
+    public Character effectReceiver;
 }

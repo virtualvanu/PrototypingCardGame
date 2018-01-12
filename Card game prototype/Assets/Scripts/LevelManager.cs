@@ -38,6 +38,8 @@ public class LevelManager : MonoBehaviour
         {
             case true:
 
+                GameManager.instance.opponent.defeated = true;
+
                 resultText.text = "Victory!";
                 resultText.color = Color.green;
                 break;

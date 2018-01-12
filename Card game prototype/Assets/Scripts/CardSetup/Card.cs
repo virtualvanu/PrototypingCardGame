@@ -8,9 +8,8 @@ public class Card : ScriptableObject
 
     public enum Target
     {
-        Ally,
-        Enemy,
-        Both
+        Self,
+        Opponent
     }
     [Header("General Variables")]
     public Target target;
@@ -35,7 +34,7 @@ public class Card : ScriptableObject
         myHolder.DissolveCard();
     }
 
-    public virtual void TriggerEffect(Character target, Transform damageTextPos)
+    public virtual void TriggerEffect(Character target)
     {
 
     }
@@ -50,18 +49,13 @@ public class Card : ScriptableObject
 
                 switch (target)
                 {
-                    case Target.Ally:
+                    case Target.Self:
 
                         myTarget = FightManager.instance.enemy;
                         break;
-                    case Target.Enemy:
+                    case Target.Opponent:
 
                         myTarget = FightManager.instance.player;
-                        break;
-                    case Target.Both:
-
-                        //myTarget = FightManager.instance.enemy;
-                        //myTarget = FightManager.instance.player;
                         break;
                 }
                 break;
@@ -69,18 +63,13 @@ public class Card : ScriptableObject
 
                 switch (target)
                 {
-                    case Target.Ally:
+                    case Target.Self:
 
                         myTarget = FightManager.instance.player;
                         break;
-                    case Target.Enemy:
+                    case Target.Opponent:
 
                         myTarget = FightManager.instance.enemy;
-                        break;
-                    case Target.Both:
-
-                        //myTarget = FightManager.instance.player;
-                        //myTarget = FightManager.instance.enemy;
                         break;
                 }
                 break;
@@ -89,52 +78,19 @@ public class Card : ScriptableObject
         return myTarget;
     }
 
-    public Transform DetermineDamageTextTarget(CardHolder myHolder)
+    public Character GetOtherTarget(Character target)
     {
-        Transform myTarget = null;
-
-        switch (myHolder.side)
+        if (target == FightManager.instance.player)
         {
-            case CardHolder.Side.Enemy:
-
-                switch (target)
-                {
-                    case Target.Ally:
-
-                        myTarget = FightManager.instance.enemyHealth.transform;
-                        break;
-                    case Target.Enemy:
-
-                        myTarget = FightManager.instance.playerHealth.transform;
-                        break;
-                    case Target.Both:
-
-                        //myTarget = FightManager.instance.enemy;
-                        //myTarget = FightManager.instance.player;
-                        break;
-                }
-                break;
-            case CardHolder.Side.Player:
-
-                switch (target)
-                {
-                    case Target.Ally:
-
-                        myTarget = FightManager.instance.playerHealth.transform;
-                        break;
-                    case Target.Enemy:
-
-                        myTarget = FightManager.instance.enemyHealth.transform;
-                        break;
-                    case Target.Both:
-
-                        //myTarget = FightManager.instance.player;
-                        //myTarget = FightManager.instance.enemy;
-                        break;
-                }
-                break;
+            return FightManager.instance.enemy;
         }
-
-        return myTarget;
+        else if (target == FightManager.instance.enemy)
+        {
+            return FightManager.instance.player;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

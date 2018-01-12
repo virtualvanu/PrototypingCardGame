@@ -23,10 +23,10 @@ public class Card_Damage : Card
         Character myTarget = DetermineTarget(myHolder);
 
         int totalDamage = damage;
-        totalDamage += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, myTarget);
+        totalDamage += EffectManager.instance.CheckForPassiveEffect(Effect.Type.SpellPower, myTarget);
 
         myTarget.currentHealth -= totalDamage;
-        FightManager.instance.SpawnDamageText(totalDamage, true, DetermineDamageTextTarget(myHolder));
+        FightManager.instance.SpawnDamageText(totalDamage, true, myTarget);
 
         EffectManager.instance.TriggerPassiveEffects(myTarget);
     }

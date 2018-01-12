@@ -8,7 +8,6 @@ public class Card_DamageIncrease : Card
 
     [Header("Damage Increase Card Attributes")]
     public int damage;
-    //public int uses;
 
     public override void Setup(CardHolder myHolder)
     {
@@ -21,6 +20,6 @@ public class Card_DamageIncrease : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.DamageIncrease, damage);
+        EffectManager.instance.AddEffect(myHolder, Effect.Type.SpellPower, damage);
     }
 }

@@ -26,11 +26,11 @@ public class Card_Heal : Card
 
         if (myTarget == FightManager.instance.player)
         {
-            totalHeal += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, FightManager.instance.enemy);
+            totalHeal += EffectManager.instance.CheckForPassiveEffect(Effect.Type.SpellPower, FightManager.instance.enemy);
         }
         else
         {
-            totalHeal += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, FightManager.instance.player);
+            totalHeal += EffectManager.instance.CheckForPassiveEffect(Effect.Type.SpellPower, FightManager.instance.player);
         }
         
         if (myTarget.currentHealth > (myTarget.maxHealth - totalHeal))
@@ -42,7 +42,7 @@ public class Card_Heal : Card
             myTarget.currentHealth += totalHeal;
         }
 
-        FightManager.instance.SpawnDamageText(totalHeal, false, DetermineDamageTextTarget(myHolder));
+        FightManager.instance.SpawnDamageText(totalHeal, false, myTarget);
 
         if (myTarget == FightManager.instance.player)
         {
