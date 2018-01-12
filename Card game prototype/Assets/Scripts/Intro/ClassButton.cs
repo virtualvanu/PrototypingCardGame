@@ -56,6 +56,6 @@ public class ClassButton : MonoBehaviour
     public void SelectLevel()
     {
         GameManager.instance.opponent = pickableCharacter;
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 }
