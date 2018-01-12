@@ -7,6 +7,7 @@ public class DeckCard : MonoBehaviour {
     public bool inDeck;
     public int myIndex;
     public GameObject mySceneObject;
+    public GameObject myCollectionObject;
     // Use this for initialization
     void Start () {
         deckEditor = GameObject.FindGameObjectWithTag("DE").GetComponent<DeckBuilding>();
@@ -25,7 +26,7 @@ public class DeckCard : MonoBehaviour {
             //{
                 deckEditor.playerDeck.Remove(GetComponent<DeckBuilderCardHolder>().card);
                 deckEditor.instantiatedCards--;
-                mySceneObject.GetComponent<CollectionCard>().amountInCollection++;
+                myCollectionObject.GetComponent<CollectionCard>().amountInCollection++;
                 if (!mySceneObject.GetComponent<CollectionCard>().inCollection)
                 {
                     Destroy(mySceneObject);

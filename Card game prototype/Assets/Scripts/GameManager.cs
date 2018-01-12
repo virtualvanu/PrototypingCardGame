@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public List<Character> opponents = new List<Character>();
     public List<Character> defeatedOpponents = new List<Character>();
 
+    public List<Card> collection = new List<Card>();
+    public List<Card> playerDeckEditorDeck = new List<Card>();
+
     private void Awake()
     {
         if (instance == null)

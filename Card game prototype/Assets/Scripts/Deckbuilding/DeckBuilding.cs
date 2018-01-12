@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class DeckBuilding : MonoBehaviour {
     public List<Card> playerDeck = new List<Card>();
-    public List<GameObject> collection = new List<GameObject>();
+    public List<Card> collection = new List<Card>();
     //public List<GameObject> previewDeck = new List<GameObject>();
     public int maxDeckSize;
 
+    public GameObject deckScrollview;
     public GameObject zoompos;
     public int instantiatedCards;
-    private GameObject deckContent;
+    public GameObject deckContent;
     private GameObject collectionContent;
     private GameObject canvas;
     public bool isEditing;
@@ -22,14 +23,48 @@ public class DeckBuilding : MonoBehaviour {
 
     public Character test; //DELET DIS(Testing var)
     public TextMeshProUGUI amountLeftText;
+
+    private static bool savedOnce;
+
 	// Use this for initialization
 	void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
         collectionContent = GameObject.FindGameObjectWithTag("ColContent");
         canvas = GameObject.FindGameObjectWithTag("ColCanvas");
+        if (!savedOnce)
+        {
+            AddMultipleCardsToCollection(GameManager.instance.player.deck);
+            SetStartDeck(GameManager.instance.player.deck);
+            RefreshDeckContent();
+        }
+        else
+        {
+            collection = GameManager.instance.collection;
+            playerDeck = GameManager.instance.playerDeckEditorDeck;
 
-        //SetStartDeck(test.deck);
-        AddMultipleCardsToCollection(test.deck);
+            AddMultipleCardsToCollection(collection);
+            SetStartDeck(playerDeck);
+            RefreshDeckContent();
+            foreach (Card c in collection)
+            {
+                if (!collection.Contains(c))
+                {
+                    AddCardToCollection(c);
+                }
+
+            }
+
+           
+
+           
+            
+        }
+
+        //AddMultipleCardsToCollection(GameManager.instance.player.deck);
+        
+
+        
+      
 
     }
 	
@@ -88,50 +123,95 @@ public class DeckBuilding : MonoBehaviour {
     {
         foreach (Card card in c)
         {
-            GameObject prefab = Instantiate(deckBuilderCardHolderPrefab);
-            prefab.GetComponent<DeckBuilderCardHolder>().card = card;
-            prefab.GetComponent<DeckBuilderCardHolder>().LoadCard(); 
-            AddToDeck(prefab);
+            if (!playerDeck.Contains(card))
+            {
+                foreach(Card g in collection)
+                {
+                    if(g == card)
+                    {
+                        GameObject prefab = Instantiate(deckBuilderCardHolderPrefab);
+                        prefab.GetComponent<DeckBuilderCardHolder>().card = card;
+                        prefab.GetComponent<DeckBuilderCardHolder>().LoadCard();
+                        GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+                        foreach (GameObject k in all)
+                        {
+                            if(k.GetComponent<DeckBuilderCardHolder>().card == g)
+                            {
+                                prefab.GetComponent<DeckCard>().myCollectionObject = k;
+                            }
+                        }
+                  
+                        AddToDeck(prefab);
+                    }
+                }
+
+            }
+           
         }
+
+        
       
     }
 
     public void AddToDeck(GameObject toAdd)
     {
-        if (playerDeck.Count < maxDeckSize)
+        if (playerDeck.Count < maxDeckSize && !playerDeck.Contains(toAdd.GetComponent<DeckBuilderCardHolder>().card))
         {
             GameObject w = Instantiate(toAdd);
             playerDeck.Add(w.GetComponent<DeckBuilderCardHolder>().card);
 
             w.GetComponent<DeckCard>().myIndex = playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
             w.GetComponent<DeckCard>().mySceneObject = toAdd;
+            foreach(Card g in collection)
+            {
+                if(g == w.GetComponent<DeckBuilderCardHolder>().card)
+                {
+                    GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+                    foreach (GameObject k in all)
+                    {
+                        if (k.GetComponent<DeckBuilderCardHolder>().card == g)
+                        {
+                            w.GetComponent<DeckCard>().myCollectionObject = k;
+                        }
+                    }
+                   
+                }
+            }
+
 
             ShowDeckCards(w);
         }
-     
+
+       
+
     }
 
     public void AddCardToCollection(Card cardToAdd)
     {
-        GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
-        DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
+        if (!collection.Contains(cardToAdd))
+        {
+            GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
+            DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
 
-        d.card = cardToAdd;
-        d.LoadCard();
+            d.card = cardToAdd;
+            d.LoadCard();
 
-        q.GetComponent<CollectionCard>().AddOne();
+            //q.GetComponent<CollectionCard>().AddOne(); Adds one card of this type to collection
 
-        collection.Add(q);
+            collection.Add(cardToAdd);
         
 
-        q.transform.SetParent(collectionContent.transform, false);
+            q.transform.SetParent(collectionContent.transform, false);
         
-        q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
-        q.transform.localPosition = collectionContent.transform.position;
+            q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
+            q.transform.localPosition = collectionContent.transform.position;
   
-        q.GetComponent<CollectionCard>().enabled = true;
-        q.GetComponent<CollectionCard>().inCollection = true;
-        q.GetComponent<DeckCard>().enabled = false;
+            q.GetComponent<CollectionCard>().enabled = true;
+            q.GetComponent<CollectionCard>().inCollection = true;
+            q.transform.tag = "DeckBuildCard";
+            q.GetComponent<DeckCard>().enabled = false;
+
+        }
        
     }
 
@@ -168,7 +248,9 @@ public class DeckBuilding : MonoBehaviour {
     {
         if (tab == 0)
         {
-            foreach (GameObject c in collection)
+            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+           
+            foreach (GameObject c in all)
             {
                 //c.transform.Find("GreyedOutPanel").gameObject.SetActive(false);
                 c.SetActive(true);
@@ -183,7 +265,9 @@ public class DeckBuilding : MonoBehaviour {
         }
         else if (tab == 1)
         {
-            foreach (GameObject c in collection)
+            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+
+            foreach (GameObject c in all)
             {
                 if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Heal) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_HOT))
                 {
@@ -197,7 +281,9 @@ public class DeckBuilding : MonoBehaviour {
         }
         else if (tab == 2)
         {
-            foreach (GameObject c in collection)
+            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+
+            foreach (GameObject c in all)
             {
                 if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Draw))
                 {
@@ -212,7 +298,9 @@ public class DeckBuilding : MonoBehaviour {
         }
         if (tab == 3)
         {
-            foreach (GameObject c in collection)
+            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+
+            foreach (GameObject c in all)
             {
                 if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Damage) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DOT) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DamageIncrease))
                 {
@@ -226,21 +314,36 @@ public class DeckBuilding : MonoBehaviour {
         }
 
 
-        RefreshContent();
+        RefreshCollectionContent();
 
     }
 
    
 
-    private void RefreshContent()
+    private void RefreshCollectionContent()
     {
         collectionContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1);
         collectionContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1);
     }
 
+    private void RefreshDeckContent()
+    {
+        deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1);
+        deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1);
+
+    }
+
     public void ExitScene()
     {
+        SaveCollectionScene();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    public void SaveCollectionScene()
+    {
+        GameManager.instance.collection = collection;
+        GameManager.instance.playerDeckEditorDeck = playerDeck;
+
+        savedOnce = true;
+    }
 }
