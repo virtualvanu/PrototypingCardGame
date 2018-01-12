@@ -27,6 +27,9 @@ public class FightManager : MonoBehaviour {
     [Header("icons")]
     public Image playerIcon;
     public Image EnemyIcon;
+    public Image playerBackground;
+    public Image enemyBackground;
+    public List<Sprite> backgrounds = new List<Sprite>();
 
     public enum Turn
     {
@@ -142,6 +145,7 @@ public class FightManager : MonoBehaviour {
     {
         enemy = enemyChar;
         player = playerChar;
+        GetBackground();
         StartCoroutine(SetPlayerDeck());
     }
 
@@ -190,5 +194,30 @@ public class FightManager : MonoBehaviour {
         showHealthPopup = false;
 
         healthPopup.SetActive(false);
+    }
+
+    public void GetBackground()
+    {
+        if(backgrounds.Count == 0)
+        {
+            return;
+        }
+        int i = RandomNumber(backgrounds.Count);
+        playerBackground.sprite = backgrounds[i];
+        for (int o = 0; 0 < 1; o++)
+        {
+            int p = RandomNumber(backgrounds.Count);
+            if(p != i)
+            {
+                enemyBackground.sprite = backgrounds[p];
+                return;
+            }
+        }
+    }
+
+    public int RandomNumber(int max)
+    {
+        int i = Random.Range(0, max);
+        return i;
     }
 }

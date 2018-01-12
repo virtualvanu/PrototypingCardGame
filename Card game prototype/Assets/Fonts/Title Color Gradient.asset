@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 2108210716, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: Title Color Gradient
   m_EditorClassIdentifier: 
-  topLeft: {r: 0.03859171, g: 0.014597746, b: 0.33088237, a: 1}
-  topRight: {r: 0.039215688, g: 0.015686275, b: 0.32941177, a: 1}
+  topLeft: {r: 0.49264705, g: 0.47815743, b: 0.47815743, a: 1}
+  topRight: {r: 0.45588237, g: 0.45588237, b: 0.45588237, a: 1}
   bottomLeft: {r: 0.7352941, g: 0.7352941, b: 0.7352941, a: 1}
   bottomRight: {r: 0.6691177, g: 0.6691177, b: 0.6691177, a: 1}

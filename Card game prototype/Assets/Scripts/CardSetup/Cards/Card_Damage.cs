@@ -20,14 +20,14 @@ public class Card_Damage : Card
     {
         base.Use(myHolder);
 
-        Character target = DetermineTarget(myHolder);
+        Character myTarget = DetermineTarget(myHolder);
 
         int totalDamage = damage;
-        totalDamage += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, target);
+        totalDamage += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, myTarget);
 
-        target.currentHealth -= totalDamage;
+        myTarget.currentHealth -= totalDamage;
         FightManager.instance.SpawnDamageText(totalDamage, true, DetermineDamageTextTarget(myHolder));
 
-        EffectManager.instance.TriggerPassiveEffects(target);
+        EffectManager.instance.TriggerPassiveEffects(myTarget);
     }
 }

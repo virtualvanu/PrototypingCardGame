@@ -22,15 +22,21 @@ public class Card_Heal : Card
 
         Character myTarget = DetermineTarget(myHolder);
 
-        if (myTarget.currentHealth > (myTarget.maxHealth - healAmount))
+        int totalHeal = healAmount;
+        totalHeal += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, myTarget);
+
+
+        if (myTarget.currentHealth > (myTarget.maxHealth - totalHeal))
         {
             myTarget.currentHealth = myTarget.maxHealth;
         }
         else
         {
-            myTarget.currentHealth += healAmount;
+            myTarget.currentHealth += totalHeal;
         }
 
-        FightManager.instance.SpawnDamageText(healAmount, false, DetermineDamageTextTarget(myHolder));
+        FightManager.instance.SpawnDamageText(totalHeal, false, DetermineDamageTextTarget(myHolder));
+
+        EffectManager.instance.TriggerPassiveEffects(myTarget);
     }
 }

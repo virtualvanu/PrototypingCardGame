@@ -10,8 +10,6 @@ public class Card_DOT : Card
     public int damage;
     public int duration;
 
-    private int totalDamage;
-
     public override void Setup(CardHolder myHolder)
     {
         base.Setup(myHolder);
@@ -25,15 +23,12 @@ public class Card_DOT : Card
 
         Character target = DetermineTarget(myHolder);
 
-        totalDamage = damage;
-        totalDamage += EffectManager.instance.CheckForPassiveEffect(Effect.Type.DamageIncrease, target);
-
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.DOT, totalDamage, duration);
+        EffectManager.instance.AddEffect(myHolder, Effect.Type.DOT, damage, duration);
     }
 
     public override void TriggerEffect(Character target, Transform damageTextPos)
     {
-        target.currentHealth -= totalDamage;
-        FightManager.instance.SpawnDamageText(totalDamage, true, damageTextPos);
+        target.currentHealth -= damage;
+        FightManager.instance.SpawnDamageText(damage, true, damageTextPos);
     }
 }
