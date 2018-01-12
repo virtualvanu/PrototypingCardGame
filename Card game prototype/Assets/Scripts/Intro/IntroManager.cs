@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroManager : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class IntroManager : MonoBehaviour
     public void ConfirmCharacterButton()
     {
         GameManager.instance.opponents.Remove(GameManager.instance.player);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void DeselectAllCharacters()

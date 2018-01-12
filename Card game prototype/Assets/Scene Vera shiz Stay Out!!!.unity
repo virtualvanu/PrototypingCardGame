@@ -3064,7 +3064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9144e65f443fd646b7f2c0502c11c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testPlayer: {fileID: 11400000, guid: ebe7d31933bc610418799532c37db9c2, type: 2}
+  testPlayer: {fileID: 11400000, guid: 03fca3f0d8021764aad2057f9fd0cd41, type: 2}
   testEnemy: {fileID: 11400000, guid: 619cdf09025a7c349847c1bec8bfb6f7, type: 2}
   player: {fileID: 0}
   enemy: {fileID: 0}
