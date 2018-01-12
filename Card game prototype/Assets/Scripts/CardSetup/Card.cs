@@ -29,8 +29,6 @@ public class Card : ScriptableObject
 
     public virtual void Use(CardHolder myHolder)
     {
-        Debug.Log("Used the card: " + cardName);
-
         myHolder.DissolveCard();
     }
 

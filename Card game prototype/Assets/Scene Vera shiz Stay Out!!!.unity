@@ -3528,7 +3528,7 @@ GameObject:
   - component: {fileID: 483854794}
   - component: {fileID: 483854793}
   m_Layer: 5
-  m_Name: DamageIncrease
+  m_Name: Spellpower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3571,7 +3571,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 97886313cc5512f44b50819d62aec68a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f291bc6792df81a4f89591cc7dc65797, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4429,7 +4429,7 @@ GameObject:
   - component: {fileID: 592897372}
   - component: {fileID: 592897373}
   m_Layer: 5
-  m_Name: DamageIncrease
+  m_Name: Spellpower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5094,16 +5094,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7f43df63a4600e4bad4ed7991b490a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activePlayerEffects: []
-  activeEnemyEffects: []
-  passivePlayerEffects: []
-  passiveEnemyEffects: []
+  activeEffects: []
+  endedEffects: []
   playerDotEffectIcon: {fileID: 1643597518}
   playerHotEffectIcon: {fileID: 731119138}
-  playerDmgIncreaseEffectIcon: {fileID: 483854791}
+  playerSpellpowerEffectIcon: {fileID: 483854791}
   enemyDotEffectIcon: {fileID: 1806924118}
   enemyHotEffectIcon: {fileID: 1530016645}
-  enemyDmgIncreaseEffectIcon: {fileID: 2138608380}
+  enemySpellpowerEffectIcon: {fileID: 2138608380}
   effectPopup: {fileID: 969756382}
   playerPopupSpawn: {fileID: 1702219843}
   enemyPopupSpawn: {fileID: 1496685030}
@@ -5112,7 +5110,6 @@ MonoBehaviour:
   hotAmountText: {fileID: 182854420}
   hotDurationText: {fileID: 1833220651}
   dmgIncreaseAmountText: {fileID: 427129442}
-  activePassiveEffects: []
 --- !u!4 &676489124
 Transform:
   m_ObjectHideFlags: 0
@@ -5419,7 +5416,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0cceefaef63bcde4e9597e026fc62c77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c9806a45bc87ab42875ebd6aba42465, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8911,7 +8908,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0cceefaef63bcde4e9597e026fc62c77, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c9806a45bc87ab42875ebd6aba42465, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9895,7 +9892,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fd7d78e6f449b2c459624622a1e84636, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13973d9b8b7490a4ab613f04b0c1bdbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10602,7 +10599,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: fd7d78e6f449b2c459624622a1e84636, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13973d9b8b7490a4ab613f04b0c1bdbf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11814,7 +11811,7 @@ GameObject:
   - component: {fileID: 2138608383}
   - component: {fileID: 2138608382}
   m_Layer: 5
-  m_Name: DamageIncrease
+  m_Name: Spellpower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11857,7 +11854,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 97886313cc5512f44b50819d62aec68a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f291bc6792df81a4f89591cc7dc65797, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

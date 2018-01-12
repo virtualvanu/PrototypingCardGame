@@ -20,6 +20,6 @@ public class Card_DamageIncrease : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.SpellPower, damage);
+        EffectManager.instance.AddEffect(myHolder, Effect.Type.SpellPower, damage, 0);
     }
 }

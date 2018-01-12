@@ -130,7 +130,7 @@ public class FightManager : MonoBehaviour {
             StartCoroutine(enemyCurrentDeck.GetNewCard(1));
             enemyAI.StartCoroutine(enemyAI.StartEnemyTurn());
         }
-        EffectManager.instance.TriggerEffects();
+        EffectManager.instance.TriggerEffects(false);
     }
 
     public void EndTurnEnemy()
@@ -138,7 +138,7 @@ public class FightManager : MonoBehaviour {
         turn = Turn.player;
         myDeck.myMana.StartTurn();
         StartCoroutine(myDeck.GetNewCard(1));
-        EffectManager.instance.TriggerEffects();
+        EffectManager.instance.TriggerEffects(false);
     }
 
     public void StartGame(Character playerChar,Character enemyChar)
