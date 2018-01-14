@@ -13,7 +13,7 @@ public class CardAttribute : MonoBehaviour
         Heal,
         DOT,
         HOT,
-        DamageIncrease
+        SpellPower
     }
     public Type type;
     [Space(10)]

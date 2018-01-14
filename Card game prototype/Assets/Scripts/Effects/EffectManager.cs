@@ -337,6 +337,15 @@ public class EffectManager : MonoBehaviour
         hotDurationText.text = hotDuration.ToString();
         dmgIncreaseAmountText.text = spellpowerAmount.ToString();
 
+        if (spellpowerAmount >= 0)
+        {
+            dmgIncreaseAmountText.color = new Color32(0, 214, 37, 255);
+        }
+        else
+        {
+            dmgIncreaseAmountText.color = new Color32(244, 0, 0, 255);
+        }
+
         effectPopup.SetActive(true);
     }
 

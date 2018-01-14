@@ -8,10 +8,6 @@ public class DeckBuilderCardHolder : CardHolder
 {
     public bool awakened;
 
-    private bool canDissolve;
-
-    Image[] images;
-
     private void Awake()
     {
         if (!awakened)

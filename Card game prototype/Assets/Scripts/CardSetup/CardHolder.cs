@@ -18,7 +18,7 @@ public class CardHolder : MonoBehaviour
     }
     public Side side;
 
-    private bool canDissolve;
+    protected bool canDissolve;
 
     [Header("Card UI Setup")]
     public TextMeshProUGUI nameText;
@@ -31,8 +31,8 @@ public class CardHolder : MonoBehaviour
     public GameObject attributePrefab;
     public List<Sprite> attributeIcons = new List<Sprite>();
 
-    Image[] images;
-    List<Image> toDissolve = new List<Image>();
+    protected Image[] images;
+    protected List<Image> toDissolve = new List<Image>();
 
     private void Awake()
     {
@@ -88,9 +88,16 @@ public class CardHolder : MonoBehaviour
 
                 attribute.Setup(attributeIcons[1], value1.ToString(), FightManager.instance.healColor);
                 break;
-            case CardAttribute.Type.DamageIncrease:
+            case CardAttribute.Type.SpellPower:
 
-                attribute.Setup(attributeIcons[0], value1.ToString(), FightManager.instance.healColor);
+                if (value1 > 0)
+                {
+                    attribute.Setup(attributeIcons[5], value1.ToString(), FightManager.instance.healColor);
+                }
+                else
+                {
+                    attribute.Setup(attributeIcons[5], value1.ToString(), FightManager.instance.damageColor);
+                }
                 break;
         }
     }
@@ -109,10 +116,6 @@ public class CardHolder : MonoBehaviour
             case CardAttribute.Type.HOT:
 
                 attribute.Setup(attributeIcons[1], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.healColor);
-                break;
-            case CardAttribute.Type.DamageIncrease:
-
-                attribute.Setup(attributeIcons[0], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.healColor);
                 break;
         }
     }

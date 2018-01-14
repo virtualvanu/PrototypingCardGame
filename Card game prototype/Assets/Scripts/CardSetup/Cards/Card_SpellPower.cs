@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Cards/Spell Power")]
-public class Card_DamageIncrease : Card
+public class Card_SpellPower : Card
 {
 
     [Header("Spell Power Card Attributes")]
@@ -13,7 +13,7 @@ public class Card_DamageIncrease : Card
     {
         base.Setup(myHolder);
 
-        myHolder.CreateAttribute(CardAttribute.Type.DamageIncrease, spellPower);
+        myHolder.CreateAttribute(CardAttribute.Type.SpellPower, spellPower);
     }
 
     public override void Use(CardHolder myHolder)

@@ -299,7 +299,7 @@ public class DeckBuilding : MonoBehaviour {
 
             foreach (GameObject c in all)
             {
-                if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Damage) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DOT) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DamageIncrease))
+                if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Damage) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DOT) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_SpellPower))
                 {
                     c.SetActive(false);
                 }

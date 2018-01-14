@@ -359,6 +359,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 0cceefaef63bcde4e9597e026fc62c77, type: 3}
   - {fileID: 21300000, guid: fd7d78e6f449b2c459624622a1e84636, type: 3}
   - {fileID: 21300000, guid: d024d124f170736468c90bbed874fe17, type: 3}
+  - {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
   awakened: 0
 --- !u!114 &114134710552801748
 MonoBehaviour:

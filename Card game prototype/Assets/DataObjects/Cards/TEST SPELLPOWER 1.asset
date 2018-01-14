@@ -8,14 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d647c78daf88b244890e09ebf6e5e304, type: 3}
-  m_Name: TEST LIFETAP
+  m_Script: {fileID: 11500000, guid: 5154efa60ce2b584f99d57b19b693df8, type: 3}
+  m_Name: TEST SPELLPOWER 1
   m_EditorClassIdentifier: 
   target: 0
-  cardName: life tappity
+  cardName: SPELLPOWER
   manaCost: 1
   level: 1
-  icon: {fileID: 21300000, guid: a546fe6d43703a14188f93cef4db53b3, type: 3}
-  damageTarget: 0
-  damage: 2
-  amountToDraw: 1
+  icon: {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
+  spellPower: 1

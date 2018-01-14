@@ -34,6 +34,4 @@ public class GameManager : MonoBehaviour
     {
         GameManager.instance.collection.Add(c);
     }
-   
-
 }
