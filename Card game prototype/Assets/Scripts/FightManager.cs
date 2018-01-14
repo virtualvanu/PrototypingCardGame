@@ -143,10 +143,19 @@ public class FightManager : MonoBehaviour {
 
     public void StartGame(Character playerChar,Character enemyChar)
     {
-        enemy = enemyChar;
-        player = playerChar;
-        GetBackground();
-        StartCoroutine(SetPlayerDeck());
+        Scene currentScene = SceneManager.GetActiveScene();
+
+      
+        string sceneName = currentScene.name;
+
+        if (sceneName != "Scene Peter")
+        {
+            enemy = enemyChar;
+            player = playerChar;
+            GetBackground();
+            StartCoroutine(SetPlayerDeck());
+         
+        }
     }
 
     public void SpawnDamageText(int value, bool damage, Character target)
