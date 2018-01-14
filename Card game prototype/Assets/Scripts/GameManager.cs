@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void AddCardToGamemanagerCollection(Card c)
     {
-        collection.Add(c);
+        GameManager.instance.collection.Add(c);
     }
    
 
