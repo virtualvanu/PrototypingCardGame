@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: life tappity
   manaCost: 1
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a546fe6d43703a14188f93cef4db53b3, type: 3}
   damage: 2
   amountToDraw: 1

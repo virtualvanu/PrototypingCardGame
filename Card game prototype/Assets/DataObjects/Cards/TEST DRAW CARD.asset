@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: TEST DRAW
   manaCost: 1
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3198eda9f7d150f40a52b7a08e6e1d16, type: 3}
   amountToDraw: 3
