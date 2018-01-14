@@ -164,7 +164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1763736031442528
 GameObject:
   m_ObjectHideFlags: 1
@@ -311,7 +311,7 @@ MonoBehaviour:
   mana: {fileID: 0}
   side: 0
   nameText: {fileID: 114476682616606490}
-  iconImage: {fileID: 0}
+  iconImage: {fileID: 114185918535773316}
   manaCrystalHolder: {fileID: 224358838915086400}
   manaCrystal: {fileID: 1538430227244020, guid: a930b660146f4be439d9931fd4510bd5,
     type: 2}
@@ -803,7 +803,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00002363, y: 0.00001049}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224416273927719446
 RectTransform:

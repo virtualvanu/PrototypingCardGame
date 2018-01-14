@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: D test 1
   manaCost: 1
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f291bc6792df81a4f89591cc7dc65797, type: 3}
   damage: 2

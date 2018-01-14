@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: Force Heal
   manaCost: 2
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b14da1a29ce4ee6468aedf9897f7f3cd, type: 3}
   healAmount: 1
   duration: 3

@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: Healing Potion
   manaCost: 2
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3e384fe881d79e442872e6e0bd1c7ec2, type: 3}
   healAmount: 4

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: TEST SPELLPOWER
   m_EditorClassIdentifier: 
   target: 0
-  cardName: TEST DMG INCREASE
+  cardName: SPELLPOWER
   manaCost: 1
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
   spellPower: 2

@@ -15,5 +15,5 @@ MonoBehaviour:
   cardName: Starfire Lash
   manaCost: 3
   level: 1
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c732e52ec31a273499f9ce076ab56b85, type: 3}
   damage: 4
