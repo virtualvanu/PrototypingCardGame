@@ -582,6 +582,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 1863947129}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 1139060102}
   avatarImage: {fileID: 1168655284}
 --- !u!95 &362157093
@@ -812,6 +813,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 2129092203}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 251543545}
   avatarImage: {fileID: 2039844289}
 --- !u!95 &406878556
@@ -1383,6 +1385,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 139313559}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 1847839068}
   avatarImage: {fileID: 606330551}
 --- !u!95 &728500671
@@ -6682,6 +6685,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce7dfe6d52df48840a78b0df3dd88b9a, type: 2}
   - {fileID: 11400000, guid: 03fca3f0d8021764aad2057f9fd0cd41, type: 2}
   defeatedOpponents: []
+  collection: []
+  playerDeckEditorDeck: []
 --- !u!4 &1477980346
 Transform:
   m_ObjectHideFlags: 0
@@ -7409,6 +7414,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 743718417}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 1395307014}
   avatarImage: {fileID: 2088974261}
 --- !u!95 &1753491961
@@ -7861,6 +7867,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 1930759950}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 77538091}
   avatarImage: {fileID: 2075217476}
 --- !u!95 &1911609795
@@ -8295,6 +8302,7 @@ MonoBehaviour:
   moveSpeed: 2
   rotateSpeed: 4
   selectedOverlay: {fileID: 550193095}
+  defeatedOverlay: {fileID: 0}
   nameText: {fileID: 1517209592}
   avatarImage: {fileID: 984086154}
 --- !u!95 &2105592286

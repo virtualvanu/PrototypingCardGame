@@ -375,6 +375,7 @@ MonoBehaviour:
   inDeck: 0
   myIndex: 0
   mySceneObject: {fileID: 0}
+  myCollectionObject: {fileID: 0}
 --- !u!114 &114434010824516940
 MonoBehaviour:
   m_ObjectHideFlags: 1

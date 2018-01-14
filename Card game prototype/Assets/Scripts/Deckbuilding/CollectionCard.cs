@@ -26,10 +26,15 @@ public class CollectionCard : MonoBehaviour {
             deckEditor = GameObject.FindGameObjectWithTag("DE").GetComponent<DeckBuilding>();
             myPanel = GameObject.FindGameObjectWithTag("CollectionPanel");
 
+            deckEditor.SetAmountText();
             previewCard = gameObject;
             startScale = transform.localScale;
 
-            //amountInCollection = 5;
+        //amountInCollection = 5;
+        //if (!GetComponent<DeckCard>().inDeck && DeckBuilding.savedOnce)
+        //{
+        //    amountInCollection = 1;
+        //}
 
 	}
 	
@@ -43,16 +48,16 @@ public class CollectionCard : MonoBehaviour {
     public void Click()
     {
         
-        if (!GetComponent<DeckCard>().inDeck)
+        if (!GetComponent<DeckCard>().inDeck && !deckEditor.playerDeck.Contains(GetComponent<DeckBuilderCardHolder>().card))
         {
             if (deckEditor.isEditing)
             {
-                if(amountInCollection > 0)
-                {
+                //if(amountInCollection > 0)
+                //{
                     deckEditor.AddToDeck(gameObject);
                     amountInCollection--;
-                    deckEditor.SetAmountText(gameObject);
-                }
+                    deckEditor.SetAmountText();
+                //}
                
                 //if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
                 //{

@@ -24,47 +24,43 @@ public class DeckBuilding : MonoBehaviour {
     public Character test; //DELET DIS(Testing var)
     public TextMeshProUGUI amountLeftText;
 
-    private static bool savedOnce;
-
-	// Use this for initialization
-	void Start () {
+    public static bool savedOnce;
+    GameObject[] all;
+    // Use this for initialization
+    void Start () {
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
         collectionContent = GameObject.FindGameObjectWithTag("ColContent");
         canvas = GameObject.FindGameObjectWithTag("ColCanvas");
-        if (!savedOnce)
-        {
-            AddMultipleCardsToCollection(GameManager.instance.player.deck);
-            SetStartDeck(GameManager.instance.player.deck);
-            RefreshDeckContent();
-        }
-        else
-        {
-            collection = GameManager.instance.collection;
-            playerDeck = GameManager.instance.playerDeckEditorDeck;
+        SetStart();
+        all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
 
-            AddMultipleCardsToCollection(collection);
-            SetStartDeck(playerDeck);
-            RefreshDeckContent();
-            foreach (Card c in collection)
-            {
-                if (!collection.Contains(c))
-                {
-                    AddCardToCollection(c);
-                }
+        //if (!savedOnce)
+        //{
+        //    AddMultipleCardsToCollection(GameManager.instance.player.deck);
+        //    SetStartDeck(GameManager.instance.player.deck);
+        //    RefreshDeckContent();
+        //}
+        //else
+        //{
+        //    collection = GameManager.instance.collection;
+        //    playerDeck = GameManager.instance.playerDeckEditorDeck;
 
-            }
+        //    AddMultipleCardsToCollection(collection);
+        //    SetStartDeck(playerDeck);
+        //    RefreshDeckContent();
 
-           
 
-           
-            
-        }
+
+
+
+
+        //}
 
         //AddMultipleCardsToCollection(GameManager.instance.player.deck);
-        
 
-        
-      
+
+
+
 
     }
 	
@@ -73,9 +69,9 @@ public class DeckBuilding : MonoBehaviour {
        
 	}
 
-    public void SetAmountText(GameObject card)
+    public void SetAmountText()
     {
-        amountLeftText.text = "Amount of " + card.GetComponent<DeckBuilderCardHolder>().card.cardName + " " + "left: " + "\n" + card.GetComponent<CollectionCard>().amountInCollection;
+        amountLeftText.text = "Cards in deck: " + playerDeck.Count + "/" + maxDeckSize;
     }
 
     public void StartEditing()
@@ -248,7 +244,8 @@ public class DeckBuilding : MonoBehaviour {
     {
         if (tab == 0)
         {
-            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+            
+            
            
             foreach (GameObject c in all)
             {
@@ -265,7 +262,7 @@ public class DeckBuilding : MonoBehaviour {
         }
         else if (tab == 1)
         {
-            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+          
 
             foreach (GameObject c in all)
             {
@@ -281,7 +278,7 @@ public class DeckBuilding : MonoBehaviour {
         }
         else if (tab == 2)
         {
-            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+           
 
             foreach (GameObject c in all)
             {
@@ -298,7 +295,7 @@ public class DeckBuilding : MonoBehaviour {
         }
         if (tab == 3)
         {
-            GameObject[] all = GameObject.FindGameObjectsWithTag("DeckBuildCard");
+           
 
             foreach (GameObject c in all)
             {
@@ -345,5 +342,12 @@ public class DeckBuilding : MonoBehaviour {
         GameManager.instance.playerDeckEditorDeck = playerDeck;
 
         savedOnce = true;
+    }
+
+    public void SetStart()
+    {
+        AddMultipleCardsToCollection(GameManager.instance.collection);
+        SetStartDeck(GameManager.instance.playerDeckEditorDeck);
+
     }
 }

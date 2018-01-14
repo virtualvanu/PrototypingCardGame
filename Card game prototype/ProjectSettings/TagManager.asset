@@ -14,6 +14,7 @@ TagManager:
   - ColCanvas
   - CollectionPanel
   - ColContent
+  - DeckBuildCard
   layers:
   - Default
   - TransparentFX

@@ -29,4 +29,11 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void AddCardToGamemanagerCollection(Card c)
+    {
+        collection.Add(c);
+    }
+   
+
 }
