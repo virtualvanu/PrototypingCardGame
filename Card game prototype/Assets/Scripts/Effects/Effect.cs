@@ -19,6 +19,6 @@ public class Effect
     public int duration;
 
     [Header("Targets")]
-    public Character effectGiver;
+    //public Character effectGiver;
     public Character effectReceiver;
 }

@@ -32,6 +32,7 @@ public class CardHolder : MonoBehaviour
     public List<Sprite> attributeIcons = new List<Sprite>();
 
     Image[] images;
+    List<Image> toDissolve = new List<Image>();
 
     private void Awake()
     {
@@ -67,6 +68,7 @@ public class CardHolder : MonoBehaviour
             if (image.material.name == "Card")
             {
                 image.material = new Material(image.material);
+                toDissolve.Add(image);
             }
         }
     }
@@ -125,7 +127,7 @@ public class CardHolder : MonoBehaviour
             textObject.gameObject.SetActive(false);
         }
 
-        foreach (Image image in images)
+        foreach (Image image in toDissolve)
         {
             image.material.SetFloat("_Threshold", image.material.GetFloat("_Threshold") + (Time.deltaTime * 1.5f));
         }

@@ -151,7 +151,7 @@ public class FightManager : MonoBehaviour {
 
     public void SpawnDamageText(int value, bool damage, Character target)
     {
-        GameObject newDamageText = new GameObject();
+        GameObject newDamageText = null;
 
         if (target == player)
         {

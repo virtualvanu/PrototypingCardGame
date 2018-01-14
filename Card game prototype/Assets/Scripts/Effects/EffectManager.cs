@@ -65,20 +65,42 @@ public class EffectManager : MonoBehaviour
 
     private IEnumerator TriggerEffectsRoutine(bool passive)
     {
-        foreach (Effect effect in activeEffects)
+        if (passive)
         {
-            if (passive)
+            foreach (Effect effect in activeEffects)
             {
-                if (effect.effectReceiver == FightManager.instance.player && FightManager.instance.turn == FightManager.Turn.player)
+                if (effect.type == Effect.Type.SpellPower)
                 {
-                    endedEffects.Add(effect);
-                }
-                else if (effect.effectReceiver == FightManager.instance.enemy && FightManager.instance.turn == FightManager.Turn.enemy)
-                {
-                    endedEffects.Add(effect);
+                    if (effect.effectReceiver == FightManager.instance.player && FightManager.instance.turn == FightManager.Turn.player)
+                    {
+                        endedEffects.Add(effect);
+                    }
+                    else if (effect.effectReceiver == FightManager.instance.enemy && FightManager.instance.turn == FightManager.Turn.enemy)
+                    {
+                        endedEffects.Add(effect);
+                    }
                 }
             }
-            else
+        }
+        else
+        {
+            foreach (Effect effect in SortEffects(false))
+            {
+                if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+                {
+                    effect.effectCard.TriggerEffect(effect.effectReceiver);
+                    effect.duration--;
+
+                    if (effect.duration == 0)
+                    {
+                        endedEffects.Add(effect);
+                    }
+
+                    yield return new WaitForSeconds(0.6f);
+                }
+            }
+
+            foreach (Effect effect in SortEffects(true))
             {
                 if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
                 {
@@ -96,6 +118,77 @@ public class EffectManager : MonoBehaviour
         }
 
         RemoveEndedEffects();
+
+        // Triggering effects in order:
+
+        //foreach (Effect effect in activeEffects)
+        //{
+        //    if (passive)
+        //    {
+        //        if (effect.type == Effect.Type.SpellPower)
+        //        {
+        //            if (effect.effectReceiver == FightManager.instance.player && FightManager.instance.turn == FightManager.Turn.player)
+        //            {
+        //                endedEffects.Add(effect);
+        //            }
+        //            else if (effect.effectReceiver == FightManager.instance.enemy && FightManager.instance.turn == FightManager.Turn.enemy)
+        //            {
+        //                endedEffects.Add(effect);
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+        //        {
+        //            effect.effectCard.TriggerEffect(effect.effectReceiver);
+        //            effect.duration--;
+
+        //            if (effect.duration == 0)
+        //            {
+        //                endedEffects.Add(effect);
+        //            }
+
+        //            yield return new WaitForSeconds(0.6f);
+        //        }
+        //    }
+        //}
+    }
+
+    private List<Effect> SortEffects(bool player)
+    {
+        List<Effect> activePlayerEffects = new List<Effect>();
+        List<Effect> activeEnemyEffects = new List<Effect>();
+
+        foreach (Effect effect in activeEffects)
+        {
+            if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+            {
+                if (player)
+                {
+                    if (effect.effectReceiver == FightManager.instance.player)
+                    {
+                        activePlayerEffects.Add(effect);
+                    }
+                }
+                else
+                {
+                    if (effect.effectReceiver == FightManager.instance.enemy)
+                    {
+                        activeEnemyEffects.Add(effect);
+                    }
+                }
+            }
+        }
+
+        if (player)
+        {
+            return activePlayerEffects;
+        }
+        else
+        {
+            return activeEnemyEffects;
+        }
     }
 
     private void CheckActiveEffects()
