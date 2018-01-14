@@ -62,6 +62,26 @@ public class CurrentDeck : MonoBehaviour {
         }
     }
 
+    public void GetSpecificCard(Card card)
+    {
+        inHand.Add(card);
+
+        GameObject nc = Instantiate(cardPrefab, transform.position, Quaternion.identity);
+        inhandie.Add(nc);
+        nc.transform.SetParent(gameObject.transform);
+        CardHolder newC = nc.GetComponent<CardHolder>();
+        newC.card = card;
+        newC.LoadCard();
+        newC.deck = this;
+        newC.mana = myMana;
+        if (side == Side.player)
+        {
+            nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
+        }
+
+        nc.transform.localScale = new Vector3(2, 2, 2);
+    }
+
     public void Setup()
     {
         StartCoroutine(GetNewCard(startAmount));

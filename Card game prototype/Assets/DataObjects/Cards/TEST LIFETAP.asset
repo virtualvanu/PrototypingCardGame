@@ -8,12 +8,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5154efa60ce2b584f99d57b19b693df8, type: 3}
-  m_Name: TEST DMG INCREASE
+  m_Script: {fileID: 11500000, guid: d647c78daf88b244890e09ebf6e5e304, type: 3}
+  m_Name: TEST LIFETAP
   m_EditorClassIdentifier: 
   target: 0
-  cardName: TEST DMG INCREASE
+  cardName: life tappity
   manaCost: 1
   level: 1
   icon: {fileID: 0}
   damage: 2
+  amountToDraw: 1
