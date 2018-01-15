@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1149e70d2dea74da34ea2065c9227d, type: 3}
+  m_Name: New Card 150
+  m_EditorClassIdentifier: 
+  cardName: 'Purge '
+  manaCost: 3
+  icon: {fileID: 0}
+  categories: 0100000002000000
+  damageAddons: []
+  healAddons:
+  - myHolder: {fileID: 0}
+    myTarget: {fileID: 0}
+    target: 0
+    healAmount: 2
+  dotAddons:
+  - myHolder: {fileID: 0}
+    myTarget: {fileID: 0}
+    target: 1
+    damage: 1
+    duration: 2
+  hotAddons: []
+  spellPowerAddons: []
+  drawAddons: []
+  stealCardAddons: []

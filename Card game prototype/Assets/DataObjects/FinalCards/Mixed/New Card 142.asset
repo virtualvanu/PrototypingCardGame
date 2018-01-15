@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d1149e70d2dea74da34ea2065c9227d, type: 3}
+  m_Name: New Card 142
+  m_EditorClassIdentifier: 
+  cardName: 'Deception '
+  manaCost: 3
+  icon: {fileID: 0}
+  categories: 0400000005000000
+  damageAddons: []
+  healAddons: []
+  dotAddons: []
+  hotAddons: []
+  spellPowerAddons:
+  - myHolder: {fileID: 0}
+    myTarget: {fileID: 0}
+    target: 0
+    spellPower: 1
+  drawAddons: []
+  stealCardAddons:
+  - myHolder: {fileID: 0}
+    myTarget: {fileID: 0}
+    target: 0
+    amountToSteal: 1
