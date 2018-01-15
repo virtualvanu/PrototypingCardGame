@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/Spell Power")]
+[CreateAssetMenu(menuName = "OLDCards/Spell Power")]
 public class Card_SpellPower : Card
 {
 
@@ -20,6 +20,6 @@ public class Card_SpellPower : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.SpellPower, spellPower, 0);
+        //EffectManager.instance.AddEffect(myHolder, Effect.Type.SpellPower, spellPower, 0);
     }
 }

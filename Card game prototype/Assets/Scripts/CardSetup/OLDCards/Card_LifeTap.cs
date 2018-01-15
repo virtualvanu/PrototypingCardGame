@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/LifeTap")]
+[CreateAssetMenu(menuName = "OLDCards/LifeTap")]
 public class Card_LifeTap : Card
 {
 

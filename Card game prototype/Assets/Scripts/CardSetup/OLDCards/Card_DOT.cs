@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/DOT")]
+[CreateAssetMenu(menuName = "OLDCards/DOT")]
 public class Card_DOT : Card
 {
 
@@ -21,7 +21,7 @@ public class Card_DOT : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.DOT, damage, duration);
+        //EffectManager.instance.AddEffect(myHolder, Effect.Type.DOT, damage, duration);
     }
 
     public override void TriggerEffect(Character target)

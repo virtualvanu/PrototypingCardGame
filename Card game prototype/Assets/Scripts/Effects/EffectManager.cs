@@ -40,7 +40,7 @@ public class EffectManager : MonoBehaviour
         }
     }
 
-    public void AddEffect(CardHolder cardHolder, Effect.Type type, int amount, int duration)
+    public void AddEffect(CardHolder cardHolder, Effect.Type type, int amount, int duration, Character target)
     {
         Effect newEffect = new Effect
         {
@@ -50,7 +50,7 @@ public class EffectManager : MonoBehaviour
             amount = amount,
             duration = duration,
 
-            effectReceiver = cardHolder.card.DetermineTarget(cardHolder)
+            effectReceiver = target
         };
 
         activeEffects.Add(newEffect);
@@ -86,33 +86,71 @@ public class EffectManager : MonoBehaviour
         {
             foreach (Effect effect in SortEffects(false))
             {
-                if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+                if (effect.type == Effect.Type.DOT)
                 {
-                    effect.effectCard.TriggerEffect(effect.effectReceiver);
-                    effect.duration--;
-
-                    if (effect.duration == 0)
+                    for (int i = 0; i < effect.effectCard.dotAddons.Count; i++)
                     {
-                        endedEffects.Add(effect);
-                    }
+                        effect.effectCard.dotAddons[i].TriggerEffect(effect.effectReceiver);
+                        effect.duration--;
 
-                    yield return new WaitForSeconds(0.6f);
+                        if (effect.duration == 0)
+                        {
+                            endedEffects.Add(effect);
+                        }
+
+                        yield return new WaitForSeconds(0.6f);
+                    }
+                }
+
+                if (effect.type == Effect.Type.HOT)
+                {
+                    for (int i = 0; i < effect.effectCard.hotAddons.Count; i++)
+                    {
+                        effect.effectCard.hotAddons[i].TriggerEffect(effect.effectReceiver);
+                        effect.duration--;
+
+                        if (effect.duration == 0)
+                        {
+                            endedEffects.Add(effect);
+                        }
+
+                        yield return new WaitForSeconds(0.6f);
+                    }
                 }
             }
 
             foreach (Effect effect in SortEffects(true))
             {
-                if (effect.type == Effect.Type.DOT || effect.type == Effect.Type.HOT)
+                if (effect.type == Effect.Type.DOT)
                 {
-                    effect.effectCard.TriggerEffect(effect.effectReceiver);
-                    effect.duration--;
-
-                    if (effect.duration == 0)
+                    for (int i = 0; i < effect.effectCard.dotAddons.Count; i++)
                     {
-                        endedEffects.Add(effect);
-                    }
+                        effect.effectCard.dotAddons[i].TriggerEffect(effect.effectReceiver);
+                        effect.duration--;
 
-                    yield return new WaitForSeconds(0.6f);
+                        if (effect.duration == 0)
+                        {
+                            endedEffects.Add(effect);
+                        }
+
+                        yield return new WaitForSeconds(0.6f);
+                    }
+                }
+
+                if (effect.type == Effect.Type.HOT)
+                {
+                    for (int i = 0; i < effect.effectCard.hotAddons.Count; i++)
+                    {
+                        effect.effectCard.hotAddons[i].TriggerEffect(effect.effectReceiver);
+                        effect.duration--;
+
+                        if (effect.duration == 0)
+                        {
+                            endedEffects.Add(effect);
+                        }
+
+                        yield return new WaitForSeconds(0.6f);
+                    }
                 }
             }
         }

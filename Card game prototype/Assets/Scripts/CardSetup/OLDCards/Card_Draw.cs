@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/Draw")]
+[CreateAssetMenu(menuName = "OLDCards/Draw")]
 public class Card_Draw : Card
 {
 

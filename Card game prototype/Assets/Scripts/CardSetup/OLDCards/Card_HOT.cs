@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Cards/HOT")]
+[CreateAssetMenu(menuName = "OLDCards/HOT")]
 public class Card_HOT : Card
 {
 
@@ -21,7 +21,7 @@ public class Card_HOT : Card
     {
         base.Use(myHolder);
 
-        EffectManager.instance.AddEffect(myHolder, Effect.Type.HOT, healAmount, duration);
+        //EffectManager.instance.AddEffect(myHolder, Effect.Type.HOT, healAmount, duration);
     }
 
     public override void TriggerEffect(Character target)
