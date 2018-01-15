@@ -21,6 +21,17 @@ public class Card : ScriptableObject
     public int manaCost;
     public Sprite icon;
 
+    public enum Category
+    {
+        Damage,
+        Heal,
+        DOT,
+        HOT,
+        Buffs,
+        Other
+    }
+    public List<Category> categories = new List<Category>();
+
     [Header("Card Functionality")]
     public List<CardAddon_Damage> damageAddons = new List<CardAddon_Damage>();
     public List<CardAddon_Heal> healAddons = new List<CardAddon_Heal>();

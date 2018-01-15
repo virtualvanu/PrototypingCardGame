@@ -18,7 +18,6 @@ public class CustomCardInterface : Editor
     {
         GUILayout.BeginVertical("box");
 
-
         GUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("General Variables", EditorStyles.boldLabel);
         GUILayout.EndHorizontal();
@@ -43,6 +42,41 @@ public class CustomCardInterface : Editor
         GUILayout.EndVertical();
 
         GUILayout.Space(20);
+
+        GUILayout.BeginVertical("box");
+
+        GUILayout.BeginHorizontal();
+            EditorGUILayout.LabelField("Card Categories:", EditorStyles.boldLabel);
+            if (GUILayout.Button("+", GUILayout.Width(20)))
+            {
+                AddCategory();
+            }
+
+        GUILayout.EndHorizontal();
+
+        for (int i = 0; i < card.categories.Count; i++)
+        {
+            GUILayout.BeginHorizontal();
+            card.categories[i] = (Card.Category)EditorGUILayout.EnumPopup("Category: ", card.categories[i]);
+            if (GUILayout.Button("X", GUILayout.Width(20)))
+            {
+                RemoveCategory(i);
+                return;
+            }
+            GUILayout.EndHorizontal();
+        }
+
+        GUILayout.EndVertical();
+
+        GUILayout.Space(20);
+
+        GUILayout.BeginVertical("box");
+
+        GUILayout.BeginHorizontal();
+        EditorGUILayout.LabelField("Card Functionality:", EditorStyles.boldLabel);
+        GUILayout.EndHorizontal();
+
+        GUILayout.EndVertical();
 
         #region Damage Addons
         GUILayout.BeginHorizontal("box");
@@ -314,12 +348,12 @@ public class CustomCardInterface : Editor
             GUILayout.EndHorizontal();
 
             GUILayout.Label("The Steal Card Addon can only be used by the \nplayer to steal a card from the AI opponent.");
-
-            GUILayout.Space(20);
         }
         #endregion
+
     }
 
+    #region Adding/Removing Addons
     private void AddDamageAddon()
     {
         card.damageAddons.Add(new CardAddon_Damage());
@@ -382,5 +416,14 @@ public class CustomCardInterface : Editor
     {
         card.stealCardAddons.RemoveAt(i);
     }
+    #endregion
 
+    private void AddCategory()
+    {
+        card.categories.Add(new Card.Category());
+    }
+    private void RemoveCategory(int i)
+    {
+        card.categories.RemoveAt(i);
+    }
 }
