@@ -367,7 +367,7 @@ public class CustomCardInterface : Editor
 
             GUILayout.Space(10);
 
-            GUILayout.Label("The Steal Card Addon can only be used by the \nplayer to steal a card from the AI opponent.");
+            GUILayout.Label("The Steal Card Addon always steals from the users opponent.");
         }
         #endregion
 

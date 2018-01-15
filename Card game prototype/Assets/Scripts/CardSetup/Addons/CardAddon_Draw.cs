@@ -19,6 +19,8 @@ public class CardAddon_Draw : CardAddon
     public override void Setup()
     {
         base.Setup();
+
+        myHolder.CreateAttribute(CardAttribute.Type.Draw, amountToDraw, myTarget);
     }
 
     public override void Use()

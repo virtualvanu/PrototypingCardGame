@@ -99,6 +99,9 @@ public class CardHolder : MonoBehaviour
                     attribute.Setup(attributeIcons[5], value1.ToString(), FightManager.instance.damageColor);
                 }
                 break;
+            case CardAttribute.Type.Draw:
+
+                break;
         }
     }
 
@@ -116,6 +119,36 @@ public class CardHolder : MonoBehaviour
             case CardAttribute.Type.HOT:
 
                 attribute.Setup(attributeIcons[1], value1.ToString(), attributeIcons[3], value2.ToString(), FightManager.instance.healColor);
+                break;
+        }
+    }
+
+    public void CreateAttribute(CardAttribute.Type type, int value1, Character target)
+    {
+        GameObject newAttribute = Instantiate(attributePrefab, attributeHolder.position, Quaternion.identity, attributeHolder);
+        CardAttribute attribute = newAttribute.GetComponent<CardAttribute>();
+
+        switch (type)
+        {
+            case CardAttribute.Type.Draw:
+
+                if (side == Side.Enemy && target == FightManager.instance.enemy)
+                {
+                    attribute.Setup(attributeIcons[6], value1.ToString(), FightManager.instance.healColor);
+                }
+                if (side == Side.Enemy && target == FightManager.instance.player)
+                {
+                    attribute.Setup(attributeIcons[6], value1.ToString(), FightManager.instance.damageColor);
+                }
+
+                if (side == Side.Player && target == FightManager.instance.enemy)
+                {
+                    attribute.Setup(attributeIcons[6], value1.ToString(), FightManager.instance.damageColor);
+                }
+                if (side == Side.Player && target == FightManager.instance.player)
+                {
+                    attribute.Setup(attributeIcons[6], value1.ToString(), FightManager.instance.healColor);
+                }
                 break;
         }
     }

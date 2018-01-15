@@ -28,22 +28,22 @@ public class CardAddon
         {
             if (target == Target.Self)
             {
-                myTarget = FightManager.instance.player;
+                myTarget = FightManager.instance.enemy;
             }
             else if (target == Target.Opponent)
             {
-                myTarget = FightManager.instance.enemy;
+                myTarget = FightManager.instance.player;
             }
         }
         else if (myHolder.side == CardHolder.Side.Player)
         {
             if (target == Target.Self)
             {
-                myTarget = FightManager.instance.enemy;
+                myTarget = FightManager.instance.player;
             }
             else if (target == Target.Opponent)
             {
-                myTarget = FightManager.instance.player;
+                myTarget = FightManager.instance.enemy;
             }
         }
         #endregion

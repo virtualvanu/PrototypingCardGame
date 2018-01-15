@@ -45,13 +45,13 @@ public class CurrentDeck : MonoBehaviour {
                 nc.transform.SetParent(gameObject.transform);
                 CardHolder newC = nc.GetComponent<CardHolder>();
                 newC.card = remainingDeck[rand];
-                newC.LoadCard();
                 newC.deck = this;
                 newC.mana = myMana;
                 if(side == Side.player)
                 {
                     nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
                 }
+                newC.LoadCard();
 
                 nc.transform.localScale = new Vector3(2, 2, 2);
                 remainingDeck.RemoveAt(rand);
@@ -71,13 +71,13 @@ public class CurrentDeck : MonoBehaviour {
         nc.transform.SetParent(gameObject.transform);
         CardHolder newC = nc.GetComponent<CardHolder>();
         newC.card = card;
-        newC.LoadCard();
         newC.deck = this;
         newC.mana = myMana;
         if (side == Side.player)
         {
             nc.GetComponent<CardHolder>().side = CardHolder.Side.Player;
         }
+        newC.LoadCard();
 
         nc.transform.localScale = new Vector3(2, 2, 2);
     }
