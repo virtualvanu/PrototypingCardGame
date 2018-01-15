@@ -9,6 +9,13 @@ public class CardAddon_Draw : CardAddon
     [Header("Draw Addon Attributes")]
     public int amountToDraw;
 
+    public enum DrawFrom
+    {
+        Deck,
+        AllCards
+    }
+    public DrawFrom drawFrom;
+
     public override void Setup()
     {
         base.Setup();
@@ -16,13 +23,33 @@ public class CardAddon_Draw : CardAddon
 
     public override void Use()
     {
-        if (myTarget == FightManager.instance.player)
+        if (drawFrom == DrawFrom.Deck)
         {
-            FightManager.instance.StartCoroutine(FightManager.instance.myDeck.GetNewCard(amountToDraw));
+            if (myTarget == FightManager.instance.player)
+            {
+                FightManager.instance.StartCoroutine(FightManager.instance.myDeck.GetNewCard(amountToDraw));
+            }
+            else if (myTarget == FightManager.instance.enemy)
+            {
+                FightManager.instance.StartCoroutine(FightManager.instance.enemyCurrentDeck.GetNewCard(amountToDraw));
+            }
         }
-        else if (myTarget == FightManager.instance.enemy)
+        else if (drawFrom == DrawFrom.AllCards)
         {
-            FightManager.instance.StartCoroutine(FightManager.instance.enemyCurrentDeck.GetNewCard(amountToDraw));
+            for (int i = 0; i < amountToDraw; i++)
+            {
+                AllCards allCardsScript = Object.FindObjectOfType<AllCards>();
+                Card randomCard = allCardsScript.allCards[Random.Range(0, allCardsScript.allCards.Count)];
+
+                if (myTarget == FightManager.instance.player)
+                {
+                    FightManager.instance.myDeck.GetSpecificCard(randomCard);
+                }
+                else if (myTarget == FightManager.instance.enemy)
+                {
+                    FightManager.instance.enemyCurrentDeck.GetSpecificCard(randomCard);
+                }
+            }
         }
     }
 }

@@ -320,6 +320,12 @@ public class CustomCardInterface : Editor
 
             GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+
+            card.drawAddons[i].drawFrom = (CardAddon_Draw.DrawFrom)EditorGUILayout.EnumPopup("Draw Card From: ", card.drawAddons[i].drawFrom);
+
+            GUILayout.EndHorizontal();
+
             GUILayout.Space(20);
         }
         #endregion
@@ -346,6 +352,20 @@ public class CustomCardInterface : Editor
             }
 
             GUILayout.EndHorizontal();
+
+            //GUILayout.BeginHorizontal();
+
+            //card.stealCardAddons[i].target = (CardAddon.Target)EditorGUILayout.EnumPopup("Target: ", card.stealCardAddons[i].target);
+
+            //GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+
+            card.stealCardAddons[i].amountToSteal = EditorGUILayout.IntField("Amount To Steal: ", card.stealCardAddons[i].amountToSteal);
+
+            GUILayout.EndHorizontal();
+
+            GUILayout.Space(10);
 
             GUILayout.Label("The Steal Card Addon can only be used by the \nplayer to steal a card from the AI opponent.");
         }

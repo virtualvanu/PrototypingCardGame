@@ -7,7 +7,7 @@ public class CardAddon_StealCard : CardAddon
 {
 
     [Header("Steal Card Addon Attributes")]
-    public string description = "Steals a card from the enemy, setting the target doesn't do anything.";
+    public int amountToSteal;
 
     public override void Setup()
     {
@@ -21,24 +21,27 @@ public class CardAddon_StealCard : CardAddon
 
     private IEnumerator StealCard()
     {
-        CurrentDeck enemyDeck = FightManager.instance.enemyCurrentDeck;
+        for (int i = 0; i < amountToSteal; i++)
+        {
+            CurrentDeck enemyDeck = FightManager.instance.enemyCurrentDeck;
 
-        int randomCardToSteal = Random.Range(0, enemyDeck.inHand.Count);
-        Card toSteal = enemyDeck.inHand[randomCardToSteal];
+            int randomCardToSteal = Random.Range(0, enemyDeck.inHand.Count);
+            Card toSteal = enemyDeck.inHand[randomCardToSteal];
 
-        GameObject toStealObject = enemyDeck.inhandie[randomCardToSteal];
+            GameObject toStealObject = enemyDeck.inhandie[randomCardToSteal];
 
-        enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetTrigger("Highlighted");
-        yield return new WaitForSeconds(enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-        enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetTrigger("Pressed");
-        yield return new WaitForSeconds(1f);
-        enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetBool("Steal", true);
-        yield return new WaitForSeconds(enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetTrigger("Highlighted");
+            yield return new WaitForSeconds(enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetTrigger("Pressed");
+            yield return new WaitForSeconds(1f);
+            enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().SetBool("Steal", true);
+            yield return new WaitForSeconds(enemyDeck.inhandie[randomCardToSteal].GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
-        enemyDeck.inHand.Remove(toSteal);
-        enemyDeck.inhandie.Remove(toStealObject);
-        Object.Destroy(toStealObject);
+            enemyDeck.inHand.Remove(toSteal);
+            enemyDeck.inhandie.Remove(toStealObject);
+            Object.Destroy(toStealObject);
 
-        FightManager.instance.myDeck.GetSpecificCard(toSteal);
+            FightManager.instance.myDeck.GetSpecificCard(toSteal);
+        }
     }
 }
