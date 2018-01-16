@@ -225,94 +225,29 @@ public class DeckBuilding : MonoBehaviour {
 
     }
 
-    public void ChangeTab(int tab)
+    public void ChangeTab(SelectCardCategory tabButton)
     {
-        if (tab == 0)
+        foreach (GameObject card in all)
         {
-            
-            
-           
-            foreach (GameObject c in all)
-            {
-                //c.transform.Find("GreyedOutPanel").gameObject.SetActive(false);
-                c.SetActive(true);
-                c.transform.SetParent(collectionContent.transform, false);
-
-                c.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
-                c.transform.localPosition = collectionContent.transform.position;
-            }
-
-            
-
+            card.SetActive(false);
         }
-        else if (tab == 1)
+
+        foreach (GameObject card in all)
         {
-          
+            DeckBuilderCardHolder cardHolder = card.GetComponent<DeckBuilderCardHolder>();
 
-            foreach (GameObject c in all)
+            for (int i = 0; i < tabButton.categories.Count; i++)
             {
-                
-                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
-                    if (dbh.card.categories.Contains(Card.Category.Heal) || dbh.card.categories.Contains(Card.Category.HOT))
-                    {
-                        c.SetActive(true);
-                    }
-                    else
-                    {
-                        c.SetActive(false);
-                    }
-
-             
-            }
-        }
-        else if (tab == 2)
-        {
-
-
-            foreach (GameObject c in all)
-            {
-                
-                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
-                    if (dbh.card.categories.Contains(Card.Category.Damage) || dbh.card.categories.Contains(Card.Category.DOT) || dbh.card.categories.Contains(Card.Category.Buffs))
-                    {
-                        c.SetActive(true);
-                    }
-                    else
-                    {
-                        c.SetActive(false);
-                    }
-
-    
-            }
-        }
-        else if (tab == 3)
-        {
-           
-
-            foreach (GameObject c in all)
-            {
-               
-                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
-                    if (dbh.card.categories.Contains(Card.Category.Other))
-                    {
-                        c.SetActive(true);
-                    }
-                    else
-                    {
-                        c.SetActive(false);
-                    }
-
+                if (cardHolder.card.categories.Contains(tabButton.categories[i]))
+                {
+                    card.SetActive(true);
                 }
-   
+            }
+
         }
        
-
-
         RefreshCollectionContent();
-
     }
-
-   
 
     private void RefreshCollectionContent()
     {
@@ -321,8 +256,7 @@ public class DeckBuilding : MonoBehaviour {
     }
 
     private void RefreshDeckContent()
-    {
-        
+    {      
         deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1);
         deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1);
         foreach (GameObject c in all)
@@ -348,15 +282,12 @@ public class DeckBuilding : MonoBehaviour {
         GameManager.instance.collection = collection;
         GameManager.instance.playerDeckEditorDeck = playerDeck;
         
-
         savedOnce = true;
     }
 
     public void SetStart()
     {
-       
         AddMultipleCardsToCollection(allCards.allCards);
         SetStartDeck(GameManager.instance.playerDeckEditorDeck);
-
     }
 }

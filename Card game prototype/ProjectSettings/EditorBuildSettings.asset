@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/LevelSelect.unity
     guid: 7c531d92938e3204eb3c640ac761be68
   - enabled: 1
-    path: Assets/Scene Peter.unity
+    path: Assets/Deckbuilder.unity
     guid: f6a73e3497a22614a9e09927e1b0e92e
   - enabled: 1
-    path: Assets/Scene Vera shiz Stay Out!!!.unity
+    path: Assets/Level.unity
     guid: 752f70e63797ece43ac13309eb81f7ee
