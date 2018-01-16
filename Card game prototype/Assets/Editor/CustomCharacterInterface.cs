@@ -110,6 +110,16 @@ public class CustomCharacterInterface : Editor
 
         GUILayout.EndVertical();
 
+        GUILayout.Space(40);
+
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("Save Asset"))
+        {
+            SaveAssetsDirty();
+        }
+
+        GUILayout.EndHorizontal();
     }
 
     private void FillCurrentHealth()
@@ -125,5 +135,11 @@ public class CustomCharacterInterface : Editor
     private void AddCard()
     {
         character.deck.Add(CreateInstance<Card>());
+    }
+
+    private void SaveAssetsDirty()
+    {
+        EditorUtility.SetDirty(target);
+        AssetDatabase.SaveAssets();
     }
 }

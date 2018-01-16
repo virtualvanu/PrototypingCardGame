@@ -27,6 +27,9 @@ public class Card : ScriptableObject
         Heal,
         DOT,
         HOT,
+        SpellPower,
+        Draw,
+        StealCard,
         Buffs,
         Other
     }

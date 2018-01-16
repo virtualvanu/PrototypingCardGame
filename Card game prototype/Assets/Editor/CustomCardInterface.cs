@@ -369,9 +369,21 @@ public class CustomCardInterface : Editor
             GUILayout.Space(10);
 
             GUILayout.Label("The Steal Card Addon always steals from the users opponent.");
+
+            GUILayout.Space(10);
         }
         #endregion
 
+        GUILayout.Space(40);
+        
+        GUILayout.BeginHorizontal();
+
+        if (GUILayout.Button("Save Asset"))
+        {
+            SaveAssetsDirty();
+        }
+
+        GUILayout.EndHorizontal();
     }
 
     #region Adding/Removing Addons
@@ -446,5 +458,11 @@ public class CustomCardInterface : Editor
     private void RemoveCategory(int i)
     {
         card.categories.RemoveAt(i);
+    }
+
+    private void SaveAssetsDirty()
+    {
+        EditorUtility.SetDirty(target);
+        AssetDatabase.SaveAssets();
     }
 }

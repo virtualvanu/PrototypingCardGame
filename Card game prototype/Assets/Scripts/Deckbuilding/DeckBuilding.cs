@@ -16,7 +16,7 @@ public class DeckBuilding : MonoBehaviour {
     public GameObject deckContent;
     private GameObject collectionContent;
     private GameObject canvas;
-    public bool isEditing;
+    public bool isEditing = true;
     public GameObject currentlyPreviewing;
 
     public GameObject deckBuilderCardHolderPrefab;
@@ -28,8 +28,9 @@ public class DeckBuilding : MonoBehaviour {
     public static bool savedOnce;
     public AllCards allCards;
     GameObject[] all;
-    // Use this for initialization
-    void Start () {
+
+    void Start ()
+    {
         allCards = GetComponent<AllCards>();
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
         collectionContent = GameObject.FindGameObjectWithTag("ColContent");
@@ -67,26 +68,9 @@ public class DeckBuilding : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-        Debug.Log(all.Length);
-	}
-
     public void SetAmountText()
     {
         amountLeftText.text = "Cards in deck: " + playerDeck.Count + "/" + maxDeckSize;
-    }
-
-    public void StartEditing()
-    {
-        if (!isEditing)
-        {
-            isEditing = true;
-        }
-        else if (isEditing)
-        {
-            isEditing = false;
-        }
     }
 
     public void ShowDeckCards(GameObject g)
@@ -179,12 +163,8 @@ public class DeckBuilding : MonoBehaviour {
              
             }
 
-
             ShowDeckCards(w);
         }
-
-       
-
     }
 
     public void AddCardToCollection(Card cardToAdd)

@@ -12,6 +12,8 @@ public class CardAddon_StealCard : CardAddon
     public override void Setup()
     {
         base.Setup();
+
+        myHolder.CreateAttribute(CardAttribute.Type.StealCard, amountToSteal);
     }
 
     public override void Use()

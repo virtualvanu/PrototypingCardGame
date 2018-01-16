@@ -14,7 +14,8 @@ public class CardAttribute : MonoBehaviour
         DOT,
         HOT,
         SpellPower,
-        Draw
+        Draw,
+        StealCard
     }
     public Type type;
     [Space(10)]

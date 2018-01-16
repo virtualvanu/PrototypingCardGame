@@ -148,7 +148,7 @@ public class FightManager : MonoBehaviour {
       
         string sceneName = currentScene.name;
 
-        if (sceneName != "Scene Peter")
+        if (sceneName != "Deckbuilder")
         {
             enemy = enemyChar;
             player = playerchar;
