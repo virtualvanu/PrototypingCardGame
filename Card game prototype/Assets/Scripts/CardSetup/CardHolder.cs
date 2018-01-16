@@ -58,6 +58,7 @@ public class CardHolder : MonoBehaviour
         }
 
         nameText.text = card.cardName;
+
         iconImage.sprite = card.icon;
 
         card.Setup(this);

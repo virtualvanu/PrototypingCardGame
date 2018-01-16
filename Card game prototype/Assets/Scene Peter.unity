@@ -484,8 +484,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9144e65f443fd646b7f2c0502c11c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testPlayer: {fileID: 0}
-  testEnemy: {fileID: 0}
   player: {fileID: 0}
   enemy: {fileID: 0}
   playerDeck: []
@@ -504,8 +502,8 @@ MonoBehaviour:
   backgrounds: []
   turn: 0
   damageText: {fileID: 0}
-  damageColor: {r: 1, g: 0, b: 0, a: 0}
-  healColor: {r: 0.27101034, g: 0.5441177, b: 0.1400303, a: 0}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  healColor: {r: 0.27101034, g: 0.5441177, b: 0.1400303, a: 1}
   colorLerpSpeed: 0
   scaleLerpSpeed: 0
   defaultColor: {r: 0, g: 0, b: 0, a: 0}

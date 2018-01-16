@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(Card))]
+[CanEditMultipleObjects]
 public class CustomCardInterface : Editor
 {
 

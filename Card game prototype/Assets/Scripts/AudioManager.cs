@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource clickAudio;
     public AudioSource cardUseAudio;
+    public AudioSource endTurnAudio;
 
     public void Awake()
     {
@@ -26,5 +27,10 @@ public class AudioManager : MonoBehaviour
     public void PlayCardUseSound()
     {
         cardUseAudio.Play();
+    }
+
+    public void PlayEndTurnSound()
+    {
+        endTurnAudio.Play();
     }
 }
