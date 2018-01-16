@@ -6,8 +6,6 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class FightManager : MonoBehaviour {
-    public Character testPlayer;
-    public Character testEnemy;
     [Header("realshiz")]
     public static FightManager instance;
     public Character player;
@@ -94,14 +92,14 @@ public class FightManager : MonoBehaviour {
         }
         //StartGame(testPlayer, testEnemy);
         
-        StartGame(testPlayer, testEnemy);
+        StartGame( GameManager.instance.opponent,GameManager.instance.player);
     }
 
     public IEnumerator SetPlayerDeck()
     {
         yield return new WaitForSeconds(0.5f);
         enemyCurrentDeck.remainingDeck = new List<Card>(enemy.deck);
-        myDeck.remainingDeck = new List<Card>(player.deck);
+        myDeck.remainingDeck = new List<Card>(GameManager.instance.playerDeckEditorDeck);
         enemyCurrentDeck.Setup();
         myDeck.Setup();
 
@@ -141,7 +139,7 @@ public class FightManager : MonoBehaviour {
         EffectManager.instance.TriggerEffects(false);
     }
 
-    public void StartGame(Character playerChar,Character enemyChar)
+    public void StartGame(Character enemyChar,Character playerchar)
     {
         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -151,7 +149,7 @@ public class FightManager : MonoBehaviour {
         if (sceneName != "Scene Peter")
         {
             enemy = enemyChar;
-            player = playerChar;
+            player = playerchar;
             GetBackground();
             StartCoroutine(SetPlayerDeck());
          
