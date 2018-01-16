@@ -239,4 +239,5 @@ public class Card : ScriptableObject
             return null;
         }
     }
+
 }
