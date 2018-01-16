@@ -81,4 +81,10 @@ public class LevelManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
+    public void ReturnToMenuButton()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("LevelSelect");
+    }
 }

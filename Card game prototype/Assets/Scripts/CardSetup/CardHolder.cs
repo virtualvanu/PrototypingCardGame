@@ -182,6 +182,7 @@ public class CardHolder : MonoBehaviour
             {
                 deck.RemoveFromHand(card);
                 card.Use(this);
+                TriggerUseCardAudio();
             }
             else
             {
@@ -194,6 +195,7 @@ public class CardHolder : MonoBehaviour
             {
                 deck.RemoveFromHand(card);
                 card.Use(this);
+                TriggerUseCardAudio();
             }
             else
             {
@@ -205,5 +207,15 @@ public class CardHolder : MonoBehaviour
             GetComponent<Animator>().SetTrigger("Normal");
             print("test print voor animation bug");
         }
+    }
+
+    public void TriggerAudio()
+    {
+        AudioManager.instance.PlayClickSound();
+    }
+
+    public void TriggerUseCardAudio()
+    {
+        AudioManager.instance.PlayCardUseSound();
     }
 }
