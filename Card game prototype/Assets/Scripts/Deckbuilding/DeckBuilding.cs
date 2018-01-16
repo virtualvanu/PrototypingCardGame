@@ -364,7 +364,7 @@ public class DeckBuilding : MonoBehaviour {
     {
        
         AddMultipleCardsToCollection(allCards.allCards);
-        //SetStartDeck(GameManager.instance.player.deck);
+        SetStartDeck(GameManager.instance.playerDeckEditorDeck);
 
     }
 }
