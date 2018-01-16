@@ -1144,7 +1144,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "All Damage\n Cards"
+  m_text: Damage Cards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1141d87c2aeef60429d6a830c982acf9, type: 2}
   m_sharedMaterial: {fileID: 21816672380319136, guid: 1141d87c2aeef60429d6a830c982acf9,
@@ -1212,12 +1212,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 668338840}
-    characterCount: 17
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1907,7 +1907,7 @@ RectTransform:
   m_GameObject: {fileID: 923110632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999952, y: 0.9999952, z: 0.9999952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 668338839}
   m_Father: {fileID: 32264928}
@@ -1916,7 +1916,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 108.71, y: 98.7}
+  m_SizeDelta: {x: 118.68, y: 65.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &923110634
 Animator:
@@ -1999,15 +1999,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43137258, g: 0.121568635, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 90b3ff3a0d89c4b40ae9cf58010559da, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6b9bd4f2f8890e341b949abd49cd4017, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2192,7 +2192,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 108.71, y: 98.7}
+  m_SizeDelta: {x: 118.68, y: 65.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1081660242
 Animator:
@@ -2275,15 +2275,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43137258, g: 0.121568635, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 90b3ff3a0d89c4b40ae9cf58010559da, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6b9bd4f2f8890e341b949abd49cd4017, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2305,6 +2305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182707016}
   - component: {fileID: 1182707015}
+  - component: {fileID: 1182707017}
   m_Layer: 0
   m_Name: DeckBuilder
   m_TagString: DE
@@ -2345,6 +2346,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 36b1f74e086c37a4593626bb6f128c83, type: 2}
   - {fileID: 11400000, guid: 6dbe1143eccffee4db9a160eb5a46656, type: 2}
   - {fileID: 11400000, guid: a33a558da73b1584db82c1f4fcbe9311, type: 2}
+  allCards: {fileID: 0}
 --- !u!4 &1182707016
 Transform:
   m_ObjectHideFlags: 0
@@ -2358,6 +2360,183 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1182707017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182707014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e28a4089775a771468b5c8a1b0942867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allCards:
+  - {fileID: 11400000, guid: dd5686dae8deb9542a5d5be72741c3d1, type: 2}
+  - {fileID: 11400000, guid: c17b7c2b737ceaa489d726a534591288, type: 2}
+  - {fileID: 11400000, guid: 2dbfa0f883a6fdf4ca05f6ed95fa4914, type: 2}
+  - {fileID: 11400000, guid: 3b1bcf01181609c4bbac95c969e88e9d, type: 2}
+  - {fileID: 11400000, guid: 878426a1a4aa40c44b1d1874f82143d9, type: 2}
+  - {fileID: 11400000, guid: 498baeaf26c749d4caa301d4a2f0fadc, type: 2}
+  - {fileID: 11400000, guid: c0b236e60fba95149b6499b925fbac9e, type: 2}
+  - {fileID: 11400000, guid: ee2fa35dad2ac554eae380b6630a2d73, type: 2}
+  - {fileID: 11400000, guid: 1d9495543b6fadf4c8fdc41eeb9a9811, type: 2}
+  - {fileID: 11400000, guid: 7e6d0f48f1825a348a923f91702e8b72, type: 2}
+  - {fileID: 11400000, guid: b4f724342d33bcf40915832644987ab4, type: 2}
+  - {fileID: 11400000, guid: e84b2e11a7c8bf849b6009f9654713f6, type: 2}
+  - {fileID: 11400000, guid: fdc7d379ca0e31e4ca8e622c9ab49c72, type: 2}
+  - {fileID: 11400000, guid: 60aa0d554492a354a86a2037f9eabad7, type: 2}
+  - {fileID: 11400000, guid: dda314bae1fec0441a8714302f3790b5, type: 2}
+  - {fileID: 11400000, guid: f7b67d221513d854395d61b0abb99bb9, type: 2}
+  - {fileID: 11400000, guid: 66aa1cce94f40ff40aed0b37ef8cbe1b, type: 2}
+  - {fileID: 11400000, guid: 6bdf0b7ff961f484780e026a1da59a08, type: 2}
+  - {fileID: 11400000, guid: 5bcbf9377841ae54085eb3c79ad4b2a9, type: 2}
+  - {fileID: 11400000, guid: 8526274379dc0f24cb9f50733582e833, type: 2}
+  - {fileID: 11400000, guid: 91ea43e5fc3fa734eb0bbfc24afff20d, type: 2}
+  - {fileID: 11400000, guid: dece7e26ae17ac648875589e1fb15d34, type: 2}
+  - {fileID: 11400000, guid: 1e4a2a0e19c8b3747a1200b4aa397320, type: 2}
+  - {fileID: 11400000, guid: b448d77fcbf6959438fc792567c6c941, type: 2}
+  - {fileID: 11400000, guid: 15b673d187742ba4ca88f6614d819954, type: 2}
+  - {fileID: 11400000, guid: bfbdbcd193340d0408c7060641b699df, type: 2}
+  - {fileID: 11400000, guid: c23b9c2da7e6b0149888183cf71086c4, type: 2}
+  - {fileID: 11400000, guid: dd9cfa15c2572494499513a76032ee4c, type: 2}
+  - {fileID: 11400000, guid: c9445f4455c46e445855131dab5d9c8e, type: 2}
+  - {fileID: 11400000, guid: 5d6452999ad13dd42a170b4cdd92a6fb, type: 2}
+  - {fileID: 11400000, guid: 40bac0942fbdb0240b5c1a8c421274cd, type: 2}
+  - {fileID: 11400000, guid: 8b7fdaa9388ee58458f44ba9db56d113, type: 2}
+  - {fileID: 11400000, guid: 1cdc1932efdacc84eb2f430549b55b0f, type: 2}
+  - {fileID: 11400000, guid: 3ed0ecff5b78eb841a471ea4e4493825, type: 2}
+  - {fileID: 11400000, guid: 9dd4033095e1d464c8f86fa0154fba5b, type: 2}
+  - {fileID: 11400000, guid: ea6a15ca13249e647a3f9929975da142, type: 2}
+  - {fileID: 11400000, guid: e7df8fca353f4914198e74375b8c39d0, type: 2}
+  - {fileID: 11400000, guid: 2a394e69c2fd6c14698bbd1bab71f3b3, type: 2}
+  - {fileID: 11400000, guid: 1421b2072f53d0742b5660225c8a7c02, type: 2}
+  - {fileID: 11400000, guid: 46dae47909ebc7d488b144c125e8029f, type: 2}
+  - {fileID: 11400000, guid: e423c0b9c39691e47b790f7f7d380d39, type: 2}
+  - {fileID: 11400000, guid: a953c133ea2828b4b9e10b3eabf43ebd, type: 2}
+  - {fileID: 11400000, guid: 28c8badcf0d72f54496ae51cd93346c5, type: 2}
+  - {fileID: 11400000, guid: 8c7cdf9d09a43e64490b7edd8e99793d, type: 2}
+  - {fileID: 11400000, guid: 92d8b2a1eda8e804c9d651ef6577a693, type: 2}
+  - {fileID: 11400000, guid: 0674dbb5a7878484a9c5504210b2d8b5, type: 2}
+  - {fileID: 11400000, guid: de815d92a5b3b1343979fd4c94d2c86b, type: 2}
+  - {fileID: 11400000, guid: eabda24bbebb3f1458a6d9069ebbad8c, type: 2}
+  - {fileID: 11400000, guid: 6d34abd25d76bb74fb459bf87a6c008f, type: 2}
+  - {fileID: 11400000, guid: dafe80881c4fa6f4d96c0ce664e94366, type: 2}
+  - {fileID: 11400000, guid: f08a642fba0eb924683db48450fb4046, type: 2}
+  - {fileID: 11400000, guid: 2a12a8b64fc94eb439493a13ef28b87b, type: 2}
+  - {fileID: 11400000, guid: 27eb52a2476f25b4eac09e77a2ff01d6, type: 2}
+  - {fileID: 11400000, guid: 0fde92c39919042489966b6b821d8109, type: 2}
+  - {fileID: 11400000, guid: f98a2217141bc3c4a8823345682f8f17, type: 2}
+  - {fileID: 11400000, guid: 0bcf8f91f7bd1d540950240818f7e518, type: 2}
+  - {fileID: 11400000, guid: 7dfe8255393ea2a46926a28c2f672955, type: 2}
+  - {fileID: 11400000, guid: ca1ad67fe0c56594fab6fb3acf0a6856, type: 2}
+  - {fileID: 11400000, guid: 34f93cb584a024b4aadd035818380566, type: 2}
+  - {fileID: 11400000, guid: 520287ff57749f54d913dd21e666ecc2, type: 2}
+  - {fileID: 11400000, guid: 2cf719f8ca6904c4da12823a47fbba1c, type: 2}
+  - {fileID: 11400000, guid: 0900be311b418154f93f8e6e98b5f926, type: 2}
+  - {fileID: 11400000, guid: 1c022a0997a4602429094a9973b6c9f1, type: 2}
+  - {fileID: 11400000, guid: 3214c32be1f77fe4fb87cde99a7d9d64, type: 2}
+  - {fileID: 11400000, guid: b5ff7b6b9cb0a4f4b84fbde098590e4c, type: 2}
+  - {fileID: 11400000, guid: c9cb63de081c586429dac9b3411bcd1d, type: 2}
+  - {fileID: 11400000, guid: 4ff9eab59da9ac14eb89c4d3589e0075, type: 2}
+  - {fileID: 11400000, guid: 2d4a1448b01abdb4189e3c63ab5f88a0, type: 2}
+  - {fileID: 11400000, guid: 2bb451cb2af381846bff53cbb2cd5089, type: 2}
+  - {fileID: 11400000, guid: 80a84b8b99d143242beb06a6861f7b94, type: 2}
+  - {fileID: 11400000, guid: 9b0fc5643658ae94dbf26ef6122fddfb, type: 2}
+  - {fileID: 11400000, guid: a3253793c7703ee4c9ddd68cd10ac3a0, type: 2}
+  - {fileID: 11400000, guid: 4b8e33196e4063d4c934f88166bf6a80, type: 2}
+  - {fileID: 11400000, guid: e269f407d9788b341a9fac41d1504c5f, type: 2}
+  - {fileID: 11400000, guid: f90163fbd2c50354295f7077460c5024, type: 2}
+  - {fileID: 11400000, guid: 49988492d9d7da54fb300936c22a65ad, type: 2}
+  - {fileID: 11400000, guid: bb2fefa790a093b4db4f4ca448615a84, type: 2}
+  - {fileID: 11400000, guid: cb0374985be76c1439fdcc62abd36a95, type: 2}
+  - {fileID: 11400000, guid: 7543b6d7cffc8214ba30db68a683296c, type: 2}
+  - {fileID: 11400000, guid: 00678ffa59a73d44e8cbaaf0302b000e, type: 2}
+  - {fileID: 11400000, guid: 5a2cc910292b2cd4b988bf07e0537060, type: 2}
+  - {fileID: 11400000, guid: c231afda9ab20fa4bad7d36b9099d867, type: 2}
+  - {fileID: 11400000, guid: da16de125d0b57d4b97cd46dced6e258, type: 2}
+  - {fileID: 11400000, guid: f19871953058d5c4d8f91cbd037cc770, type: 2}
+  - {fileID: 11400000, guid: 1071e9fe793420a4d8af869c574b7869, type: 2}
+  - {fileID: 11400000, guid: aabe6bca56d7a414e98cd92fc1cd1d0d, type: 2}
+  - {fileID: 11400000, guid: e0041b397448ffa4f90659f702f4a6fd, type: 2}
+  - {fileID: 11400000, guid: 88685570d43edb84bb05e7807040760e, type: 2}
+  - {fileID: 11400000, guid: fa8950c3d94791d43a4da775912067aa, type: 2}
+  - {fileID: 11400000, guid: 216fb3fa869076344b2a677292b488bb, type: 2}
+  - {fileID: 11400000, guid: 84c88380f907c3e4da3c2338305155d2, type: 2}
+  - {fileID: 11400000, guid: 46e2ff7fdbe4c594893bc2dd748b1fa5, type: 2}
+  - {fileID: 11400000, guid: 8b86df1b30da47046902837a7d9c04d2, type: 2}
+  - {fileID: 11400000, guid: 8e86716b8314be546b5db7b19540f27b, type: 2}
+  - {fileID: 11400000, guid: 62fb203021b27bf4092823d9c3cf5794, type: 2}
+  - {fileID: 11400000, guid: 1ed9efca20337eb478085182526ad93e, type: 2}
+  - {fileID: 11400000, guid: 181da61f35f5cba45815a652d44d2a73, type: 2}
+  - {fileID: 11400000, guid: 2e217e7e1a4bae1499b8c02df1f6d96b, type: 2}
+  - {fileID: 11400000, guid: dac5ce3159ef80949a629be4cb8923c4, type: 2}
+  - {fileID: 11400000, guid: c5286fb8b0c96194b96c7e926c84ff9a, type: 2}
+  - {fileID: 11400000, guid: 13d4a9d6559726046bc4720b8396923c, type: 2}
+  - {fileID: 11400000, guid: bf02e9af56d6f36468a403fb47b2c57b, type: 2}
+  - {fileID: 11400000, guid: 7acca6829f82ba241b33f9c1b507e8cc, type: 2}
+  - {fileID: 11400000, guid: a33a558da73b1584db82c1f4fcbe9311, type: 2}
+  - {fileID: 11400000, guid: e5f7acce8a3c63a4cbbd44876e77b0ff, type: 2}
+  - {fileID: 11400000, guid: be420b82c8889b140a8405d09fd04208, type: 2}
+  - {fileID: 11400000, guid: 69669fd900936db40b18b15c57b05b7b, type: 2}
+  - {fileID: 11400000, guid: 04b093beef91d09409fe970b0377aaf1, type: 2}
+  - {fileID: 11400000, guid: 5f52bec7de77be749acfa1faae28efcc, type: 2}
+  - {fileID: 11400000, guid: b10e63a6c92550c46b99c2b2c0c29f24, type: 2}
+  - {fileID: 11400000, guid: 560e3951644453a46aee79c9a0f2d6af, type: 2}
+  - {fileID: 11400000, guid: f12ee89126b7b20488a6cf1bd1755fc0, type: 2}
+  - {fileID: 11400000, guid: 13e3fb7d408a6f84880c2cb5e4eae260, type: 2}
+  - {fileID: 11400000, guid: bf95d8b3b269b274a8bf2f01c789b175, type: 2}
+  - {fileID: 11400000, guid: 8757542c7deea504eba0a3a3a2c0efe1, type: 2}
+  - {fileID: 11400000, guid: 13e28ac269140194bb4334fb129c5619, type: 2}
+  - {fileID: 11400000, guid: 0567bd64d439790408ad3961d0906d59, type: 2}
+  - {fileID: 11400000, guid: 099dbdb7ce7d3064890e74f5aa698cf3, type: 2}
+  - {fileID: 11400000, guid: 2ceb05e302a9c9d48969e73ec56b66a9, type: 2}
+  - {fileID: 11400000, guid: 4ba0e5ad2e4ced64ca895372ceb08701, type: 2}
+  - {fileID: 11400000, guid: 827aed56fe78cf745b97c0c105488f2d, type: 2}
+  - {fileID: 11400000, guid: 0dce7c223d1273b4a96553fe931dc431, type: 2}
+  - {fileID: 11400000, guid: c04e56bcf5d35804faba55a4c45d66ea, type: 2}
+  - {fileID: 11400000, guid: bd349d1cf2154e947bb208f3dde3ff22, type: 2}
+  - {fileID: 11400000, guid: 0395253a876eb3546b2cbad19b73167b, type: 2}
+  - {fileID: 11400000, guid: dd1d8b204e63fff4a9456bb28029a8c0, type: 2}
+  - {fileID: 11400000, guid: 1e44a833cb33e0a4ca46a5aad745cac6, type: 2}
+  - {fileID: 11400000, guid: 3243333cdf3b2964a9df207732748d2e, type: 2}
+  - {fileID: 11400000, guid: cd59ca43ea145cd40875cd8d0e792f3d, type: 2}
+  - {fileID: 11400000, guid: 49012f5e84c728e448763efed45c1fd9, type: 2}
+  - {fileID: 11400000, guid: 2e489fae7abf5654db09a6defcf83717, type: 2}
+  - {fileID: 11400000, guid: a1d49cd09470a804498d16ecf635444a, type: 2}
+  - {fileID: 11400000, guid: 5ba80a479b5b8cc4e9b74040aa7fc639, type: 2}
+  - {fileID: 11400000, guid: 6d563062f78198248b11b72819f15584, type: 2}
+  - {fileID: 11400000, guid: 910ca8789b82daa408516dbfe7cf5822, type: 2}
+  - {fileID: 11400000, guid: 17077cf2e1c5dd3478ed49b00d2dba2d, type: 2}
+  - {fileID: 11400000, guid: 618db126d95f5284abed511501d05228, type: 2}
+  - {fileID: 11400000, guid: ea3b15e3f6ad99240b9b15ff6d347fc5, type: 2}
+  - {fileID: 11400000, guid: 5a0c8cb1aad104f4fb9fa68b7f6c45dd, type: 2}
+  - {fileID: 11400000, guid: 2834df91085edf14b86c1de127e93662, type: 2}
+  - {fileID: 11400000, guid: a2f1175a4439f4e40a9ee9248b0abd7e, type: 2}
+  - {fileID: 11400000, guid: 947440dc09d7b0e4d9ccc48405abb36a, type: 2}
+  - {fileID: 11400000, guid: f4a88491cf18d114aaefb779a650bc3e, type: 2}
+  - {fileID: 11400000, guid: 7bc188540b52ece4f8a4c06f10cffdbc, type: 2}
+  - {fileID: 11400000, guid: b115b2dbf6f8deb48b0c0a6c6d8a069b, type: 2}
+  - {fileID: 11400000, guid: f09242bd818d7d641a4989f0f6913c07, type: 2}
+  - {fileID: 11400000, guid: 27d03a38706e68745a3956e0eaf8f49f, type: 2}
+  - {fileID: 11400000, guid: f7c6d81863575eb4e8c2e0b95f5969e9, type: 2}
+  - {fileID: 11400000, guid: 2160bf4887b34874ba3d3af0f8e47f9c, type: 2}
+  - {fileID: 11400000, guid: 27df4c81435cf944995781dec73e59c9, type: 2}
+  - {fileID: 11400000, guid: 52d4f1fc87b73154abe2f96ea0ccf837, type: 2}
+  - {fileID: 11400000, guid: 37711a8f2ef87a64184e420f0e3542f9, type: 2}
+  - {fileID: 11400000, guid: 82d888deed30a434f8c477f75016097d, type: 2}
+  - {fileID: 11400000, guid: 9b4d8cb43eee44245bf8965cd61bf6d0, type: 2}
+  - {fileID: 11400000, guid: 8d1d0e4341c0f494ca679dbfea849920, type: 2}
+  - {fileID: 11400000, guid: 2b3f5a67540acc84c90287d109aa8b48, type: 2}
+  - {fileID: 11400000, guid: 205da15e88811c144ba6520f812420ec, type: 2}
+  - {fileID: 11400000, guid: 768e62dc40191b84b84f422b6f7c0fcf, type: 2}
+  - {fileID: 11400000, guid: 6dbe1143eccffee4db9a160eb5a46656, type: 2}
+  - {fileID: 11400000, guid: 0af8204afed05684c84ed3e0a7046c7e, type: 2}
+  - {fileID: 11400000, guid: 2b52cad8dc266124f9c1be1f996b555f, type: 2}
+  - {fileID: 11400000, guid: cbee5efa193cb9144867df8fe2032565, type: 2}
+  - {fileID: 11400000, guid: 36b1f74e086c37a4593626bb6f128c83, type: 2}
+  - {fileID: 11400000, guid: fbb316a980eeff540abca18206972ac0, type: 2}
+  - {fileID: 11400000, guid: cbc7d6bd22df83f448fb3d1783368006, type: 2}
 --- !u!1 &1195476763
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,7 +2591,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: All Other Cards
+  m_text: Other Cards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1141d87c2aeef60429d6a830c982acf9, type: 2}
   m_sharedMaterial: {fileID: 21816672380319136, guid: 1141d87c2aeef60429d6a830c982acf9,
@@ -2480,12 +2659,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1195476765}
-    characterCount: 15
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -2655,7 +2834,7 @@ RectTransform:
   m_GameObject: {fileID: 1248808855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999535, y: 0.9999953, z: 0.9999953}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1195476764}
   m_Father: {fileID: 32264928}
@@ -2664,7 +2843,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 108.71, y: 98.7}
+  m_SizeDelta: {x: 118.68, y: 65.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1248808857
 Animator:
@@ -2747,15 +2926,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43137258, g: 0.121568635, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 90b3ff3a0d89c4b40ae9cf58010559da, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6b9bd4f2f8890e341b949abd49cd4017, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2911,7 +3090,7 @@ RectTransform:
   m_GameObject: {fileID: 1284786090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999952, y: 0.9999952, z: 0.9999952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2084023373}
   m_Father: {fileID: 32264928}
@@ -2920,7 +3099,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 108.71, y: 98.7}
+  m_SizeDelta: {x: 118.68, y: 65.11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1284786092
 Animator:
@@ -3003,15 +3182,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.43137258, g: 0.121568635, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 90b3ff3a0d89c4b40ae9cf58010559da, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 6b9bd4f2f8890e341b949abd49cd4017, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4123,7 +4302,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: All Healing Cards
+  m_text: Healing Cards
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1141d87c2aeef60429d6a830c982acf9, type: 2}
   m_sharedMaterial: {fileID: 21816672380319136, guid: 1141d87c2aeef60429d6a830c982acf9,
@@ -4191,12 +4370,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2084023374}
-    characterCount: 17
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0

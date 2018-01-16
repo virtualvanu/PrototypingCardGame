@@ -26,9 +26,11 @@ public class DeckBuilding : MonoBehaviour {
     public List<Card> testCards = new List<Card>();
 
     public static bool savedOnce;
+    public AllCards allCards;
     GameObject[] all;
     // Use this for initialization
     void Start () {
+        allCards = GetComponent<AllCards>();
         deckContent = GameObject.FindGameObjectWithTag("DeckContent");
         collectionContent = GameObject.FindGameObjectWithTag("ColContent");
         canvas = GameObject.FindGameObjectWithTag("ColCanvas");
@@ -353,7 +355,7 @@ public class DeckBuilding : MonoBehaviour {
     {
         GameManager.instance.collection = collection;
         GameManager.instance.playerDeckEditorDeck = playerDeck;
-        GameManager.instance.player.deck = GameManager.instance.playerDeckEditorDeck;
+        
 
         savedOnce = true;
     }
@@ -361,8 +363,8 @@ public class DeckBuilding : MonoBehaviour {
     public void SetStart()
     {
        
-        AddMultipleCardsToCollection(GameManager.instance.collection);
-        SetStartDeck(GameManager.instance.player.deck);
+        AddMultipleCardsToCollection(allCards.allCards);
+        //SetStartDeck(GameManager.instance.player.deck);
 
     }
 }
