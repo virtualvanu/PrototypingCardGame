@@ -23,6 +23,7 @@ public class DeckCard : MonoBehaviour
             deckEditor.playerDeck.Remove(GetComponent<DeckBuilderCardHolder>().card);
             deckEditor.instantiatedCards--;
             myCollectionObject.GetComponent<CollectionCard>().amountInCollection++;
+            mySceneObject.GetComponent<CollectionCard>().greyedOutPanel.SetActive(false);
             deckEditor.SetAmountText();
             if (!mySceneObject.GetComponent<CollectionCard>().inCollection)
             {

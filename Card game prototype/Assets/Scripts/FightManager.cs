@@ -99,7 +99,16 @@ public class FightManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.5f);
         enemyCurrentDeck.remainingDeck = new List<Card>(enemy.deck);
-        myDeck.remainingDeck = new List<Card>(GameManager.instance.playerDeckEditorDeck);
+
+        // If the player didnt create a deck it will use the standard deck
+        if (GameManager.instance.playerDeckEditorDeck.Count > 0)
+        {
+            myDeck.remainingDeck = new List<Card>(GameManager.instance.playerDeckEditorDeck);
+        }
+        else
+        {
+            myDeck.remainingDeck = new List<Card>(GameManager.instance.player.deck);
+        }
         enemyCurrentDeck.Setup();
         myDeck.Setup();
 
@@ -143,9 +152,7 @@ public class FightManager : MonoBehaviour {
 
     public void StartGame(Character enemyChar,Character playerchar)
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-
-      
+        Scene currentScene = SceneManager.GetActiveScene();      
         string sceneName = currentScene.name;
 
         if (sceneName != "Deckbuilder")
@@ -154,7 +161,6 @@ public class FightManager : MonoBehaviour {
             player = playerchar;
             GetBackground();
             StartCoroutine(SetPlayerDeck());
-         
         }
     }
 

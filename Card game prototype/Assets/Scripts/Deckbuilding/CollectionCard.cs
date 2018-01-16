@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class CollectionCard : MonoBehaviour {
+public class CollectionCard : MonoBehaviour
+{
+
     public Image mySprite;
-    //private Card thisCard;
     public DeckBuilding deckEditor;
     private GameObject myPanel;
 
@@ -15,12 +16,12 @@ public class CollectionCard : MonoBehaviour {
 
     public int amountInCollection;
 
-    
-	// Use this for initialization
-	void Start () {
+    public GameObject greyedOutPanel;
+
+	void Start ()
+    {
         //If scene = collection scene of iets dergelijks
         //thisCard = GetComponent<Card>();
-
    
             mySprite = GetComponent<Image>();
             deckEditor = GameObject.FindGameObjectWithTag("DE").GetComponent<DeckBuilding>();
@@ -36,40 +37,33 @@ public class CollectionCard : MonoBehaviour {
         //    amountInCollection = 1;
         //}
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    
+	}    
 
     public void Click()
     {
-        
         if (!GetComponent<DeckCard>().inDeck && !deckEditor.playerDeck.Contains(GetComponent<DeckBuilderCardHolder>().card))
         {
             if (deckEditor.isEditing)
             {
                 //if(amountInCollection > 0)
                 //{
-                    deckEditor.AddToDeck(gameObject);
-                    amountInCollection--;
-                    deckEditor.SetAmountText();
+                deckEditor.AddToDeck(gameObject);
+                amountInCollection--;
+                deckEditor.SetAmountText();
+
+                greyedOutPanel.SetActive(true);
                 //}
-               
+
                 //if (deckEditor.playerDeck.Count < deckEditor.maxDeckSize)
                 //{
                 //    GameObject w = Instantiate(gameObject);
                 //    deckEditor.playerDeck.Add(w.GetComponent<DeckBuilderCardHolder>().card);
-                   
+
                 //    w.GetComponent<DeckCard>().myIndex = deckEditor.playerDeck.IndexOf(w.GetComponent<DeckBuilderCardHolder>().card);
                 //    deckEditor.ShowDeckCards(w);
 
                 //}
 
-                
             }
             else if (Input.GetMouseButtonDown(1) && deckEditor.currentlyPreviewing != previewCard)
             {
@@ -93,35 +87,11 @@ public class CollectionCard : MonoBehaviour {
                 Destroy(deckEditor.currentlyPreviewing);
                 deckEditor.currentlyPreviewing = null;
             }
-
-
-
-
         }
     }
 
     public void AddOne()
     {
         amountInCollection++;
-    }
-
-    public void HoverEnter()
-    {
-        if (!GetComponent<DeckCard>().inDeck)
-        {
-            transform.localScale = new Vector3(1.55F, 1.55F, 1F);
-            
-        }
-            
-    }
-
-    public void HoverExit()
-    {
-        if (!GetComponent<DeckCard>().inDeck)
-        {
-            transform.localScale = startScale;
-        }
-          
-    }
-          
+    }          
 }

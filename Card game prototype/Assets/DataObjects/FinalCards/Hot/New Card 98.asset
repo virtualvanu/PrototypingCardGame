@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: New Card 98
   m_EditorClassIdentifier: 
   cardName: Renewing Prayer
-  manaCost: 0
+  manaCost: 3
   icon: {fileID: 0}
   categories: 03000000
   damageAddons: []

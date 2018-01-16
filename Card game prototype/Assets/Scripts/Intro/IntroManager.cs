@@ -53,8 +53,11 @@ public class IntroManager : MonoBehaviour
 
     public void ConfirmCharacterButton()
     {
-        GameManager.instance.opponents.Remove(GameManager.instance.player);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (GameManager.instance.player != null)
+        {
+            GameManager.instance.opponents.Remove(GameManager.instance.player);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     public void DeselectAllCharacters()

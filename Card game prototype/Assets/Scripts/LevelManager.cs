@@ -18,16 +18,19 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        if (FightManager.instance.player.currentHealth <= 0)
+        if (SceneManager.GetActiveScene().name == "Level")
         {
-            EndGame(false);
+            if (FightManager.instance.player.currentHealth <= 0)
+            {
+                EndGame(false);
+            }
+            else if (FightManager.instance.enemy.currentHealth <= 0)
+            {
+                EndGame(true);
+            }
         }
-        else if (FightManager.instance.enemy.currentHealth <= 0)
-        {
-            EndGame(true);
-        }
-
     }
+
     public void EndGame(bool victory)
     {
         pausePanel.SetActive(false);
@@ -84,7 +87,6 @@ public class LevelManager : MonoBehaviour
 
     public void ReturnToMenuButton()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene("LevelSelect");
     }
 }

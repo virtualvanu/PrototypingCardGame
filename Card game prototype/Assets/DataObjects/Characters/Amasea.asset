@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
   m_Name: Amasea
   m_EditorClassIdentifier: 
-  defeated: 0
+  defeated: 1
   characterName: Amasea
   avatar: {fileID: 21300000, guid: 8a8e57e1e8fd54449bafc3e0cfacd253, type: 3}
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 30
+  currentHealth: 30
   shieldHealth: 0
   deck:
   - {fileID: 11400000, guid: 3b1bcf01181609c4bbac95c969e88e9d, type: 2}

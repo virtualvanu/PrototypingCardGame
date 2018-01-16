@@ -52,22 +52,10 @@ public class DeckBuilding : MonoBehaviour {
         //    AddMultipleCardsToCollection(collection);
         //    SetStartDeck(playerDeck);
         //    RefreshDeckContent();
-
-
-
-
-
-
         //}
-
         //AddMultipleCardsToCollection(GameManager.instance.player.deck);
-
-
-
-
-
     }
-	
+
     public void SetAmountText()
     {
         amountLeftText.text = "Cards in deck: " + playerDeck.Count + "/" + maxDeckSize;
@@ -75,20 +63,19 @@ public class DeckBuilding : MonoBehaviour {
 
     public void ShowDeckCards(GameObject g)
     {
-        
-            if(instantiatedCards < playerDeck.Count)
-            {
-                GameObject q = g;
-                RuntimeAnimatorController an = q.GetComponent<Animator>().runtimeAnimatorController;
-                q.GetComponent<Animator>().runtimeAnimatorController = null;
-                q.transform.SetParent(deckContent.transform, false);
-                //q.GetComponent<Image>().SetNativeSize();
-                q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
-                q.transform.localPosition = deckContent.transform.position;
-                //q = Instantiate(q, deckContent.transform.position, Quaternion.identity) as GameObject;
-                q.GetComponent<CollectionCard>().enabled = false;
-                q.GetComponent<DeckCard>().enabled = true;
-                q.GetComponent<DeckCard>().inDeck = true;
+        if(instantiatedCards < playerDeck.Count)
+        {
+            GameObject q = g;
+            RuntimeAnimatorController an = q.GetComponent<Animator>().runtimeAnimatorController;
+            q.GetComponent<Animator>().runtimeAnimatorController = null;
+            q.transform.SetParent(deckContent.transform, false);
+            //q.GetComponent<Image>().SetNativeSize();
+            q.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
+            q.transform.localPosition = deckContent.transform.position;
+            //q = Instantiate(q, deckContent.transform.position, Quaternion.identity) as GameObject;
+            q.GetComponent<CollectionCard>().enabled = false;
+            q.GetComponent<DeckCard>().enabled = true;
+            q.GetComponent<DeckCard>().inDeck = true;
 
             //q.GetComponent<Image>().raycastTarget = false;
 
@@ -96,10 +83,7 @@ public class DeckBuilding : MonoBehaviour {
             q.GetComponent<Animator>().runtimeAnimatorController = an;
 
             instantiatedCards++;
-            }
-
-           
-       
+        }
     }
 
     public void SetStartDeck(List<Card> c)
@@ -127,13 +111,8 @@ public class DeckBuilding : MonoBehaviour {
                         AddToDeck(prefab);
                     }
                 }
-
             }
-           
-        }
-
-        
-      
+        }      
     }
 
     public void AddToDeck(GameObject toAdd)
@@ -157,10 +136,7 @@ public class DeckBuilding : MonoBehaviour {
                             w.GetComponent<DeckCard>().myCollectionObject = k;
                         }
                     }
-                   
                 }
-
-             
             }
 
             ShowDeckCards(w);
@@ -191,9 +167,7 @@ public class DeckBuilding : MonoBehaviour {
             q.GetComponent<CollectionCard>().inCollection = true;
             q.transform.tag = "DeckBuildCard";
             q.GetComponent<DeckCard>().enabled = false;
-
         }
-       
     }
 
     public void AddMultipleCardsToCollection(List<Card> cardToAdd)
@@ -201,28 +175,7 @@ public class DeckBuilding : MonoBehaviour {
         foreach (Card c in cardToAdd)
         {
             AddCardToCollection(c);
-            //GameObject q = Instantiate(deckBuilderCardHolderPrefab, collectionContent.transform.position, Quaternion.identity);
-            //DeckBuilderCardHolder d = q.GetComponent<DeckBuilderCardHolder>();
-
-            //d.card = c;
-            //d.LoadCard();
-            //collection.Add(q);
-            
-
-
-            //q.transform.SetParent(collectionContent.transform, false);
-
-            //q.GetComponent<RectTransform>().localScale = new Vector3(.5F, .5F, 1F);
-            //q.transform.localPosition = collectionContent.transform.position;
-
-            //q.GetComponent<CollectionCard>().enabled = true;
-            //q.GetComponent<CollectionCard>().inCollection = true;
-            //q.GetComponent<DeckCard>().enabled = false;
-
-            
-        }
-       
-
+        }       
     }
 
     public void ChangeTab(SelectCardCategory tabButton)
@@ -243,7 +196,6 @@ public class DeckBuilding : MonoBehaviour {
                     card.SetActive(true);
                 }
             }
-
         }
        
         RefreshCollectionContent();

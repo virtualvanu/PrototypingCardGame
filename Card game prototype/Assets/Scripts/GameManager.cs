@@ -28,10 +28,12 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        Time.timeScale = 1;
     }
 
     public void AddCardToGamemanagerCollection(Card c)
     {
-        GameManager.instance.collection.Add(c);
+        collection.Add(c);
     }
 }

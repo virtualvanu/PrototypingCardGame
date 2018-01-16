@@ -14,17 +14,8 @@ MonoBehaviour:
   defeated: 0
   characterName: Karko
   avatar: {fileID: 21300000, guid: 21827639765cc0143a4e09fe1e86e9db, type: 3}
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 30
+  currentHealth: 30
   shieldHealth: 0
-  deck:
-  - {fileID: 11400000, guid: 9ee44a8295b464a478e16bd3fff5cc01, type: 2}
-  - {fileID: 11400000, guid: b9518dad44b73614d91b195aa7f8d956, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  deck: []
   type: 0
