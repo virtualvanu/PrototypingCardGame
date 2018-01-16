@@ -50,7 +50,7 @@ public class ClassButton : MonoBehaviour
         IntroManager.instance.DeselectAllCharacters();
         selectedOverlay.SetActive(true);
         GameManager.instance.player = pickableCharacter;
-        SetCollectionAndDeck();
+        //SetCollectionAndDeck();
     }
 
     public void SelectLevel()
