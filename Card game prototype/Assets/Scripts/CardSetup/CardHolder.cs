@@ -30,6 +30,7 @@ public class CardHolder : MonoBehaviour
     public Transform attributeHolder;
     public GameObject attributePrefab;
     public List<Sprite> attributeIcons = new List<Sprite>();
+    public List<Sprite> cardIcons = new List<Sprite>();
 
     protected Image[] images;
     protected List<Image> toDissolve = new List<Image>();
@@ -59,8 +60,26 @@ public class CardHolder : MonoBehaviour
 
         nameText.text = card.cardName;
 
-        iconImage.sprite = card.icon;
-
+        if (card.categories.Contains(Card.Category.Damage) && card.categories.Count == 0)
+        {
+            iconImage.sprite = cardIcons[0];
+        }
+        if (card.categories.Contains(Card.Category.DOT) && card.categories.Count == 0)
+        {
+            iconImage.sprite = cardIcons[1];
+        }
+        if (card.categories.Contains(Card.Category.Heal) && card.categories.Count == 0)
+        {
+            iconImage.sprite = cardIcons[3];
+        }
+        if (card.categories.Contains(Card.Category.HOT) && card.categories.Count == 0)
+        {
+            iconImage.sprite = cardIcons[4];
+        }
+        if (card.categories.Contains(Card.Category.Buffs) || card.categories.Contains(Card.Category.Other))
+        {
+            iconImage.sprite = cardIcons[6];
+        }
         card.Setup(this);
 
         images = GetComponentsInChildren<Image>();
