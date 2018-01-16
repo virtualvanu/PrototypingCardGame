@@ -518,6 +518,16 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5c9806a45bc87ab42875ebd6aba42465, type: 3}
   - {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
   - {fileID: 21300000, guid: 3198eda9f7d150f40a52b7a08e6e1d16, type: 3}
+  cardIcons:
+  - {fileID: 21300000, guid: c732e52ec31a273499f9ce076ab56b85, type: 3}
+  - {fileID: 21300000, guid: 3cf69a680cfa83e4f91a02126520793a, type: 3}
+  - {fileID: 21300000, guid: 3198eda9f7d150f40a52b7a08e6e1d16, type: 3}
+  - {fileID: 21300000, guid: 3e384fe881d79e442872e6e0bd1c7ec2, type: 3}
+  - {fileID: 21300000, guid: b14da1a29ce4ee6468aedf9897f7f3cd, type: 3}
+  - {fileID: 21300000, guid: a546fe6d43703a14188f93cef4db53b3, type: 3}
+  - {fileID: 21300000, guid: b1f649d6dd1135942aa538863b976d32, type: 3}
+  - {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
+  - {fileID: 21300000, guid: 4bd6a7ffc1a0aa941ba16fa74684273e, type: 3}
 --- !u!114 &114887309499181980
 MonoBehaviour:
   m_ObjectHideFlags: 1

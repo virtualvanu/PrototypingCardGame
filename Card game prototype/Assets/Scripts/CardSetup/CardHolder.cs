@@ -60,19 +60,19 @@ public class CardHolder : MonoBehaviour
 
         nameText.text = card.cardName;
 
-        if (card.categories.Contains(Card.Category.Damage) && card.categories.Count == 0)
+        if (card.categories.Contains(Card.Category.Damage) && card.categories.Count == 1)
         {
             iconImage.sprite = cardIcons[0];
         }
-        if (card.categories.Contains(Card.Category.DOT) && card.categories.Count == 0)
+        if (card.categories.Contains(Card.Category.DOT) && card.categories.Count == 1)
         {
             iconImage.sprite = cardIcons[1];
         }
-        if (card.categories.Contains(Card.Category.Heal) && card.categories.Count == 0)
+        if (card.categories.Contains(Card.Category.Heal) && card.categories.Count == 1)
         {
             iconImage.sprite = cardIcons[3];
         }
-        if (card.categories.Contains(Card.Category.HOT) && card.categories.Count == 0)
+        if (card.categories.Contains(Card.Category.HOT) && card.categories.Count == 1)
         {
             iconImage.sprite = cardIcons[4];
         }
@@ -80,6 +80,7 @@ public class CardHolder : MonoBehaviour
         {
             iconImage.sprite = cardIcons[6];
         }
+
         card.Setup(this);
 
         images = GetComponentsInChildren<Image>();
