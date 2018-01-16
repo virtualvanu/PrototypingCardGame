@@ -11,14 +11,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1149e70d2dea74da34ea2065c9227d, type: 3}
   m_Name: Card 4
   m_EditorClassIdentifier: 
-  cardName: 
-  manaCost: 0
+  cardName: 'Aura of minds '
+  manaCost: 5
   icon: {fileID: 0}
-  categories: 
+  categories: 05000000
   damageAddons: []
   healAddons: []
   dotAddons: []
   hotAddons: []
   spellPowerAddons: []
-  drawAddons: []
+  drawAddons:
+  - myHolder: {fileID: 0}
+    myTarget: {fileID: 0}
+    target: 0
+    amountToDraw: 2
+    drawFrom: 1
   stealCardAddons: []
