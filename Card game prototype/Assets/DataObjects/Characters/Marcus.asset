@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
   m_Name: Marcus
   m_EditorClassIdentifier: 
+  defeated: 0
   characterName: Marcus
   avatar: {fileID: 21300000, guid: 6bcfa7fd07be86a47a8ebb70e1f58ca1, type: 3}
   maxHealth: 0

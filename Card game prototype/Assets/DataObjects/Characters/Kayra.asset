@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
   m_Name: Kayra
   m_EditorClassIdentifier: 
+  defeated: 0
   characterName: Kayra
   avatar: {fileID: 21300000, guid: da0ce394cf804e345814f011c2e59e0f, type: 3}
   maxHealth: 0

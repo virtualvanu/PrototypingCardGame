@@ -3267,13 +3267,14 @@ MonoBehaviour:
   opponent: {fileID: 0}
   opponents:
   - {fileID: 11400000, guid: ebe7d31933bc610418799532c37db9c2, type: 2}
-  - {fileID: 11400000, guid: ba62b89ba77ec1e48832d7d307a66102, type: 2}
+  - {fileID: 11400000, guid: 426c9be9d096a3349a07391dd12b22a4, type: 2}
   - {fileID: 11400000, guid: 619cdf09025a7c349847c1bec8bfb6f7, type: 2}
-  - {fileID: 11400000, guid: 6ca0b971c8196e741ac8fa94c612528f, type: 2}
-  - {fileID: 11400000, guid: 023ca71bf3045bb419770f1af8c2b002, type: 2}
+  - {fileID: 11400000, guid: a682f26dd65b22242905c02a08b9e3b6, type: 2}
+  - {fileID: 11400000, guid: c6d5f3c99bf0a2b4f9376cd4b072267a, type: 2}
   - {fileID: 11400000, guid: ce7dfe6d52df48840a78b0df3dd88b9a, type: 2}
-  - {fileID: 11400000, guid: 03fca3f0d8021764aad2057f9fd0cd41, type: 2}
   defeatedOpponents: []
+  collection: []
+  playerDeckEditorDeck: []
 --- !u!4 &1477980346
 Transform:
   m_ObjectHideFlags: 0
