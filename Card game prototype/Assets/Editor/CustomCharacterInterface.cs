@@ -124,6 +124,6 @@ public class CustomCharacterInterface : Editor
 
     private void AddCard()
     {
-        character.deck.Add(new Card());
+        character.deck.Add(CreateInstance<Card>());
     }
 }
