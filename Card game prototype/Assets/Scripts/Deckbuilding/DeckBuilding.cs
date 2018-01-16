@@ -23,6 +23,7 @@ public class DeckBuilding : MonoBehaviour {
 
     public Character test; //DELET DIS(Testing var)
     public TextMeshProUGUI amountLeftText;
+    public List<Card> testCards = new List<Card>();
 
     public static bool savedOnce;
     GameObject[] all;
@@ -66,7 +67,7 @@ public class DeckBuilding : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-       
+        Debug.Log(all.Length);
 	}
 
     public void SetAmountText()
@@ -266,49 +267,61 @@ public class DeckBuilding : MonoBehaviour {
 
             foreach (GameObject c in all)
             {
-                if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Heal) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_HOT))
-                {
-                    c.SetActive(false);
-                }
-                else
-                {
-                    c.SetActive(true);
-                }
+                
+                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
+                    if (dbh.card.categories.Contains(Card.Category.Heal) || dbh.card.categories.Contains(Card.Category.HOT))
+                    {
+                        c.SetActive(true);
+                    }
+                    else
+                    {
+                        c.SetActive(false);
+                    }
+
+             
             }
         }
         else if (tab == 2)
         {
-           
+
 
             foreach (GameObject c in all)
             {
-                if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Draw))
-                {
-                    c.SetActive(false);
-                    
-                }
-                else
-                {
-                    c.SetActive(true);
-                }
+                
+                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
+                    if (dbh.card.categories.Contains(Card.Category.Damage) || dbh.card.categories.Contains(Card.Category.DOT) || dbh.card.categories.Contains(Card.Category.Buffs))
+                    {
+                        c.SetActive(true);
+                    }
+                    else
+                    {
+                        c.SetActive(false);
+                    }
+
+    
             }
         }
-        if (tab == 3)
+        else if (tab == 3)
         {
            
 
             foreach (GameObject c in all)
             {
-                if (c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_Damage) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_DOT) && c.GetComponent<DeckBuilderCardHolder>().card.GetType() != typeof(Card_SpellPower))
-                {
-                    c.SetActive(false);
+               
+                    DeckBuilderCardHolder dbh = c.GetComponent<DeckBuilderCardHolder>();
+                    if (dbh.card.categories.Contains(Card.Category.Other))
+                    {
+                        c.SetActive(true);
+                    }
+                    else
+                    {
+                        c.SetActive(false);
+                    }
+
                 }
-                else
-                {
-                    c.SetActive(true);
-                }
-            }
+   
         }
+       
 
 
         RefreshCollectionContent();
@@ -340,14 +353,16 @@ public class DeckBuilding : MonoBehaviour {
     {
         GameManager.instance.collection = collection;
         GameManager.instance.playerDeckEditorDeck = playerDeck;
+        GameManager.instance.player.deck = GameManager.instance.playerDeckEditorDeck;
 
         savedOnce = true;
     }
 
     public void SetStart()
     {
+       
         AddMultipleCardsToCollection(GameManager.instance.collection);
-        SetStartDeck(GameManager.instance.playerDeckEditorDeck);
+        SetStartDeck(GameManager.instance.player.deck);
 
     }
 }

@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
   m_Name: TEST 1
   m_EditorClassIdentifier: 
+  defeated: 0
   characterName: TEST
   avatar: {fileID: 21300000, guid: ad8e0c64dea86894cb59d15c0fd0e653, type: 3}
   maxHealth: 30
@@ -33,15 +34,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: d85eae21362283d43824c7459d4e67f6, type: 2}
-  - {fileID: 11400000, guid: 485af07ffd71e5c4393664339a1de551, type: 2}
-  - {fileID: 11400000, guid: fab00c1c11868aa42a56f2b8e9399cff, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
-  - {fileID: 11400000, guid: 76c6521170905d044847fb3f39728d86, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
   - {fileID: 11400000, guid: a34e4cff06aa72d46b3a867ce95eee9b, type: 2}
