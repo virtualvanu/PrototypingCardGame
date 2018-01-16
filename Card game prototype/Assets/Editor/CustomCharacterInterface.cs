@@ -88,6 +88,10 @@ public class CustomCharacterInterface : Editor
         }
         GUILayout.EndHorizontal();
 
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("Total: " + character.deck.Count);
+        GUILayout.EndHorizontal();
+
         GUILayout.Space(10);
 
         for (int i = 0; i < character.deck.Count; i++)
