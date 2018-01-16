@@ -21,6 +21,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayClickSound()
     {
+        clickAudio.pitch = Random.Range(0.5f, 2f);
         clickAudio.Play();
     }
 
