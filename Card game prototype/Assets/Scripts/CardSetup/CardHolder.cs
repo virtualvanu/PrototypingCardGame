@@ -76,7 +76,19 @@ public class CardHolder : MonoBehaviour
         {
             iconImage.sprite = cardIcons[4];
         }
-        if (card.categories.Contains(Card.Category.Buffs) || card.categories.Contains(Card.Category.Other))
+        if (card.categories.Contains(Card.Category.Draw) && card.categories.Count == 1)
+        {
+            iconImage.sprite = cardIcons[2];
+        }
+        if (card.categories.Contains(Card.Category.SpellPower) && card.categories.Count == 1)
+        {
+            iconImage.sprite = cardIcons[7];
+        }
+        if (card.categories.Contains(Card.Category.StealCard) && card.categories.Count == 1)
+        {
+            iconImage.sprite = cardIcons[8];
+        }
+        if (card.categories.Count > 1)
         {
             iconImage.sprite = cardIcons[6];
         }
@@ -120,8 +132,9 @@ public class CardHolder : MonoBehaviour
                     attribute.Setup(attributeIcons[5], value1.ToString(), FightManager.instance.damageColor);
                 }
                 break;
-            case CardAttribute.Type.Draw:
+            case CardAttribute.Type.StealCard:
 
+                attribute.Setup(attributeIcons[7], value1.ToString(), FightManager.instance.healColor);
                 break;
         }
     }

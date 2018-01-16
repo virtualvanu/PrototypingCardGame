@@ -11,40 +11,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d220621d0aeb414f98f1f366d00943b, type: 3}
   m_Name: Diolo
   m_EditorClassIdentifier: 
+  defeated: 0
   characterName: Diolo
   avatar: {fileID: 21300000, guid: b3db705ace3d48b499e231dc7ee13090, type: 3}
   maxHealth: 30
   currentHealth: 30
   shieldHealth: 0
   deck:
-  - {fileID: 11400000, guid: 17b8872dd0e0ff74b8afcc745fd49158, type: 2}
-  - {fileID: 11400000, guid: 491a66d912b24824b916a0fbb6da4714, type: 2}
-  - {fileID: 11400000, guid: c78e89f36578e334488b6bb9cbfd09dd, type: 2}
-  - {fileID: 11400000, guid: 3630894e085e29a4598e16e8134fabb9, type: 2}
-  - {fileID: 11400000, guid: 3317618c34a5e6344a8ffd701c9b7a57, type: 2}
-  - {fileID: 11400000, guid: 19cc0e851fefa1f4cb364886d415fe6d, type: 2}
-  - {fileID: 11400000, guid: e6a502534e1fdcc41be71b929847ecd7, type: 2}
-  - {fileID: 11400000, guid: 054f9b2bd5eee184e89ddeee0d050f13, type: 2}
-  - {fileID: 11400000, guid: a1a3f0068e86ec848a2badb674524f8e, type: 2}
-  - {fileID: 11400000, guid: 56970915e356f054fa0c30fc34485a4f, type: 2}
-  - {fileID: 11400000, guid: b06cd722d5134154dae2c5877807d3fe, type: 2}
-  - {fileID: 11400000, guid: 3845503cd033ddc4dbef76e4a9714b0a, type: 2}
-  - {fileID: 11400000, guid: c9e0f7ebd75a3534ab2a64cc2cc991bf, type: 2}
-  - {fileID: 11400000, guid: 94079a165f6f34c46b90c1d30b0706e6, type: 2}
-  - {fileID: 11400000, guid: 5647501cb1d8a0840a636400b00d56e9, type: 2}
-  - {fileID: 11400000, guid: 8ad679c6068461b46a1cfc43537f8283, type: 2}
-  - {fileID: 11400000, guid: 46fb25e70a890454ba5199a83cbbc281, type: 2}
-  - {fileID: 11400000, guid: 16007c3a4c5db674cac12f13589ca17d, type: 2}
-  - {fileID: 11400000, guid: 67fa40e9eb9a9bc42927f87eaab4cbca, type: 2}
-  - {fileID: 11400000, guid: e9a9e90e8c965eb438874183918ab4d6, type: 2}
-  - {fileID: 11400000, guid: 28286837a894d6d4baa155c61f12016e, type: 2}
-  - {fileID: 11400000, guid: b71e4d8585b550a4189233f6d71f039d, type: 2}
-  - {fileID: 11400000, guid: 36e6b11ad970c5c45bfb858d9c287486, type: 2}
-  - {fileID: 11400000, guid: fcfe4c57bade8eb4b986aa8c683c93c9, type: 2}
-  - {fileID: 11400000, guid: 8b1394da866f88d4a99c5be828e6fc57, type: 2}
-  - {fileID: 11400000, guid: 6b07a68788e316f4ba31a8f4ac330f2a, type: 2}
-  - {fileID: 11400000, guid: 72a1f538d5a16934eb1993919789fd4a, type: 2}
-  - {fileID: 11400000, guid: 8ede067e5cac7c54a8a1c151d895ae4e, type: 2}
-  - {fileID: 11400000, guid: d0616f79d55bdcb489229c683dcbacd9, type: 2}
-  - {fileID: 11400000, guid: af949e4c64bd5ba48b5d35f962807f3a, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   type: 0

@@ -326,6 +326,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5c9806a45bc87ab42875ebd6aba42465, type: 3}
   - {fileID: 21300000, guid: a05d45b1412fb4c4c82f2e0afea055f6, type: 3}
   - {fileID: 21300000, guid: 3198eda9f7d150f40a52b7a08e6e1d16, type: 3}
+  - {fileID: 21300000, guid: 4bd6a7ffc1a0aa941ba16fa74684273e, type: 3}
   cardIcons:
   - {fileID: 21300000, guid: c732e52ec31a273499f9ce076ab56b85, type: 3}
   - {fileID: 21300000, guid: 3cf69a680cfa83e4f91a02126520793a, type: 3}
