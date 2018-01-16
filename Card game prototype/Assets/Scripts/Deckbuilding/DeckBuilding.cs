@@ -175,6 +175,8 @@ public class DeckBuilding : MonoBehaviour {
                     }
                    
                 }
+
+             
             }
 
 
@@ -340,9 +342,19 @@ public class DeckBuilding : MonoBehaviour {
 
     private void RefreshDeckContent()
     {
+        
         deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1);
         deckContent.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 1);
+        foreach (GameObject c in all)
+        {
+            if (c.tag != "DeckBuilderCard")
+            {
+                c.transform.SetParent(deckContent.transform, false);
 
+                c.GetComponent<RectTransform>().localScale = new Vector3(1F, 1F, 1F);
+                c.transform.localPosition = deckContent.transform.position;
+            }
+        }
     }
 
     public void ExitScene()
@@ -364,7 +376,7 @@ public class DeckBuilding : MonoBehaviour {
     {
        
         AddMultipleCardsToCollection(allCards.allCards);
-        //SetStartDeck(GameManager.instance.playerDeckEditorDeck);
+        SetStartDeck(GameManager.instance.playerDeckEditorDeck);
 
     }
 }
