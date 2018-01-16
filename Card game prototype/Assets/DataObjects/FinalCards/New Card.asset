@@ -9,21 +9,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d1149e70d2dea74da34ea2065c9227d, type: 3}
-  m_Name: Card 1
+  m_Name: New Card
   m_EditorClassIdentifier: 
-  cardName: 'Drain '
-  manaCost: 3
+  cardName: 
+  manaCost: 0
   icon: {fileID: 0}
-  categories: 05000000
+  categories: 
   damageAddons: []
   healAddons: []
   dotAddons: []
   hotAddons: []
   spellPowerAddons: []
-  drawAddons:
-  - myHolder: {fileID: 0}
-    myTarget: {fileID: 0}
-    target: 0
-    amountToDraw: 1
-    drawFrom: 1
+  drawAddons: []
   stealCardAddons: []
